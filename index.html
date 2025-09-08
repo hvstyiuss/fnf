@@ -1,521 +1,911 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Primary Meta Tags -->
-    <title>FNF Mobile Mods - Download Free Friday Night Funkin' Mobile Mods | Play Online</title>
-    <meta name="title" content="FNF Mobile Mods - Download Free Friday Night Funkin' Mobile Mods | Play Online">
-    <meta name="description" content="Download and play the best FNF Mobile Mods for free! 28+ working Friday Night Funkin' mobile mods including V-Slice, Whitty, Kapi, and more. Mobile-optimized gaming experience.">
-    <meta name="keywords" content="fnf mobile mods, friday night funkin mobile mods, fnf mods download, mobile gaming mods, rhythm game mods, free fnf mods, mobile game mods">
-    <meta name="author" content="FNF Mobile Mods">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://modfnf.com/">
-    <meta property="og:title" content="FNF Mobile Mods - Download Free Friday Night Funkin' Mobile Mods">
-    <meta property="og:description" content="Download and play the best FNF Mobile Mods for free! 28+ working Friday Night Funkin' mobile mods including V-Slice, Whitty, Kapi, and more.">
-    <meta property="og:image" content="https://modfnf.com/images/fnf-mobile-mods-og.jpg">
-    <meta property="og:site_name" content="FNF Mobile Mods">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://modfnf.com/">
-    <meta property="twitter:title" content="FNF Mobile Mods - Download Free Friday Night Funkin' Mobile Mods">
-    <meta property="twitter:description" content="Download and play the best FNF Mobile Mods for free! 28+ working Friday Night Funkin' mobile mods including V-Slice, Whitty, Kapi, and more.">
-    <meta property="twitter:image" content="https://modfnf.com/images/fnf-mobile-mods-twitter.jpg">
-    
-    <!-- Additional SEO Meta Tags -->
-    <meta name="language" content="English">
-    <meta name="revisit-after" content="7 days">
-    <meta name="distribution" content="global">
-    <meta name="rating" content="general">
-    <meta name="theme-color" content="#3498db">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://modfnf.com/">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    
-    <!-- Preconnect to external domains -->
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    
-    <!-- Structured Data for Rich Snippets -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "FNF Mobile Mods",
-        "url": "https://modfnf.com",
-        "description": "Download and play the best FNF Mobile Mods for free! 28+ working Friday Night Funkin' mobile mods.",
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://modfnf.com/search?q={search_term_string}",
-            "query-input": "required name=search_term_string"
-        }
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- Title -->
+  <title>FNF Mobile Mods for iOS & Android - All Characters Unlocked & No Ads</title>
+
+  <!-- Description -->
+  <meta name="description" content="Download the latest FNF Mobile Mods with all characters unlocked, unlimited week access, no ads, and premium features. Compatible with Android and iOS."/>
+
+  <!-- Keywords (for SEO) -->
+  <meta name="keywords" content="FNF Mobile Mods, Friday Night Funkin Mod, All Characters Unlocked, No Ads, Android, iOS, Download Free, FNF Mod APK"/>
+
+  <!-- Open Graph for social sharing -->
+  <meta property="og:title" content="FNF Mobile Mods - All Characters Unlocked & No Ads">
+  <meta property="og:description" content="Download FNF Mobile Mods with all characters unlocked, unlimited week access, no ads, and premium features. Compatible with Android and iOS.">
+  <meta property="og:image" content="https://fnfmod.com/images/fnf.webp">
+  <meta property="og:url" content="https://fnfmod.com">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FNF Mobile Mods - All Characters Unlocked & No Ads">
+  <meta name="twitter:description" content="Download FNF Mobile Mods with all characters unlocked, unlimited week access, no ads, and premium features.">
+  <meta name="twitter:image" content="https://fnfmod.com/images/fnf.webp">
+
+  <!-- Author -->
+  <meta name="author" content="FNFModsTeam">
+
+  <!-- Favicon -->
+  <link rel="icon" href="./images/fnf-icon.webp" type="image/x-icon">
+
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#111">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #FF00FF; /* FNF pink */
+      --primary-dark: #9900CC;
+      --primary-light: #FF66FF;
+      --secondary: #1b5a5a; /* FNF cyan */
+      --danger: #FF0000;
+      --dark: #0f172a;
+      --darker: #020617;
+      --light: #f8fafc;
+      --gray: #94a3b8;
+      --dark-gray: #1e293b;
     }
-    </script>
-    
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "ItemList",
-        "name": "FNF Mobile Mods Collection",
-        "description": "Collection of Friday Night Funkin' mobile mods",
-        "numberOfItems": 28,
-        "itemListElement": [
-            {
-                "@type": "SoftwareApplication",
-                "position": 1,
-                "name": "FNF Vs Woody Woodpecker Mobile Mod",
-                "applicationCategory": "Game Mod",
-                "operatingSystem": "Android, iOS"
-            },
-            {
-                "@type": "SoftwareApplication",
-                "position": 2,
-                "name": "FNF Akage Mobile Mod",
-                "applicationCategory": "Game Mod",
-                "operatingSystem": "Android, iOS"
-            }
-        ]
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    </script>
-    <script type="text/javascript" id="ogjs" src="https://tapunlock.co/cl/js/8dp9md"></script>
+
+    html, body {
+      height: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--dark);
+      color: white;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      background-image: radial-gradient(circle at 50% 50%, var(--darker) 0%, var(--dark) 100%);
+    }
+
+    h1, h2, h3, h4 {
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 0.5em;
+    }
+
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+    }
+
+    h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      color: var(--light);
+    }
+
+    header {
+      background-color: var(--dark-gray);
+      padding: 20px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      flex: 1;
+    }
+
+    /* Trust Badges */
+    .trust-badges {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.05);
+      padding: 10px 15px;
+      border-radius: 50px;
+      font-size: clamp(0.8rem, 2vw, 0.95rem);
+      border: 1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(5px);
+      flex: 1 0 auto;
+      min-width: fit-content;
+    }
+
+    .badge img {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+    }
+
+    /* App Card */
+    .app-card {
+      background-color: var(--dark-gray);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255,255,255,0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .app-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,0,255,0.1) 0%, transparent 70%);
+      z-index: 0;
+    }
+
+    .app-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .app-card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      border: 3px solid rgba(255,255,255,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .app-card img:hover {
+      transform: scale(1.03);
+    }
+
+    .app-card p {
+      color: var(--gray);
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
+      margin-bottom: 20px;
+      max-width: 700px;
+    }
+
+    /* Rating */
+    .rating {
+      color: gold;
+      font-weight: 600;
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    /* Features List */
+    .features {
+      margin: 20px 0;
+      text-align: left;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .features li {
+      list-style: none;
+      margin-bottom: 10px;
+      color: var(--primary-light);
+      font-weight: 500;
+      padding-left: 30px;
+      position: relative;
+      font-size: clamp(0.9rem, 2vw, 1rem);
+    }
+
+    .features li::before {
+      content: '\f00c';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      left: 0;
+      color: var(--primary-light);
+    }
+
+    /* Download Buttons */
+    .download-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 20px 0;
+      width: 100%;
+    }
+
+    .download-btn {
+      background-color: var(--primary-dark);
+      padding: 12px 20px;
+      border-radius: 8px;
+      color: white;
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      min-width: 200px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(255, 0, 255, 0.3);
+      flex: 1 1 auto;
+    }
+
+    .download-btn i {
+      font-size: 1.1rem;
+    }
+
+    .download-btn:hover {
+      background-color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: 0 7px 20px rgba(255, 0, 255, 0.4);
+    }
+
+    .download-btn:active {
+      transform: translateY(1px);
+    }
+
+    .iphone {
+      background-color: var(--secondary);
+      box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
+    }
+
+    .iphone:hover {
+      background-color: #00CCCC;
+      box-shadow: 0 7px 20px rgba(0, 255, 255, 0.4);
+    }
+
+    .android {
+      background-color: var(--danger);
+      box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+    }
+
+    .android:hover {
+      background-color: #CC0000;
+      box-shadow: 0 7px 20px rgba(255, 0, 0, 0.4);
+    }
+
+    .another-color {
+      background-color: #7c3aed;
+      box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+    }
+
+    .another-color:hover {
+      background-color: #6d28d9;
+      box-shadow: 0 7px 20px rgba(124, 58, 237, 0.4);
+    }
+
+    /* Live Counter */
+    .live-counter {
+      margin: 15px 0;
+      padding: 10px;
+      background: rgba(255, 0, 255, 0.1);
+      border-radius: 8px;
+      font-size: clamp(0.85rem, 2vw, 1rem);
+      border: 1px solid rgba(255, 0, 255, 0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .live-counter .pulse {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 0 0 rgba(255, 0, 255, 0.7);
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 0, 255, 0.7);
+      }
+      70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(255, 0, 255, 0);
+      }
+      100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 0, 255, 0);
+      }
+    }
+
+    /* Testimonials */
+    .testimonials {
+      display: flex;
+      gap: 15px;
+      margin: 20px 0;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .testimonial {
+      background: rgba(255,255,255,0.05);
+      padding: 15px;
+      border-radius: 12px;
+      max-width: 300px;
+      text-align: left;
+      border: 1px solid rgba(255,255,255,0.1);
+      flex: 1 1 300px;
+    }
+
+    .testimonial-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .testimonial-avatar {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .testimonial-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .testimonial-rating {
+      color: gold;
+      font-size: 0.8rem;
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    /* Countdown Timer */
+    .countdown-container {
+      margin: 15px 0;
+      background: rgba(255, 0, 0, 0.1);
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 0, 0, 0.3);
+    }
+
+    .countdown-title {
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+      color: var(--gray);
+    }
+
+    #timer {
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
+      font-weight: 700;
+      color: var(--danger);
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: var(--dark-gray);
+      color: var(--gray);
+      font-size: 0.85rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* System Check */
+    .system-check {
+      background: rgba(0, 255, 255, 0.1);
+      padding: 12px;
+      border-radius: 10px;
+      margin: 15px 0;
+      border: 1px solid rgba(0, 255, 255, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .system-check i {
+      color: var(--secondary);
+      font-size: 1.2rem;
+    }
+
+    .system-check-text {
+      font-size: 0.9rem;
+    }
+
+    .system-check-text strong {
+      color: var(--light);
+    }
+
+    /* Progress Bar */
+    .progress-container {
+      width: 100%;
+      max-width: 500px;
+      margin: 15px auto;
+    }
+
+    .progress-title {
+      text-align: center;
+      margin-bottom: 8px;
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    .progress-bar {
+      height: 8px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 4px;
+      transition: width 0.5s ease;
+    }
+
+    /* Modals */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.9);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 0.3s ease;
+      padding: 15px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal-content {
+      background: var(--dark-gray);
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+      border: 1px solid var(--primary);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      position: relative;
+      animation: slideUp 0.4s ease;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .modal h3 {
+      color: var(--primary);
+      margin-bottom: 12px;
+      font-size: 1.3rem;
+    }
+
+    .modal p {
+      color: var(--gray);
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+    }
+
+    .modal-btn {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .modal-btn:hover {
+      background-color: var(--primary-light);
+    }
+
+    /* Mobile-specific adjustments */
+    @media (max-width: 480px) {
+      .container {
+        padding: 15px;
+      }
+
+      header {
+        padding: 15px;
+      }
+
+      .badge {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+      }
+
+      .app-card {
+        padding: 15px;
+      }
+
+      .download-btn {
+        width: 100%;
+        padding: 12px;
+      }
+
+      .testimonial {
+        flex: 1 1 100%;
+      }
+
+      .modal-content {
+        padding: 15px;
+      }
+    }
+
+    /* Tablet adjustments */
+    @media (min-width: 481px) and (max-width: 768px) {
+      .container {
+        padding: 20px;
+      }
+
+      .download-btn {
+        min-width: 160px;
+      }
+    }
+    @media (max-width: 500px) {
+    .modal-content {
+      max-width: 90%;
+      padding: 15px;
+    }
+    
+    .modal h3 {
+      font-size: 1.1rem;
+    }
+    
+    .modal p {
+      font-size: 0.85rem;
+    }
+  }
+  </style>
+
+  <script type="text/javascript" id="ogjs" src="https://tapunlock.co/cl/js/7d6g8n"></script>
+
 </head>
 <body>
-    <!-- Main Header -->
-    <header class="main-header">
-        <div class="container">
-            <h1 class="main-title">FNF Mobile Mods</h1>
-        </div>
-    </header>
+  <header>
+    <h1>FNF MOBILE MODS</h1>
+    <p>All Characters Unlocked • Full Week Access • No Ads</p>
+  </header>
 
-    <!-- Introduction Section -->
-    <section class="intro-section">
-        <div class="container">
-            <h2 class="section-title">Download and Play Online FNF Mobile Mods V-Slice</h2>
-            <p class="intro-text">
-                Welcome to the best collection of <strong>Friday Night Funkin' mobile mods</strong>! We've gathered the best, updated, and working <strong>FNF Mobile mods</strong> in one place. We were tired of finding broken or outdated mods, so we created this site to help you get the best gaming experience. Download <strong>free FNF mobile mods</strong> and enjoy the ultimate rhythm gaming experience on your mobile device.
-            </p>
-            
-            <div class="intro-features">
-                <div class="feature-item">
-                    <i class="fas fa-download"></i>
-                    <span>Free Downloads</span>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-mobile-alt"></i>
-                    <span>Mobile Optimized</span>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-shield-alt"></i>
-                    <span>Safe & Tested</span>
-                </div>
-            </div>
-        </div>
-    </section>
+  <div class="container">
+    <!-- Trust Badges -->
+    <div class="trust-badges">
+      <div class="badge">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828640.png" alt="Virus Free">
+        <span>100% Safe</span>
+      </div>
+      <div class="badge">
+        <img src="https://cdn-icons-png.flaticon.com/512/3132/3132693.png" alt="Downloads">
+        <span>2.5M+ Downloads</span>
+      </div>
+      <div class="badge">
+        <img src="https://cdn-icons-png.flaticon.com/512/992/992651.png" alt="Updated">
+        <span>Updated: <span id="current-date"></span></span>
+      </div>
+    </div>
 
-    <!-- Mods Grid Section -->
-    <section class="mods-section">
-        <div class="container">
-            <div class="mods-grid">
-                <!-- Mod entries will be populated by JavaScript -->
-            </div>
-            
-            <!-- Pagination Controls -->
-            <div class="pagination-container">
-                <div class="pagination-info">
-                    <span>Showing <span id="currentRange">1-5</span> of <span id="totalMods">28</span> mods</span>
-                </div>
-                <div class="pagination-controls">
-                    <button class="pagination-btn" id="prevPage" onclick="changePage(-1)" disabled>
-                        <i class="fas fa-chevron-left"></i> Previous
-                    </button>
-                    <div class="page-numbers" id="pageNumbers">
-                        <!-- Page numbers will be generated by JavaScript -->
-                    </div>
-                    <button class="pagination-btn" id="nextPage" onclick="changePage(1)">
-                        Next <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Main App Card -->
+    <div class="app-card">
+      <p class="rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        4.9/5 (24,815 reviews)
+      </p>
 
-    <!-- FAQ Section -->
-    <section class="faq-section">
-        <div class="container">
-            <h2 class="section-title">FNF Mobile FAQs</h2>
-            <p class="faq-intro">If you're new to this, here's everything you need to know, straight up</p>
-            
-            <div class="faq-content">
-                <div class="faq-image">
-                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iI0ZGNEI0QiIvPjx0ZXh0IHg9IjIwMCIgeT0iMTUwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMjQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+Rk5GIENoYXJhY3RlcnM8L3RleHQ+PC9zdmc+" alt="FNF Characters">
-                </div>
-                
-                <div class="faq-questions">
-                    <div class="faq-item">
-                        <h3>What is Friday Night Funkin' (FNF)?</h3>
-                        <p>Friday Night Funkin' is an addictive, open-source rhythm game where you battle opponents through musical duels. It's become a cultural phenomenon with its catchy music and challenging gameplay.</p>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <h3>What is FNF Mobile?</h3>
-                        <p>FNF Mobile is the official mobile version of Friday Night Funkin' designed specifically for Android and iPhone devices, bringing the rhythm gaming experience to your smartphone.</p>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <h3>What are FNF Mods?</h3>
-                        <p>FNF Mods are fan-made expansions that add new content, characters, songs, and gameplay mechanics to the base game, expanding the Friday Night Funkin' universe with creative community content.</p>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <h3>Who Makes These Mods? (Important Disclaimer)</h3>
-                        <p>We do not create these mods ourselves. Our role is to curate the best working mods, provide safe download links, and properly credit the original creators. We're a collection hub, not a mod development studio.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+      <img src="./images/fnf.webp" alt="FNF Mobile Mods" />
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>FNF Mobile Mods</h3>
-                    <p>Your ultimate destination for Friday Night Funkin' mobile mods. Download free FNF mods and enjoy the best mobile gaming experience.</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#mods">All Mods</a></li>
-                        <li><a href="#faq">FAQ</a></li>
-                        <li><a href="#download">Downloads</a></li>
-                        <li><a href="#support">Support</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Popular Mods</h3>
-                    <ul>
-                        <li><a href="javascript:void(0)" onclick="redirectToCPA('whitty')">Whitty Mod</a></li>
-                        <li><a href="javascript:void(0)" onclick="redirectToCPA('kapi')">Kapi Mod</a></li>
-                        <li><a href="javascript:void(0)" onclick="redirectToCPA('tricky')">Tricky Mod</a></li>
-                        <li><a href="javascript:void(0)" onclick="redirectToCPA('entity')">Entity Origins</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Connect</h3>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
-                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 modfnf.com - Best FNF Mobile Mods Collection. Built with GeneratePress</p>
-                <div class="footer-links">
-                    <a href="/privacy">Privacy Policy</a>
-                    <a href="/terms">Terms of Service</a>
-                    <a href="/sitemap.xml">Sitemap</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+      <h2>FNF Mobile Mods for iOS & Android</h2>
+      <p>The ultimate Friday Night Funkin' experience with all characters unlocked and premium features</p>
 
-    <script>
-        // Mod data array
-        const modsData = [
-            {
-                id: 'woody-woodpecker',
-                title: 'FNF Vs Woody Woodpecker Mobile Mod',
-                image: 'images/FNF-Vs-Woody-Woodpecker-V-Slice-Mobile-Mod-Download-and-Play-Online.webp',
-                alt: 'FNF Vs Woody Woodpecker Mobile Mod - Download Free FNF Mobile Mods'
-            },
-            {
-                id: 'akage',
-                title: 'FNF Akage Mobile Mod',
-                image: 'images/FNF-Akage-Fanmod-V-Slice-Port-Mobile-Mod-Download-and-Play-Online.webp',
-                alt: 'FNF Akage Mobile Mod - Best FNF Mobile Mods Download'
-            },
-            {
-                id: 'whitty',
-                title: 'FNF Whitty ERECT V-Slice Mobile Mod',
-                image: 'images/FNF-Whitty-ERECT-V-Slice-Port-Mobile-Mod-Download-and-Play-Online.webp',
-                alt: 'FNF Whitty ERECT V-Slice Mobile Mod - Free FNF Mobile Mods Download'
-            },
-            {
-                id: 'kawaii',
-                title: 'FNF VS OMGkawaiiAngel Mobile Mod',
-                image: 'images/FNF-VS-OMGkawaiiAngel-Mobile-Mod-–-Download-and-Play-Online.webp',
-                alt: 'FNF VS OMGkawaiiAngel Mobile Mod - Download FNF Mobile Mods Free'
-            },
-            {
-                id: 'anders',
-                title: 'FNF VS Anders V-slice Mobile Mod',
-                image: 'images/FNF-VS-Anders-V-slice-Mobile-Mod-–-Download-and-Play-Online.webp',
-                alt: 'FNF VS Anders V-slice Mobile Mod - Best FNF Mobile Mods'
-            },
-            {
-                id: 'ex-gf',
-                title: 'FNF Ex-GF Over Mom Mod',
-                image: 'images/FNF-Ex-GF-Over-Mom-Mobile-Mod-Download.webp',
-                alt: 'FNF Ex-GF Over Mom Mod - Free FNF Mobile Mods'
-            },
-            {
-                id: 'kapi',
-                title: 'FNF Arcarde Showdown Vs Kapi Mod',
-                image: 'images/FNF-Arcarde-Showdown-Vs-Kapi-–-Download-and-Play-Online.webp',
-                alt: 'FNF Arcarde Showdown Vs Kapi Mod - FNF Mobile Mods Download'
-            },
-            {
-                id: 'zardy',
-                title: 'FNF Zardy Base Game Mobile Mod',
-                image: 'images/FNF-Zardy-Base-Game-Mobile-Mod-–-Download-and-Play-Online.webp',
-                alt: 'FNF Zardy Base Game Mobile Mod - Free FNF Mobile Mods'
-            },
-            {
-                id: 'silly-billy',
-                title: 'FNF Silly Billy Mobile Mod',
-                image: 'images/FNF-Silly-Billy-Mobile-Mod-Download-and-Play-Online.webp',
-                alt: 'FNF Silly Billy Mobile Mod - Best FNF Mobile Mods'
-            },
-            {
-                id: 'spooky',
-                title: 'FNF Spooky Mix V2 Mobile Mod',
-                image: 'images/FNF-Spooky-Mix-V2-Mobile-Mod-Download-and-Play-Online.webp',
-                alt: 'FNF Spooky Mix V2 Mobile Mod - Download FNF Mobile Mods'
-            },
-            {
-                id: 'tricky',
-                title: 'FNF Full Ass Tricky Mobile Mod',
-                image: 'images/FNF-Full-Ass-Tricky-Mobile-Mod-–-Download-and-Play-Online.webp',
-                alt: 'FNF Full Ass Tricky Mobile Mod - Best FNF Mobile Mods'
-            },
-            {
-                id: 'miku',
-                title: 'Ugh MIKU MIX Mobile Mod',
-                image: 'images/FNF-VS-OMGkawaiiAngel-Mobile-Mod-–-Download-and-Play-Online.webp',
-                alt: 'Ugh MIKU MIX Mobile Mod - Free FNF Mobile Mods'
-            },
-            {
-                id: 'twiddle',
-                title: 'FNF TWIDDLEFINGER V-SLICE PORT',
-                image: 'images/FNF-TWIDDLEFINGER-Mobile-Mod-Download.webp',
-                alt: 'FNF TWIDDLEFINGER V-SLICE PORT - Download FNF Mobile Mods'
-            },
-            {
-                id: 'entity',
-                title: 'FNF Entity Origins: BREAKOUT Mod',
-                image: 'images/FNF-VS.-Huggy-Wuggy-V-SLICE-Port-Mobile-Mod-download.webp',
-                alt: 'FNF Entity Origins: BREAKOUT Mod - Best FNF Mobile Mods'
-            },
-            {
-                id: 'neon',
-                title: 'FNF Vs Neon Mod',
-                image: 'images/FNF-Vs-Neon-Mobile-Mod-Download.webp',
-                alt: 'FNF Vs Neon Mod - Download FNF Mobile Mods'
-            },
-            {
-                id: 'b-sides',
-                title: 'FNF B-Sides Basegame Mod',
-                image: 'images/FNF-B-Sides-Basegame-Mobile-Mod-Downlaod.webp',
-                alt: 'FNF B-Sides Basegame Mod - Best FNF Mobile Mods'
-            },
-            {
-                id: 'nonsense',
-                title: 'FNF vs Nonsense Mod',
-                image: 'images/Friday-Night-Funkin_-Vs-Nonsense-v1.5-Mobile-Mod-download.webp',
-                alt: 'FNF vs Nonsense Mod - Free FNF Mobile Mods'
-            },
-            {
-                id: 'mistful',
-                title: 'Mistful Crimson Morning Mod',
-                image: 'images/FNF-Mistful-Crimson-Morning-Mobile-Mod-Download.webp',
-                alt: 'Mistful Crimson Morning Mod - Download FNF Mobile Mods'
-            },
-            {
-                id: 'huggy',
-                title: 'FNF Vs Huggy Wuggy Mod',
-                image: 'images/FNF-VS.-Huggy-Wuggy-V-SLICE-Port-Mobile-Mod-download.webp',
-                alt: 'FNF Vs Huggy Wuggy Mod - Best FNF Mobile Mods'
-            },
-            {
-                id: 'high-effort',
-                title: 'High-Effort Vs Whitty V-Slice Mod',
-                image: 'images/Download-High-Effort-Vs-Whitty-V-Slice-Port-MOBILE-UPDATE-mod.webp',
-                alt: 'High-Effort Vs Whitty V-Slice Mod - Best FNF Mobile Mods'
-            },
-            {
-                id: 'llamao',
-                title: 'FNF Llamao de EmergenZia',
-                image: 'images/FNF-Llamao-de-EmergenZia-Mobile-Mod-Download.webp',
-                alt: 'FNF Llamao de EmergenZia - Free FNF Mobile Mods'
-            },
-            {
-                id: 'shaggy',
-                title: 'FNF VS Shaggy Mod',
-                image: 'images/FNF-VS-Shaggy-Mobile-Mod-Download.webp',
-                alt: 'FNF VS Shaggy Mod - Download FNF Mobile Mods'
-            },
-            {
-                id: 'indle',
-                title: 'FNF Indle Cross V-Slice Mod',
-                image: 'images/FNF-VS.-Huggy-Wuggy-V-SLICE-Port-Mobile-Mod-download.webp',
-                alt: 'FNF Indle Cross V-Slice Mod - Best FNF Mobile Mods'
-            },
-            {
-                id: 'chavo',
-                title: 'FNF El Chavo del 8 T2',
-                image: 'images/FNF-El-Chavo-del-8-T2-Mobile-Mod-Download.webp',
-                alt: 'FNF El Chavo del 8 T2 - Free FNF Mobile Mods'
-            },
-            {
-                id: 'sky',
-                title: 'Sky: REBORN Mod',
-                image: 'images/Sky_-REBORN-mobile-mod-download.webp',
-                alt: 'Sky: REBORN Mod - Download FNF Mobile Mods'
-            },
-            {
-                id: 'hitbox',
-                title: 'FNF Mobile Hitbox Definitive Mobile Mod',
-                image: 'images/FNF-Mobile-Hitbox-Definitive-Mobile-Mod-–-Download-and-Play-Online.webp',
-                alt: 'FNF Mobile Hitbox Definitive Mobile Mod - Best FNF Mobile Mods'
-            },
-            {
-                id: 'silly-funkin',
-                title: 'FNF Silly Funkin Mod',
-                image: 'images/Download-FNF-Silly-Funkin-Fanmade-Build-Mobile-Mod.webp',
-                alt: 'FNF Silly Funkin Mod - Free FNF Mobile Mods'
-            },
-            {
-                id: 'tabi',
-                title: 'FNF VS TABI REVIVAL V-SLICE Mod',
-                image: 'images/FNF-VS-TABI-REVIVAL-V-SLICE-PORT-Mobile-mod-Download.webp',
-                alt: 'FNF VS TABI REVIVAL V-SLICE Mod - Download FNF Mobile Mods'
-            }
+      <!-- System Check -->
+      <div class="system-check">
+        <i class="fas fa-check-circle"></i>
+        <div class="system-check-text">
+          <strong>System Check Complete:</strong> Your device is compatible
+        </div>
+      </div>
+
+      <!-- Features List -->
+      <ul class="features">
+        <li>All Characters Unlocked (Boyfriend, GF, Skid & Pump, etc.)</li>
+        <li>Full Week Access (Week 1-7 + Bonus Weeks)</li>
+        <li>Premium Features Enabled</li>
+        <li>No Ads or Watermarks</li>
+        <li>Unlimited Free Play Mode</li>
+        <li>Anti-Ban Protection</li>
+      </ul>
+
+      <!-- Countdown Timer -->
+      <div class="countdown-container">
+        <div class="countdown-title">Special Offer Expires In:</div>
+        <div id="timer">04:12</div>
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="progress-container">
+        <div class="progress-title">Download Preparation: <span id="progress-percent">0%</span></div>
+        <div class="progress-bar">
+          <div class="progress-fill"></div>
+        </div>
+      </div>
+
+      <!-- Download Buttons -->
+      <div class="download-buttons">
+        <a href="https://tapunlock.co/cl/i/8dp9md" target="_blank" class="download-btn iphone">
+          <i class="fab fa-apple"></i> Download for iOS
+        </a>
+        <a href="https://tapunlock.co/cl/i/o6wqwn" target="_blank" class="download-btn android">
+          <i class="fab fa-android"></i> Download for Android
+        </a>
+      </div>
+
+      <!-- Live Counter -->
+      <div class="live-counter">
+        <span class="pulse"></span>
+        <span id="liveDownloads">512</span> people downloading now
+      </div>
+    </div>
+
+    <!-- Testimonials -->
+    <h2 style="text-align: center; margin-top: 30px;">What Our Players Say</h2>
+    <div class="testimonials">
+      <div class="testimonial">
+        <div class="testimonial-header">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User" class="testimonial-avatar">
+          <div>
+            <div class="testimonial-name">Michael T.</div>
+            <div class="testimonial-rating">★★★★★</div>
+          </div>
+        </div>
+        <p class="testimonial-text">
+          "Finally got access to all weeks and characters! The mod works perfectly on my Android phone with no issues."
+        </p>
+      </div>
+
+      <div class="testimonial">
+        <div class="testimonial-header">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User" class="testimonial-avatar">
+          <div>
+            <div class="testimonial-name">Sarah K.</div>
+            <div class="testimonial-rating">★★★★★</div>
+          </div>
+        </div>
+        <p class="testimonial-text">
+          "I was skeptical at first but it works perfectly! All characters unlocked with no ads. Best FNF mod!"
+        </p>
+      </div>
+
+      <div class="testimonial">
+        <div class="testimonial-header">
+          <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="User" class="testimonial-avatar">
+          <div>
+            <div class="testimonial-name">David P.</div>
+            <div class="testimonial-rating">★★★★☆</div>
+          </div>
+        </div>
+        <p class="testimonial-text">
+          "The extra characters are amazing. Only wish it had more customization options, but still great!"
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Exit Intent Modal -->
+  <div id="exitModal" class="modal">
+    <div class="modal-content">
+      <h3>Wait! Your Download is Ready</h3>
+      <p>Don't miss out on all characters and weeks! Your FNF Mobile Mod is ready for download.</p>
+      <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+        <a href="https://tapunlock.co/cl/i/8dp9md" target="_blank" class="download-btn iphone">
+          <i class="fab fa-apple"></i> Download for iOS
+        </a>
+        <a href="https://tapunlock.co/cl/i/o6wqwn" target="_blank" class="download-btn android" style="margin: 0;">
+          <i class="fab fa-android"></i> Download for Android
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2023 FNF Mobile Mods. Not affiliated with Friday Night Funkin' or Newgrounds.</p>
+    <p style="margin-top: 5px; font-size: 0.8rem;">
+      <a href="#" style="color: var(--gray); text-decoration: none;">Terms</a> | 
+      <a href="#" style="color: var(--gray); text-decoration: none;">Privacy</a> | 
+      <a href="#" style="color: var(--gray); text-decoration: none;">Contact</a>
+    </p>
+  </footer>
+
+  <script>
+    // Current date
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById('current-date').textContent = new Date().toLocaleDateString('en-US', options);
+
+    // Countdown Timer (starts from 4:12)
+    let time = 4 * 60 + 12;
+    const timer = document.getElementById("timer");
+    const countdown = setInterval(() => {
+      const mins = Math.floor(time / 60);
+      const secs = time % 60;
+      timer.textContent = mins.toString().padStart(2, '0') + ':' + secs.toString().padStart(2, '0');
+      if (time > 0) {
+        time--;
+      } else {
+        clearInterval(countdown);
+        timer.textContent = "OFFER EXPIRED!";
+      }
+    }, 1000);
+
+    // Live counter animation
+    function animateCounter() {
+      let count = 512;
+      const counter = document.getElementById('liveDownloads');
+      setInterval(() => {
+        count += Math.floor(Math.random() * 3) + 1;
+        counter.textContent = count.toLocaleString();
+      }, 3000);
+    }
+
+    // Progress bar animation
+    function animateProgress() {
+      let progress = 0;
+      const progressFill = document.querySelector('.progress-fill');
+      const progressPercent = document.getElementById('progress-percent');
+      
+      const progressInterval = setInterval(() => {
+        if (progress < 100) {
+          progress += Math.floor(Math.random() * 5) + 1;
+          if (progress > 100) progress = 100;
+          progressFill.style.width = progress + '%';
+          progressPercent.textContent = progress + '%';
+        } else {
+          clearInterval(progressInterval);
+        }
+      }, 200);
+    }
+
+    // Exit intent detection for both desktop and mobile
+    let mouseY = 0;
+    let showedExitModal = false;
+
+    // Desktop detection
+    document.addEventListener('mouseout', (e) => {
+      if (!e.toElement && !e.relatedTarget && !showedExitModal) {
+        showExitModal();
+      }
+    });
+
+    // Mobile detection - track touch movements
+    document.addEventListener('touchstart', (e) => {
+      mouseY = e.changedTouches[0].clientY;
+    });
+
+    document.addEventListener('touchmove', (e) => {
+      const currentY = e.changedTouches[0].clientY;
+      // If user is swiping up (exiting the page)
+      if (mouseY - currentY > 50 && !showedExitModal) {
+        showExitModal();
+      }
+      mouseY = currentY;
+    });
+
+    function showExitModal() {
+      showedExitModal = true;
+      document.getElementById('exitModal').style.display = 'flex';
+      
+      // Reset after 30 seconds so it can show again if needed
+      setTimeout(() => {
+        showedExitModal = false;
+      }, 30000);
+    }
+
+    // Close modals when clicking outside
+    document.addEventListener('click', (e) => {
+      if (e.target.classList.contains('modal')) {
+        e.target.style.display = 'none';
+      }
+    });
+
+    // Check network connectivity for offers
+    async function checkOfferLink(url, timeout = 1000) {
+      const controller = new AbortController();
+      const id = setTimeout(() => controller.abort(), timeout);
+
+      try {
+        const response = await fetch(url, {
+          method: 'HEAD',
+          cache: 'no-store',
+          signal: controller.signal
+        });
+        clearTimeout(id);
+        return response.ok;
+      } catch (error) {
+        console.warn('Fetch timeout or failure:', error);
+        return false;
+      }
+    }
+
+    // Initialize everything when page loads
+    window.addEventListener('DOMContentLoaded', () => {
+      animateCounter();
+      animateProgress();
+      
+      // Test offers after a short delay
+      setTimeout(async () => {
+        const links = [
+          "https://tapunlock.co/cl/i/7d6g8n",
+          "https://tapunlock.co/cl/i/pod84l"
         ];
 
-        // Pagination functionality
-        let currentPage = 1;
-        const modsPerPage = 5;
-        const totalMods = modsData.length;
-        
-        // Function to render mods for the current page
-        function renderMods() {
-            const modsGrid = document.querySelector('.mods-grid');
-            modsGrid.innerHTML = '';
-            
-            const startIndex = (currentPage - 1) * modsPerPage;
-            const endIndex = Math.min(startIndex + modsPerPage, totalMods);
-            
-            for (let i = startIndex; i < endIndex; i++) {
-                const mod = modsData[i];
-                const modElement = document.createElement('div');
-                modElement.className = 'mod-entry';
-                modElement.innerHTML = `
-                    <div class="mod-thumbnail">
-                        <img src="${mod.image}" alt="${mod.alt}">
-                    </div>
-                    <h3 class="mod-title">
-                        <a href="javascript:void(0)" onclick="redirectToCPA('${mod.id}')">${mod.title}</a>
-                    </h3>
-                    <div class="mod-actions">
-                        <button class="play-now-btn" onclick="redirectToCPA('${mod.id}')">
-                            <i class="fas fa-play"></i> Play Now
-                        </button>
-                    </div>
-                `;
-                modsGrid.appendChild(modElement);
-            }
-            
-            updatePagination();
+        for (const link of links) {
+          if (!await checkOfferLink(link)) {
+            document.getElementById('networkModal').style.display = 'flex';
+            break;
+          }
         }
-        
-        // Function to update pagination controls
-        function updatePagination() {
-            const start = (currentPage - 1) * modsPerPage + 1;
-            const end = Math.min(currentPage * modsPerPage, totalMods);
-            
-            document.getElementById('currentRange').textContent = `${start}-${end}`;
-            
-            // Update pagination buttons
-            const totalPages = Math.ceil(totalMods / modsPerPage);
-            document.getElementById('prevPage').disabled = currentPage === 1;
-            document.getElementById('nextPage').disabled = currentPage === totalPages;
-            
-            // Update page number buttons
-            const pageNumbersContainer = document.getElementById('pageNumbers');
-            pageNumbersContainer.innerHTML = '';
-            
-            for (let i = 1; i <= totalPages; i++) {
-                const pageBtn = document.createElement('button');
-                pageBtn.className = `page-btn ${i === currentPage ? 'active' : ''}`;
-                pageBtn.textContent = i;
-                pageBtn.onclick = () => goToPage(i);
-                pageNumbersContainer.appendChild(pageBtn);
-            }
-        }
-        
-        function changePage(direction) {
-            const newPage = currentPage + direction;
-            const totalPages = Math.ceil(totalMods / modsPerPage);
-            
-            if (newPage >= 1 && newPage <= totalPages) {
-                goToPage(newPage);
-            }
-        }
-        
-        function goToPage(page) {
-            currentPage = page;
-            renderMods();
-        }
-        
-        // Function to redirect to CPA links based on device
-        function redirectToCPA(modName) {
-            og_load();
-            // Check if user is on mobile device
-            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-            
-            // Android CPA link
-            // const androidLink = "https://tapunlock.co/cl/i/o6wqwn";
-            
-            // // iOS CPA link
-            // const iosLink = "https://tapunlock.co/cl/i/8dp9md";
-            
-            // // Redirect based on device
-            // if (isMobile) {
-            //     if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-            //         window.location.href = iosLink;
-            //     } else {
-            //         window.location.href = androidLink;
-            //     }
-            // } else {
-            //     // For desktop users, redirect to Android link by default
-            //     window.location.href = androidLink;
-            // }
-        }
-        
-        // Initialize the page
-        document.addEventListener('DOMContentLoaded', function() {
-            renderMods();
+      }, 2000);
+
+      // Check links when buttons are clicked
+      document.querySelectorAll('.download-btn').forEach(button => {
+        button.addEventListener('click', async (e) => {
+          const offerUrl = e.currentTarget.href;
+          if (!await checkOfferLink(offerUrl)) {
+            e.preventDefault();
+            document.getElementById('networkModal').style.display = 'flex';
+          }
         });
-    </script>
+      });
+    });
+  </script>
 </body>
 </html>

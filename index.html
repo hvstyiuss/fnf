@@ -171,17 +171,122 @@
       z-index: 1;
     }
 
-    .app-card img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    /* App Image Container */
+    .app-image-container {
+      position: relative;
+      display: inline-block;
+      margin: 20px 0;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
       border: 3px solid rgba(255,255,255,0.1);
-      transition: transform 0.3s ease;
+      transition: all 0.3s ease;
     }
 
-    .app-card img:hover {
-      transform: scale(1.03);
+    .app-image-container:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+    }
+
+    .app-image {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+    }
+
+    .image-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(255,0,255,0.1), rgba(0,255,255,0.1));
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-end;
+      padding: 15px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .app-image-container:hover .image-overlay {
+      opacity: 1;
+    }
+
+    .overlay-badge {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      animation: badgePulse 2s infinite;
+    }
+
+    @keyframes badgePulse {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      }
+      50% {
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(255,0,255,0.4);
+      }
+    }
+
+    .overlay-badge i {
+      font-size: 0.9rem;
+      color: #ffd700;
+    }
+
+    .image-callout {
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+      right: 15px;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      padding: 10px 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+    }
+
+    .app-image-container:hover .image-callout {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .callout-text {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #00ff00;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .callout-text i {
+      font-size: 1rem;
+      animation: downloadPulse 1.5s infinite;
+    }
+
+    @keyframes downloadPulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
     }
 
     .app-card p {
@@ -243,8 +348,8 @@
 
     .download-btn {
       background-color: var(--primary-dark);
-      padding: 12px 20px;
-      border-radius: 8px;
+      padding: 15px 20px;
+      border-radius: 12px;
       color: white;
       font-size: clamp(0.9rem, 2vw, 1.1rem);
       font-weight: 600;
@@ -255,11 +360,33 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 12px;
       border: none;
       cursor: pointer;
       box-shadow: 0 4px 15px rgba(255, 0, 255, 0.3);
       flex: 1 1 auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .btn-main {
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .btn-sub {
+      font-size: 0.8rem;
+      font-weight: 500;
+      opacity: 0.9;
+      color: rgba(255, 255, 255, 0.8);
     }
 
     .download-btn i {
@@ -480,6 +607,7 @@
       transition: width 0.5s ease;
     }
 
+
     /* Modals */
     .modal {
       display: none;
@@ -547,6 +675,298 @@
       background-color: var(--primary-light);
     }
 
+    /* Download Processing Modal Styles */
+    .download-steps {
+      margin: 20px 0;
+    }
+
+    .step {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      font-size: 0.95rem;
+      color: var(--gray);
+      transition: all 0.3s ease;
+    }
+
+    .step.active {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .step i {
+      font-size: 1.1rem;
+      width: 20px;
+      text-align: center;
+    }
+
+    .step.active i {
+      color: var(--primary);
+    }
+
+    .processing-bar {
+      width: 100%;
+      height: 6px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 3px;
+      overflow: hidden;
+      margin: 15px 0;
+    }
+
+    .processing-fill {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 3px;
+      animation: processingFill 3s ease-in-out forwards;
+    }
+
+    @keyframes processingFill {
+      0% { width: 0; }
+      33% { width: 30%; }
+      66% { width: 70%; }
+      100% { width: 100%; }
+    }
+
+    /* Enhanced Trust Badges */
+    .trust-badges .badge {
+      animation: fadeInUp 0.6s ease forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .trust-badges .badge:nth-child(1) { animation-delay: 0.1s; }
+    .trust-badges .badge:nth-child(2) { animation-delay: 0.2s; }
+    .trust-badges .badge:nth-child(3) { animation-delay: 0.3s; }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Stock Counter */
+    .stock-counter {
+      background: rgba(255, 0, 0, 0.1);
+      padding: 10px 15px;
+      border-radius: 8px;
+      margin: 15px 0;
+      border: 1px solid rgba(255, 0, 0, 0.3);
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--danger);
+    }
+
+    .stock-number {
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    /* Recent Downloads */
+    .recent-downloads {
+      background: rgba(0, 255, 0, 0.1);
+      padding: 12px;
+      border-radius: 8px;
+      margin: 15px 0;
+      border: 1px solid rgba(0, 255, 0, 0.3);
+      font-size: 0.9rem;
+    }
+
+    .recent-downloads .download-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 5px 0;
+      color: var(--gray);
+    }
+
+    .recent-downloads .download-item .location {
+      color: var(--primary-light);
+      font-weight: 500;
+    }
+
+    .recent-downloads .download-item .time {
+      color: var(--secondary);
+      font-size: 0.8rem;
+    }
+
+    /* Enhanced Download Buttons */
+    .download-btn {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .download-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .download-btn:hover::before {
+      left: 100%;
+    }
+
+    /* Mobile-specific enhancements */
+    .mobile-optimized {
+      display: none;
+    }
+
+    /* Mobile Floating Button */
+    .mobile-floating-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+
+    .floating-download-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      padding: 15px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      box-shadow: 0 8px 25px rgba(255, 0, 255, 0.4);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .floating-download-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(255, 0, 255, 0.6);
+    }
+
+    .pulse-ring {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      border: 2px solid var(--primary);
+      border-radius: 50px;
+      animation: pulseRing 2s infinite;
+    }
+
+    @keyframes pulseRing {
+      0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(1.4);
+        opacity: 0;
+      }
+    }
+
+    /* Mobile Features */
+    .mobile-features {
+      margin: 20px 0;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 10px 0;
+      font-size: 0.95rem;
+    }
+
+    .feature-item i {
+      color: var(--primary);
+      font-size: 1.1rem;
+    }
+
+    /* Enhanced Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .mobile-optimized {
+        display: block;
+      }
+      
+      .download-btn {
+        font-size: 1rem;
+        padding: 15px 20px;
+        min-height: 50px;
+      }
+
+      .trust-badges {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .badge {
+        justify-content: center;
+        padding: 12px 20px;
+      }
+
+      .app-card {
+        margin: 0 10px;
+      }
+
+      .testimonials {
+        flex-direction: column;
+      }
+
+      .testimonial {
+        margin-bottom: 15px;
+      }
+
+      .floating-download-btn {
+        padding: 12px 18px;
+        font-size: 0.9rem;
+      }
+
+      .floating-download-btn span {
+        display: none;
+      }
+
+      .floating-download-btn i {
+        font-size: 1.2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .mobile-floating-btn {
+        bottom: 15px;
+        right: 15px;
+      }
+
+      .floating-download-btn {
+        padding: 10px 15px;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        justify-content: center;
+      }
+
+      .floating-download-btn i {
+        font-size: 1.3rem;
+      }
+
+      .image-callout {
+        opacity: 1;
+        transform: translateY(0);
+        background: rgba(0, 0, 0, 0.9);
+      }
+
+      .app-image-container:hover .image-callout {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     /* Mobile-specific adjustments */
     @media (max-width: 480px) {
       .container {
@@ -608,6 +1028,35 @@
 
   <script type="text/javascript" id="ogjs" src="https://tapunlock.co/cl/js/7d6g8n"></script>
 
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID', {
+      page_title: 'FNF Mobile Mods Landing Page',
+      page_location: window.location.href
+    });
+  </script>
+
+  <!-- Facebook Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'YOUR_PIXEL_ID');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
+  /></noscript>
+
 </head>
 <body>
   <header>
@@ -630,6 +1079,14 @@
         <img src="https://cdn-icons-png.flaticon.com/512/992/992651.png" alt="Updated">
         <span>Updated: <span id="current-date"></span></span>
       </div>
+      <div class="badge">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828843.png" alt="SSL Secure">
+        <span>SSL Secured</span>
+      </div>
+      <div class="badge">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828844.png" alt="No Registration">
+        <span>No Registration</span>
+      </div>
     </div>
 
     <!-- Main App Card -->
@@ -643,7 +1100,21 @@
         4.9/5 (24,815 reviews)
       </p>
 
-      <img src="./images/fnf.webp" alt="FNF Mobile Mods" />
+      <div class="app-image-container">
+        <img src="./fnf.webp" alt="FNF Mobile Mods - All Characters Unlocked" class="app-image" />
+        <div class="image-overlay">
+          <div class="overlay-badge">
+            <i class="fas fa-star"></i>
+            <span>PREMIUM EDITION</span>
+          </div>
+        </div>
+        <div class="image-callout">
+          <div class="callout-text">
+            <i class="fas fa-download"></i>
+            <span>Ready to Download!</span>
+          </div>
+        </div>
+      </div>
 
       <h2>FNF Mobile Mods for iOS & Android</h2>
       <p>The ultimate Friday Night Funkin' experience with all characters unlocked and premium features</p>
@@ -680,14 +1151,52 @@
         </div>
       </div>
 
+
       <!-- Download Buttons -->
       <div class="download-buttons">
         <a href="https://tapunlock.co/cl/i/8dp9md" target="_blank" class="download-btn iphone">
-          <i class="fab fa-apple"></i> Download for iOS
+          <i class="fab fa-apple"></i> 
+          <div class="btn-text">
+            <span class="btn-main">Download for iOS</span>
+            <span class="btn-sub">One Click • Instant Access</span>
+          </div>
         </a>
         <a href="https://tapunlock.co/cl/i/o6wqwn" target="_blank" class="download-btn android">
-          <i class="fab fa-android"></i> Download for Android
+          <i class="fab fa-android"></i> 
+          <div class="btn-text">
+            <span class="btn-main">Download for Android</span>
+            <span class="btn-sub">One Click • Instant Access</span>
+          </div>
         </a>
+      </div>
+
+      <!-- Stock Counter -->
+      <div class="stock-counter">
+        <i class="fas fa-exclamation-triangle"></i>
+        <span>Only <span class="stock-number" id="stockCount">47</span> downloads left at this price!</span>
+      </div>
+
+      <!-- Recent Downloads -->
+      <div class="recent-downloads">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+          <i class="fas fa-download" style="color: var(--primary);"></i>
+          <span style="font-weight: 600;">Recent Downloads</span>
+        </div>
+        <div class="download-item">
+          <i class="fas fa-map-marker-alt" style="color: var(--primary);"></i>
+          <span class="location">New York, USA</span>
+          <span class="time">2 minutes ago</span>
+        </div>
+        <div class="download-item">
+          <i class="fas fa-map-marker-alt" style="color: var(--primary);"></i>
+          <span class="location">London, UK</span>
+          <span class="time">4 minutes ago</span>
+        </div>
+        <div class="download-item">
+          <i class="fas fa-map-marker-alt" style="color: var(--primary);"></i>
+          <span class="location">Tokyo, Japan</span>
+          <span class="time">6 minutes ago</span>
+        </div>
       </div>
 
       <!-- Live Counter -->
@@ -741,6 +1250,15 @@
     </div>
   </div>
 
+  <!-- Mobile Floating Download Button -->
+  <div class="mobile-floating-btn mobile-optimized">
+    <a href="https://tapunlock.co/cl/i/o6wqwn" target="_blank" class="floating-download-btn">
+      <i class="fas fa-download"></i>
+      <span>Download Now</span>
+      <div class="pulse-ring"></div>
+    </a>
+  </div>
+
   <!-- Exit Intent Modal -->
   <div id="exitModal" class="modal">
     <div class="modal-content">
@@ -754,6 +1272,39 @@
           <i class="fab fa-android"></i> Download for Android
         </a>
       </div>
+    </div>
+  </div>
+
+  <!-- Mobile-specific popup -->
+  <div id="mobilePopup" class="modal mobile-optimized">
+    <div class="modal-content">
+      <h3>🎮 Ready to Download?</h3>
+      <p>Get the complete FNF Mobile Mod with all characters unlocked!</p>
+      <div class="mobile-features">
+        <div class="feature-item">
+          <i class="fas fa-check"></i>
+          <span>All Characters Unlocked</span>
+        </div>
+        <div class="feature-item">
+          <i class="fas fa-check"></i>
+          <span>No Ads or Watermarks</span>
+        </div>
+        <div class="feature-item">
+          <i class="fas fa-check"></i>
+          <span>Works on iOS & Android</span>
+        </div>
+      </div>
+      <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
+        <a href="https://tapunlock.co/cl/i/8dp9md" target="_blank" class="download-btn iphone">
+          <i class="fab fa-apple"></i> iOS
+        </a>
+        <a href="https://tapunlock.co/cl/i/o6wqwn" target="_blank" class="download-btn android">
+          <i class="fab fa-android"></i> Android
+        </a>
+      </div>
+      <button onclick="document.getElementById('mobilePopup').style.display='none'" style="background: none; border: none; color: #666; margin-top: 15px; font-size: 0.9rem;">
+        Maybe Later
+      </button>
     </div>
   </div>
 
@@ -771,7 +1322,7 @@
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     document.getElementById('current-date').textContent = new Date().toLocaleDateString('en-US', options);
 
-    // Countdown Timer (starts from 4:12)
+    // Enhanced Countdown Timer with urgency
     let time = 4 * 60 + 12;
     const timer = document.getElementById("timer");
     const countdown = setInterval(() => {
@@ -780,38 +1331,150 @@
       timer.textContent = mins.toString().padStart(2, '0') + ':' + secs.toString().padStart(2, '0');
       if (time > 0) {
         time--;
+        // Add urgency when time is low
+        if (time < 60) {
+          timer.style.color = '#ff0000';
+          timer.style.animation = 'pulse 0.5s infinite';
+        }
       } else {
         clearInterval(countdown);
         timer.textContent = "OFFER EXPIRED!";
+        timer.style.color = '#ff0000';
       }
     }, 1000);
 
-    // Live counter animation
+    // Enhanced live counter with realistic patterns
     function animateCounter() {
       let count = 512;
       const counter = document.getElementById('liveDownloads');
       setInterval(() => {
-        count += Math.floor(Math.random() * 3) + 1;
+        // More realistic download patterns
+        const increment = Math.random() < 0.7 ? Math.floor(Math.random() * 2) + 1 : Math.floor(Math.random() * 5) + 3;
+        count += increment;
         counter.textContent = count.toLocaleString();
-      }, 3000);
+        
+        // Add visual feedback
+        counter.style.color = '#00ff00';
+        setTimeout(() => {
+          counter.style.color = 'white';
+        }, 200);
+      }, Math.random() * 2000 + 1500); // Random intervals between 1.5-3.5 seconds
     }
 
-    // Progress bar animation
+    // Enhanced progress bar with realistic download simulation
     function animateProgress() {
       let progress = 0;
       const progressFill = document.querySelector('.progress-fill');
       const progressPercent = document.getElementById('progress-percent');
+      const progressTitle = document.querySelector('.progress-title');
       
       const progressInterval = setInterval(() => {
         if (progress < 100) {
-          progress += Math.floor(Math.random() * 5) + 1;
+          // More realistic progress increments
+          const increment = progress < 20 ? Math.floor(Math.random() * 3) + 2 :
+                           progress < 60 ? Math.floor(Math.random() * 4) + 1 :
+                           progress < 90 ? Math.floor(Math.random() * 2) + 1 :
+                           Math.floor(Math.random() * 1) + 1;
+          
+          progress += increment;
           if (progress > 100) progress = 100;
+          
           progressFill.style.width = progress + '%';
           progressPercent.textContent = progress + '%';
+          
+          // Update progress text based on stage
+          if (progress < 30) {
+            progressTitle.innerHTML = 'Preparing Download: <span id="progress-percent">' + progress + '%</span>';
+          } else if (progress < 70) {
+            progressTitle.innerHTML = 'Downloading Files: <span id="progress-percent">' + progress + '%</span>';
+          } else if (progress < 95) {
+            progressTitle.innerHTML = 'Installing Mod: <span id="progress-percent">' + progress + '%</span>';
+          } else {
+            progressTitle.innerHTML = 'Finalizing Setup: <span id="progress-percent">' + progress + '%</span>';
+          }
         } else {
           clearInterval(progressInterval);
+          progressTitle.innerHTML = 'Download Ready! <span style="color: #00ff00;">✓</span>';
+          progressTitle.style.color = '#00ff00';
+          
+          // Track download ready event
+          trackEvent('download_ready', {
+            timestamp: new Date().toISOString()
+          });
         }
-      }, 200);
+      }, Math.random() * 300 + 150); // Random intervals between 150-450ms
+    }
+
+    // Download processing simulation
+    function simulateDownloadProcess() {
+      const downloadBtns = document.querySelectorAll('.download-btn');
+      downloadBtns.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          // Show processing modal
+          showDownloadProcessing();
+          
+          // Simulate download process
+          setTimeout(() => {
+            // Redirect to actual offer after processing
+            window.open(this.href, '_blank');
+          }, 3000);
+        });
+      });
+    }
+
+    // Show download processing modal
+    function showDownloadProcessing() {
+      const modal = document.createElement('div');
+      modal.className = 'modal';
+      modal.style.display = 'flex';
+      modal.innerHTML = `
+        <div class="modal-content">
+          <h3>Processing Your Download...</h3>
+          <div class="download-steps">
+            <div class="step active" id="step1">
+              <i class="fas fa-check-circle"></i>
+              <span>Verifying Device Compatibility</span>
+            </div>
+            <div class="step" id="step2">
+              <i class="fas fa-spinner fa-spin"></i>
+              <span>Preparing Download Package</span>
+            </div>
+            <div class="step" id="step3">
+              <i class="fas fa-circle"></i>
+              <span>Securing Download Link</span>
+            </div>
+          </div>
+          <div class="processing-bar">
+            <div class="processing-fill"></div>
+          </div>
+          <p style="margin-top: 15px; color: #666; font-size: 0.9rem;">
+            Please wait while we prepare your FNF Mobile Mod...
+          </p>
+        </div>
+      `;
+      
+      document.body.appendChild(modal);
+      
+      // Animate steps
+      setTimeout(() => {
+        document.getElementById('step1').classList.remove('active');
+        document.getElementById('step1').querySelector('i').className = 'fas fa-check-circle';
+        document.getElementById('step2').classList.add('active');
+      }, 1000);
+      
+      setTimeout(() => {
+        document.getElementById('step2').classList.remove('active');
+        document.getElementById('step2').querySelector('i').className = 'fas fa-check-circle';
+        document.getElementById('step3').classList.add('active');
+      }, 2000);
+      
+      setTimeout(() => {
+        document.getElementById('step3').classList.remove('active');
+        document.getElementById('step3').querySelector('i').className = 'fas fa-check-circle';
+        modal.remove();
+      }, 3000);
     }
 
     // Exit intent detection for both desktop and mobile
@@ -875,10 +1538,216 @@
       }
     }
 
+    // Stock counter animation
+    function animateStockCounter() {
+      let stock = 47;
+      const stockElement = document.getElementById('stockCount');
+      
+      setInterval(() => {
+        if (stock > 0 && Math.random() < 0.3) {
+          stock -= Math.floor(Math.random() * 2) + 1;
+          if (stock < 0) stock = 0;
+          stockElement.textContent = stock;
+          
+          // Add urgency when stock is low
+          if (stock < 10) {
+            stockElement.style.color = '#ff0000';
+            stockElement.style.animation = 'pulse 0.5s infinite';
+          }
+        }
+      }, Math.random() * 5000 + 3000); // Random intervals between 3-8 seconds
+    }
+
+    // Animate recent downloads
+    function animateRecentDownloads() {
+      const locations = [
+        'New York, USA', 'London, UK', 'Tokyo, Japan', 'Paris, France', 
+        'Sydney, Australia', 'Berlin, Germany', 'Toronto, Canada', 'Mumbai, India'
+      ];
+      
+      const downloadItems = document.querySelectorAll('.download-item');
+      
+      setInterval(() => {
+        const randomLocation = locations[Math.floor(Math.random() * locations.length)];
+        const randomTime = Math.floor(Math.random() * 5) + 1;
+        
+        // Update the first download item
+        const firstItem = downloadItems[0];
+        firstItem.querySelector('.location').textContent = randomLocation;
+        firstItem.querySelector('.time').textContent = `${randomTime} minutes ago`;
+        
+        // Move other items down
+        for (let i = downloadItems.length - 1; i > 0; i--) {
+          const currentLocation = downloadItems[i].querySelector('.location').textContent;
+          const currentTime = downloadItems[i].querySelector('.time').textContent;
+          
+          downloadItems[i-1].querySelector('.location').textContent = currentLocation;
+          downloadItems[i-1].querySelector('.time').textContent = currentTime;
+        }
+      }, Math.random() * 8000 + 5000); // Random intervals between 5-13 seconds
+    }
+
+    // Enhanced exit intent with multiple offers
+    function showExitModal() {
+      showedExitModal = true;
+      const modal = document.getElementById('exitModal');
+      
+      // Add urgency to exit modal
+      const modalContent = modal.querySelector('.modal-content');
+      modalContent.innerHTML = `
+        <h3>Wait! Don't Miss Out! 🔥</h3>
+        <p>Your FNF Mobile Mod is ready! <strong>Limited time offer</strong> - Get all characters unlocked now!</p>
+        <div style="background: rgba(255,0,0,0.1); padding: 10px; border-radius: 8px; margin: 15px 0; border: 1px solid rgba(255,0,0,0.3);">
+          <span style="color: #ff0000; font-weight: bold;">⚡ Only <span id="exitStock">47</span> downloads left!</span>
+        </div>
+        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+          <a href="https://tapunlock.co/cl/i/8dp9md" target="_blank" class="download-btn iphone">
+            <i class="fab fa-apple"></i> Download for iOS
+          </a>
+          <a href="https://tapunlock.co/cl/i/o6wqwn" target="_blank" class="download-btn android" style="margin: 0;">
+            <i class="fab fa-android"></i> Download for Android
+          </a>
+        </div>
+        <p style="margin-top: 15px; font-size: 0.8rem; color: #666;">
+          This offer expires in <span id="exitTimer">04:12</span>
+        </p>
+      `;
+      
+      modal.style.display = 'flex';
+      
+      // Update exit modal timer
+      let exitTime = 4 * 60 + 12;
+      const exitTimer = document.getElementById('exitTimer');
+      const exitStock = document.getElementById('exitStock');
+      
+      const exitCountdown = setInterval(() => {
+        const mins = Math.floor(exitTime / 60);
+        const secs = exitTime % 60;
+        exitTimer.textContent = mins.toString().padStart(2, '0') + ':' + secs.toString().padStart(2, '0');
+        
+        if (exitTime > 0) {
+          exitTime--;
+        } else {
+          clearInterval(exitCountdown);
+          exitTimer.textContent = "EXPIRED!";
+        }
+      }, 1000);
+      
+      // Update stock in exit modal
+      setInterval(() => {
+        const currentStock = document.getElementById('stockCount').textContent;
+        exitStock.textContent = currentStock;
+      }, 1000);
+      
+      // Reset after 30 seconds so it can show again if needed
+      setTimeout(() => {
+        showedExitModal = false;
+        clearInterval(exitCountdown);
+      }, 30000);
+    }
+
+    // Mobile-specific functionality
+    function initMobileOptimizations() {
+      // Show mobile popup after 3 seconds on mobile
+      if (window.innerWidth <= 768) {
+        setTimeout(() => {
+          document.getElementById('mobilePopup').style.display = 'flex';
+        }, 3000);
+      }
+
+      // Track scroll depth for mobile
+      let maxScroll = 0;
+      window.addEventListener('scroll', () => {
+        const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+        if (scrollPercent > maxScroll) {
+          maxScroll = scrollPercent;
+          
+          // Show floating button after 30% scroll
+          if (scrollPercent > 30) {
+            document.querySelector('.mobile-floating-btn').style.display = 'block';
+          }
+        }
+      });
+    }
+
+    // Analytics tracking
+    function trackEvent(eventName, eventData = {}) {
+      // Google Analytics tracking (replace with your tracking ID)
+      if (typeof gtag !== 'undefined') {
+        gtag('event', eventName, eventData);
+      }
+      
+      // Facebook Pixel tracking
+      if (typeof fbq !== 'undefined') {
+        fbq('track', eventName, eventData);
+      }
+      
+      // Console log for debugging
+      console.log('Event tracked:', eventName, eventData);
+    }
+
+    // Enhanced download tracking
+    function trackDownload(platform) {
+      trackEvent('download_clicked', {
+        platform: platform,
+        timestamp: new Date().toISOString(),
+        user_agent: navigator.userAgent
+      });
+    }
+
+    // A/B Testing for button styles
+    function initABTesting() {
+      const buttons = document.querySelectorAll('.download-btn');
+      const variants = ['original', 'urgent', 'premium'];
+      const variant = variants[Math.floor(Math.random() * variants.length)];
+      
+      buttons.forEach(btn => {
+        btn.classList.add(`variant-${variant}`);
+        
+        if (variant === 'urgent') {
+          btn.style.animation = 'pulse 1s infinite';
+          btn.innerHTML = `🔥 ${btn.innerHTML} - LIMITED TIME!`;
+        } else if (variant === 'premium') {
+          btn.style.background = 'linear-gradient(135deg, #ffd700, #ff8c00)';
+          btn.innerHTML = `⭐ ${btn.innerHTML} - PREMIUM EDITION`;
+        }
+      });
+      
+      trackEvent('ab_test_variant', { variant: variant });
+    }
+
+    // Progressive disclosure
+    function initProgressiveDisclosure() {
+      const features = document.querySelectorAll('.features li');
+      features.forEach((feature, index) => {
+        feature.style.opacity = '0';
+        feature.style.transform = 'translateX(-20px)';
+        
+        setTimeout(() => {
+          feature.style.transition = 'all 0.5s ease';
+          feature.style.opacity = '1';
+          feature.style.transform = 'translateX(0)';
+        }, index * 200);
+      });
+    }
+
+
     // Initialize everything when page loads
     window.addEventListener('DOMContentLoaded', () => {
       animateCounter();
       animateProgress();
+      animateStockCounter();
+      animateRecentDownloads();
+      simulateDownloadProcess();
+      initMobileOptimizations();
+      initABTesting();
+      initProgressiveDisclosure();
+      
+      // Track page view
+      trackEvent('page_view', {
+        page_title: document.title,
+        page_url: window.location.href
+      });
       
       // Test offers after a short delay
       setTimeout(async () => {
@@ -895,15 +1764,25 @@
         }
       }, 2000);
 
-      // Check links when buttons are clicked
+      // Enhanced download button tracking
       document.querySelectorAll('.download-btn').forEach(button => {
         button.addEventListener('click', async (e) => {
+          const platform = button.classList.contains('iphone') ? 'iOS' : 
+                          button.classList.contains('android') ? 'Android' : 'Unknown';
+          
+          trackDownload(platform);
+          
           const offerUrl = e.currentTarget.href;
           if (!await checkOfferLink(offerUrl)) {
             e.preventDefault();
             document.getElementById('networkModal').style.display = 'flex';
           }
         });
+      });
+
+      // Track floating button clicks
+      document.querySelector('.floating-download-btn').addEventListener('click', () => {
+        trackDownload('Android'); // Default for floating button
       });
     });
   </script>

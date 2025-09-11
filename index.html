@@ -4,25 +4,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <!-- Title -->
-  <title>FNF Mobile Mods for iOS & Android - All Characters Unlocked & No Ads</title>
+  <title>FNF Mobile Mods - Download Free with All Characters Unlocked | No Ads</title>
 
   <!-- Description -->
-  <meta name="description" content="Download the latest FNF Mobile Mods with all characters unlocked, unlimited week access, no ads, and premium features. Compatible with Android and iOS."/>
+  <meta name="description" content="Download FNF Mobile Mods for FREE! All characters unlocked, no ads, premium features. Works on iOS & Android. Join 2.5M+ players worldwide."/>
 
   <!-- Keywords (for SEO) -->
-  <meta name="keywords" content="FNF Mobile Mods, Friday Night Funkin Mod, All Characters Unlocked, No Ads, Android, iOS, Download Free, FNF Mod APK"/>
+  <meta name="keywords" content="FNF Mobile Mods, Friday Night Funkin Mod, All Characters Unlocked, No Ads, Android, iOS, Download Free, FNF Mod APK, Mobile Game Mods"/>
 
   <!-- Open Graph for social sharing -->
-  <meta property="og:title" content="FNF Mobile Mods - All Characters Unlocked & No Ads">
-  <meta property="og:description" content="Download FNF Mobile Mods with all characters unlocked, unlimited week access, no ads, and premium features. Compatible with Android and iOS.">
+  <meta property="og:title" content="FNF Mobile Mods - Download Free with All Characters Unlocked">
+  <meta property="og:description" content="Download FNF Mobile Mods for FREE! All characters unlocked, no ads, premium features. Works on iOS & Android. Join 2.5M+ players worldwide.">
   <meta property="og:image" content="https://fnfmod.com/images/fnf.webp">
   <meta property="og:url" content="https://fnfmod.com">
   <meta property="og:type" content="website">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="FNF Mobile Mods - All Characters Unlocked & No Ads">
-  <meta name="twitter:description" content="Download FNF Mobile Mods with all characters unlocked, unlimited week access, no ads, and premium features.">
+  <meta name="twitter:title" content="FNF Mobile Mods - Download Free with All Characters Unlocked">
+  <meta name="twitter:description" content="Download FNF Mobile Mods for FREE! All characters unlocked, no ads, premium features. Works on iOS & Android.">
   <meta name="twitter:image" content="https://fnfmod.com/images/fnf.webp">
 
   <!-- Author -->
@@ -32,7 +32,7 @@
   <link rel="icon" href="./images/fnf-icon.webp" type="image/x-icon">
 
   <!-- Theme Color -->
-  <meta name="theme-color" content="#111">
+  <meta name="theme-color" content="#ff6b35">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,16 +42,24 @@
 
   <style>
     :root {
-      --primary: #FF00FF; /* FNF pink */
-      --primary-dark: #9900CC;
-      --primary-light: #FF66FF;
-      --secondary: #1b5a5a; /* FNF cyan */
-      --danger: #FF0000;
-      --dark: #0f172a;
-      --darker: #020617;
-      --light: #f8fafc;
-      --gray: #94a3b8;
-      --dark-gray: #1e293b;
+      --primary: #ff6b35; /* Vibrant orange for high conversion */
+      --primary-dark: #e55a2b;
+      --primary-light: #ff8c69;
+      --secondary: #4a90e2; /* Trust-building blue */
+      --accent: #ffd700; /* Gold for premium feel */
+      --success: #27ae60;
+      --danger: #e74c3c;
+      --warning: #f39c12;
+      --dark: #1a1a1a;
+      --darker: #0d0d0d;
+      --light: #ffffff;
+      --gray: #6c757d;
+      --light-gray: #f8f9fa;
+      --dark-gray: #2c3e50;
+      --gradient-primary: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+      --gradient-secondary: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+      --shadow: 0 10px 30px rgba(0,0,0,0.1);
+      --shadow-hover: 0 15px 40px rgba(0,0,0,0.15);
     }
 
     * {
@@ -67,12 +75,25 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: var(--dark);
-      color: white;
+      background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+      color: var(--light);
       line-height: 1.6;
       display: flex;
       flex-direction: column;
-      background-image: radial-gradient(circle at 50% 50%, var(--darker) 0%, var(--dark) 100%);
+      min-height: 100vh;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.05)"/><circle cx="10" cy="60" r="0.5" fill="rgba(255,255,255,0.05)"/><circle cx="90" cy="40" r="0.5" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+      opacity: 0.3;
+      z-index: -1;
     }
 
     h1, h2, h3, h4 {
@@ -83,23 +104,40 @@
 
     h1 {
       font-family: 'Montserrat', sans-serif;
-      font-size: clamp(1.8rem, 4vw, 2.5rem);
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      background: var(--gradient-primary);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+      background-clip: text;
+      margin-bottom: 10px;
+      text-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      font-weight: 800;
     }
 
     h2 {
-      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
       color: var(--light);
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      color: var(--gray);
+      font-weight: 500;
+      margin-bottom: 20px;
     }
 
     header {
-      background-color: var(--dark-gray);
+      background: rgba(15, 15, 35, 0.95);
+      backdrop-filter: blur(10px);
       padding: 20px;
       text-align: center;
       border-bottom: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
     .container {
@@ -123,14 +161,23 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      background: rgba(255,255,255,0.05);
-      padding: 10px 15px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 12px 18px;
       border-radius: 50px;
-      font-size: clamp(0.8rem, 2vw, 0.95rem);
-      border: 1px solid rgba(255,255,255,0.1);
-      backdrop-filter: blur(5px);
+      font-size: clamp(0.85rem, 2vw, 1rem);
+      border: 1px solid rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
       flex: 1 0 auto;
       min-width: fit-content;
+      color: var(--light);
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+    }
+
+    .badge:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
     }
 
     .badge img {
@@ -141,18 +188,26 @@
 
     /* App Card */
     .app-card {
-      background-color: var(--dark-gray);
-      border-radius: 16px;
+      background: rgba(26, 26, 46, 0.95);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      padding: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-      border: 1px solid rgba(255,255,255,0.05);
+      padding: 40px 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,255,255,0.1);
       position: relative;
-      overflow: hidden;
+      margin: 20px auto;
+      max-width: 800px;
+      transition: all 0.3s ease;
+    }
+
+    .app-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
     }
 
     .app-card::before {
@@ -347,15 +402,15 @@
     }
 
     .download-btn {
-      background-color: var(--primary-dark);
-      padding: 15px 20px;
-      border-radius: 12px;
+      background: var(--gradient-primary);
+      padding: 18px 30px;
+      border-radius: 50px;
       color: white;
-      font-size: clamp(0.9rem, 2vw, 1.1rem);
-      font-weight: 600;
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      font-weight: 700;
       text-decoration: none;
       transition: all 0.3s ease;
-      min-width: 200px;
+      min-width: 250px;
       text-align: center;
       display: flex;
       align-items: center;
@@ -363,10 +418,12 @@
       gap: 12px;
       border: none;
       cursor: pointer;
-      box-shadow: 0 4px 15px rgba(255, 0, 255, 0.3);
+      box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
       flex: 1 1 auto;
       position: relative;
       overflow: hidden;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
     .btn-text {
@@ -394,33 +451,48 @@
     }
 
     .download-btn:hover {
-      background-color: var(--primary);
-      transform: translateY(-3px);
-      box-shadow: 0 7px 20px rgba(255, 0, 255, 0.4);
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 15px 35px rgba(255, 107, 53, 0.6);
+      background: linear-gradient(135deg, #ff8c69 0%, #ff6b35 100%);
     }
 
     .download-btn:active {
-      transform: translateY(1px);
+      transform: translateY(-2px) scale(1.02);
+    }
+
+    .download-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.6s;
+    }
+
+    .download-btn:hover::before {
+      left: 100%;
     }
 
     .iphone {
-      background-color: var(--secondary);
-      box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
+      background: var(--gradient-secondary);
+      box-shadow: 0 8px 25px rgba(74, 144, 226, 0.4);
     }
 
     .iphone:hover {
-      background-color: #00CCCC;
-      box-shadow: 0 7px 20px rgba(0, 255, 255, 0.4);
+      background: linear-gradient(135deg, #5ba0f2 0%, #4a90e2 100%);
+      box-shadow: 0 15px 35px rgba(74, 144, 226, 0.6);
     }
 
     .android {
-      background-color: var(--danger);
-      box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+      background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+      box-shadow: 0 8px 25px rgba(39, 174, 96, 0.4);
     }
 
     .android:hover {
-      background-color: #CC0000;
-      box-shadow: 0 7px 20px rgba(255, 0, 0, 0.4);
+      background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+      box-shadow: 0 15px 35px rgba(39, 174, 96, 0.6);
     }
 
     .another-color {
@@ -481,13 +553,22 @@
     }
 
     .testimonial {
-      background: rgba(255,255,255,0.05);
-      padding: 15px;
-      border-radius: 12px;
-      max-width: 300px;
+      background: rgba(255,255,255,0.08);
+      padding: 20px;
+      border-radius: 16px;
+      max-width: 320px;
       text-align: left;
-      border: 1px solid rgba(255,255,255,0.1);
-      flex: 1 1 300px;
+      border: 1px solid rgba(255,255,255,0.15);
+      flex: 1 1 320px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+
+    .testimonial:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      border-color: rgba(255,107,53,0.3);
     }
 
     .testimonial-header {
@@ -507,17 +588,19 @@
     .testimonial-name {
       font-weight: 600;
       font-size: 0.95rem;
+      color: var(--light);
     }
 
     .testimonial-rating {
-      color: gold;
+      color: var(--accent);
       font-size: 0.8rem;
     }
 
     .testimonial-text {
       font-style: italic;
-      color: var(--gray);
+      color: rgba(255,255,255,0.8);
       font-size: 0.9rem;
+      line-height: 1.5;
     }
 
     /* Countdown Timer */
@@ -630,14 +713,15 @@
     }
 
     .modal-content {
-      background: var(--dark-gray);
+      background: rgba(26, 26, 46, 0.95);
+      backdrop-filter: blur(20px);
       padding: 20px;
-      border-radius: 12px;
+      border-radius: 16px;
       max-width: 500px;
       width: 100%;
       text-align: center;
-      border: 1px solid var(--primary);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,107,53,0.3);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.7);
       position: relative;
       animation: slideUp 0.4s ease;
     }
@@ -654,7 +738,7 @@
     }
 
     .modal p {
-      color: var(--gray);
+      color: rgba(255,255,255,0.8);
       margin-bottom: 20px;
       font-size: 0.95rem;
     }
@@ -830,14 +914,14 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      background: var(--gradient-primary);
       color: white;
       padding: 15px 20px;
       border-radius: 50px;
       text-decoration: none;
       font-weight: 600;
       font-size: 1rem;
-      box-shadow: 0 8px 25px rgba(255, 0, 255, 0.4);
+      box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
@@ -845,7 +929,7 @@
 
     .floating-download-btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 12px 30px rgba(255, 0, 255, 0.6);
+      box-shadow: 0 12px 30px rgba(255, 107, 53, 0.6);
     }
 
     .pulse-ring {
@@ -983,12 +1067,15 @@
       }
 
       .app-card {
-        padding: 15px;
+        padding: 20px 15px;
+        margin: 10px;
       }
 
       .download-btn {
         width: 100%;
-        padding: 12px;
+        padding: 15px 20px;
+        font-size: 1rem;
+        min-width: auto;
       }
 
       .testimonial {
@@ -996,7 +1083,46 @@
       }
 
       .modal-content {
-        padding: 15px;
+        padding: 20px 15px;
+        margin: 10px;
+      }
+
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+    }
+
+    /* Sticky CTA for mobile */
+    .sticky-cta {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--gradient-primary);
+      padding: 15px;
+      text-align: center;
+      z-index: 1000;
+      box-shadow: 0 -5px 20px rgba(0,0,0,0.4);
+      display: none;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .sticky-cta .download-btn {
+      width: 100%;
+      max-width: 300px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      padding: 15px 25px;
+    }
+
+    @media (max-width: 768px) {
+      .sticky-cta {
+        display: block;
       }
     }
 
@@ -1061,31 +1187,31 @@
 <body>
   <header>
     <h1>FNF MOBILE MODS</h1>
-    <p>All Characters Unlocked • Full Week Access • No Ads</p>
+    <p class="hero-subtitle">Download FREE • All Characters Unlocked • No Ads • Premium Features</p>
   </header>
 
   <div class="container">
     <!-- Trust Badges -->
     <div class="trust-badges">
       <div class="badge">
-        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828640.png" alt="Virus Free">
-        <span>100% Safe</span>
+        <i class="fas fa-shield-alt" style="color: #27ae60;"></i>
+        <span>100% Safe & Secure</span>
       </div>
       <div class="badge">
-        <img src="https://cdn-icons-png.flaticon.com/512/3132/3132693.png" alt="Downloads">
+        <i class="fas fa-download" style="color: #4a90e2;"></i>
         <span>2.5M+ Downloads</span>
       </div>
       <div class="badge">
-        <img src="https://cdn-icons-png.flaticon.com/512/992/992651.png" alt="Updated">
-        <span>Updated: <span id="current-date"></span></span>
+        <i class="fas fa-star" style="color: #ffd700;"></i>
+        <span>4.9/5 Rating</span>
       </div>
       <div class="badge">
-        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828843.png" alt="SSL Secure">
-        <span>SSL Secured</span>
+        <i class="fas fa-mobile-alt" style="color: #ff6b35;"></i>
+        <span>iOS & Android</span>
       </div>
       <div class="badge">
-        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828844.png" alt="No Registration">
-        <span>No Registration</span>
+        <i class="fas fa-clock" style="color: #9b59b6;"></i>
+        <span>Instant Download</span>
       </div>
     </div>
 
@@ -1116,8 +1242,8 @@
         </div>
       </div>
 
-      <h2>FNF Mobile Mods for iOS & Android</h2>
-      <p>The ultimate Friday Night Funkin' experience with all characters unlocked and premium features</p>
+      <h2>Get FNF Mobile Mods FREE!</h2>
+      <p style="font-size: 1.2rem; color: var(--gray); margin-bottom: 30px;">Unlock ALL characters, remove ads, and access premium features - completely FREE! Join millions of players worldwide.</p>
 
       <!-- System Check -->
       <div class="system-check">
@@ -1129,12 +1255,12 @@
 
       <!-- Features List -->
       <ul class="features">
-        <li>All Characters Unlocked (Boyfriend, GF, Skid & Pump, etc.)</li>
-        <li>Full Week Access (Week 1-7 + Bonus Weeks)</li>
-        <li>Premium Features Enabled</li>
-        <li>No Ads or Watermarks</li>
-        <li>Unlimited Free Play Mode</li>
-        <li>Anti-Ban Protection</li>
+        <li><strong>ALL Characters Unlocked</strong> - Boyfriend, GF, Skid & Pump, and 50+ more!</li>
+        <li><strong>Complete Week Access</strong> - All 7 weeks plus bonus content</li>
+        <li><strong>Premium Features</strong> - Unlock everything for FREE</li>
+        <li><strong>No Ads or Watermarks</strong> - Pure gaming experience</li>
+        <li><strong>Unlimited Play</strong> - No restrictions, play forever</li>
+        <li><strong>100% Safe</strong> - Anti-ban protection included</li>
       </ul>
 
       <!-- Countdown Timer -->
@@ -1157,23 +1283,23 @@
         <a href="https://tapunlock.co/cl/i/8dp9md" target="_blank" class="download-btn iphone">
           <i class="fab fa-apple"></i> 
           <div class="btn-text">
-            <span class="btn-main">Download for iOS</span>
-            <span class="btn-sub">One Click • Instant Access</span>
+            <span class="btn-main">Download FREE for iOS</span>
+            <span class="btn-sub">Instant Access • No Registration</span>
           </div>
         </a>
         <a href="https://tapunlock.co/cl/i/o6wqwn" target="_blank" class="download-btn android">
           <i class="fab fa-android"></i> 
           <div class="btn-text">
-            <span class="btn-main">Download for Android</span>
-            <span class="btn-sub">One Click • Instant Access</span>
+            <span class="btn-main">Download FREE for Android</span>
+            <span class="btn-sub">Instant Access • No Registration</span>
           </div>
         </a>
       </div>
 
       <!-- Stock Counter -->
       <div class="stock-counter">
-        <i class="fas fa-exclamation-triangle"></i>
-        <span>Only <span class="stock-number" id="stockCount">47</span> downloads left at this price!</span>
+        <i class="fas fa-fire" style="color: #ff6b35;"></i>
+        <span><strong>HURRY!</strong> Only <span class="stock-number" id="stockCount">47</span> FREE downloads remaining!</span>
       </div>
 
       <!-- Recent Downloads -->
@@ -1207,7 +1333,7 @@
     </div>
 
     <!-- Testimonials -->
-    <h2 style="text-align: center; margin-top: 30px;">What Our Players Say</h2>
+    <h2 style="text-align: center; margin-top: 40px; color: var(--light);">What Players Are Saying</h2>
     <div class="testimonials">
       <div class="testimonial">
         <div class="testimonial-header">
@@ -1218,7 +1344,7 @@
           </div>
         </div>
         <p class="testimonial-text">
-          "Finally got access to all weeks and characters! The mod works perfectly on my Android phone with no issues."
+          "This is AMAZING! Got all characters unlocked instantly. No ads, no problems. Best FNF mod ever!"
         </p>
       </div>
 
@@ -1231,7 +1357,7 @@
           </div>
         </div>
         <p class="testimonial-text">
-          "I was skeptical at first but it works perfectly! All characters unlocked with no ads. Best FNF mod!"
+          "Downloaded in 30 seconds! All weeks unlocked, no registration needed. My kids love it!"
         </p>
       </div>
 
@@ -1240,11 +1366,11 @@
           <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="User" class="testimonial-avatar">
           <div>
             <div class="testimonial-name">David P.</div>
-            <div class="testimonial-rating">★★★★☆</div>
+            <div class="testimonial-rating">★★★★★</div>
           </div>
         </div>
         <p class="testimonial-text">
-          "The extra characters are amazing. Only wish it had more customization options, but still great!"
+          "Finally! All characters unlocked for FREE. Works perfectly on both my iPhone and Android tablet."
         </p>
       </div>
     </div>
@@ -1254,52 +1380,69 @@
   <div class="mobile-floating-btn mobile-optimized">
     <a href="https://tapunlock.co/cl/i/o6wqwn" target="_blank" class="floating-download-btn">
       <i class="fas fa-download"></i>
-      <span>Download Now</span>
+      <span>Download FREE</span>
       <div class="pulse-ring"></div>
+    </a>
+  </div>
+
+  <!-- Sticky CTA for Mobile -->
+  <div class="sticky-cta">
+    <a href="https://tapunlock.co/cl/i/o6wqwn" target="_blank" class="download-btn android">
+      <i class="fas fa-download"></i>
+      <span>Download FREE Now</span>
     </a>
   </div>
 
   <!-- Exit Intent Modal -->
   <div id="exitModal" class="modal">
     <div class="modal-content">
-      <h3>Wait! Your Download is Ready</h3>
-      <p>Don't miss out on all characters and weeks! Your FNF Mobile Mod is ready for download.</p>
+      <h3>🔥 Wait! Don't Miss Out!</h3>
+      <p><strong>Your FREE FNF Mobile Mod is ready!</strong> Get all characters unlocked and remove ads - completely FREE!</p>
+      <div style="background: rgba(255,107,53,0.1); padding: 15px; border-radius: 10px; margin: 20px 0; border: 2px solid var(--primary);">
+        <span style="color: var(--primary); font-weight: bold; font-size: 1.1rem;">⚡ Limited Time: Only <span id="exitStock">47</span> FREE downloads left!</span>
+      </div>
       <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
         <a href="https://tapunlock.co/cl/i/8dp9md" target="_blank" class="download-btn iphone">
-          <i class="fab fa-apple"></i> Download for iOS
+          <i class="fab fa-apple"></i> Download FREE for iOS
         </a>
         <a href="https://tapunlock.co/cl/i/o6wqwn" target="_blank" class="download-btn android" style="margin: 0;">
-          <i class="fab fa-android"></i> Download for Android
+          <i class="fab fa-android"></i> Download FREE for Android
         </a>
       </div>
+      <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+        This offer expires in <span id="exitTimer" style="color: var(--danger); font-weight: bold;">04:12</span>
+      </p>
     </div>
   </div>
 
   <!-- Mobile-specific popup -->
   <div id="mobilePopup" class="modal mobile-optimized">
     <div class="modal-content">
-      <h3>🎮 Ready to Download?</h3>
-      <p>Get the complete FNF Mobile Mod with all characters unlocked!</p>
+      <h3>🎮 Get FNF Mobile Mods FREE!</h3>
+      <p><strong>Download now and unlock ALL characters instantly!</strong></p>
       <div class="mobile-features">
         <div class="feature-item">
-          <i class="fas fa-check"></i>
-          <span>All Characters Unlocked</span>
+          <i class="fas fa-check" style="color: var(--success);"></i>
+          <span><strong>All Characters Unlocked</strong></span>
         </div>
         <div class="feature-item">
-          <i class="fas fa-check"></i>
-          <span>No Ads or Watermarks</span>
+          <i class="fas fa-check" style="color: var(--success);"></i>
+          <span><strong>No Ads or Watermarks</strong></span>
         </div>
         <div class="feature-item">
-          <i class="fas fa-check"></i>
-          <span>Works on iOS & Android</span>
+          <i class="fas fa-check" style="color: var(--success);"></i>
+          <span><strong>Works on iOS & Android</strong></span>
         </div>
+      </div>
+      <div style="background: rgba(255,107,53,0.1); padding: 12px; border-radius: 8px; margin: 15px 0; border: 1px solid var(--primary);">
+        <span style="color: var(--primary); font-weight: bold;">⚡ Only <span id="mobileStock">47</span> FREE downloads left!</span>
       </div>
       <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
         <a href="https://tapunlock.co/cl/i/8dp9md" target="_blank" class="download-btn iphone">
-          <i class="fab fa-apple"></i> iOS
+          <i class="fab fa-apple"></i> Download FREE
         </a>
         <a href="https://tapunlock.co/cl/i/o6wqwn" target="_blank" class="download-btn android">
-          <i class="fab fa-android"></i> Android
+          <i class="fab fa-android"></i> Download FREE
         </a>
       </div>
       <button onclick="document.getElementById('mobilePopup').style.display='none'" style="background: none; border: none; color: #666; margin-top: 15px; font-size: 0.9rem;">
@@ -1308,12 +1451,16 @@
     </div>
   </div>
 
-  <footer>
-    <p>© 2023 FNF Mobile Mods. Not affiliated with Friday Night Funkin' or Newgrounds.</p>
-    <p style="margin-top: 5px; font-size: 0.8rem;">
-      <a href="#" style="color: var(--gray); text-decoration: none;">Terms</a> | 
-      <a href="#" style="color: var(--gray); text-decoration: none;">Privacy</a> | 
-      <a href="#" style="color: var(--gray); text-decoration: none;">Contact</a>
+  <footer style="background: rgba(15, 15, 35, 0.95); backdrop-filter: blur(10px); padding: 20px; text-align: center; color: var(--light); border-top: 1px solid rgba(255,255,255,0.1);">
+    <p style="font-weight: 600; margin-bottom: 10px;">© 2024 FNF Mobile Mods - Trusted by 2.5M+ Players</p>
+    <p style="font-size: 0.9rem; color: rgba(255,255,255,0.7); margin-bottom: 15px;">
+      <i class="fas fa-shield-alt" style="color: var(--success); margin-right: 5px;"></i>
+      100% Safe & Secure • No Registration Required • Instant Download
+    </p>
+    <p style="margin-top: 10px; font-size: 0.8rem; color: rgba(255,255,255,0.6);">
+      <a href="#" style="color: rgba(255,255,255,0.6); text-decoration: none; margin: 0 10px;">Terms</a> | 
+      <a href="#" style="color: rgba(255,255,255,0.6); text-decoration: none; margin: 0 10px;">Privacy</a> | 
+      <a href="#" style="color: rgba(255,255,255,0.6); text-decoration: none; margin: 0 10px;">Contact</a>
     </p>
   </footer>
 
@@ -1637,6 +1784,11 @@
       setInterval(() => {
         const currentStock = document.getElementById('stockCount').textContent;
         exitStock.textContent = currentStock;
+        // Also update mobile popup stock
+        const mobileStock = document.getElementById('mobileStock');
+        if (mobileStock) {
+          mobileStock.textContent = currentStock;
+        }
       }, 1000);
       
       // Reset after 30 seconds so it can show again if needed
@@ -1734,6 +1886,13 @@
 
     // Initialize everything when page loads
     window.addEventListener('DOMContentLoaded', () => {
+      // Preload critical resources
+      const criticalImages = ['./fnf.webp'];
+      criticalImages.forEach(src => {
+        const img = new Image();
+        img.src = src;
+      });
+
       animateCounter();
       animateProgress();
       animateStockCounter();
@@ -1746,8 +1905,20 @@
       // Track page view
       trackEvent('page_view', {
         page_title: document.title,
-        page_url: window.location.href
+        page_url: window.location.href,
+        user_agent: navigator.userAgent,
+        screen_resolution: `${screen.width}x${screen.height}`,
+        viewport_size: `${window.innerWidth}x${window.innerHeight}`
       });
+
+      // Track time on page
+      let timeOnPage = 0;
+      setInterval(() => {
+        timeOnPage += 1;
+        if (timeOnPage % 30 === 0) { // Every 30 seconds
+          trackEvent('time_on_page', { seconds: timeOnPage });
+        }
+      }, 1000);
       
       // Test offers after a short delay
       setTimeout(async () => {
@@ -1764,21 +1935,47 @@
         }
       }, 2000);
 
-      // Enhanced download button tracking
-      document.querySelectorAll('.download-btn').forEach(button => {
-        button.addEventListener('click', async (e) => {
-          const platform = button.classList.contains('iphone') ? 'iOS' : 
-                          button.classList.contains('android') ? 'Android' : 'Unknown';
-          
-          trackDownload(platform);
-          
-          const offerUrl = e.currentTarget.href;
-          if (!await checkOfferLink(offerUrl)) {
-            e.preventDefault();
-            document.getElementById('networkModal').style.display = 'flex';
-          }
-        });
+    // Enhanced download button tracking
+    document.querySelectorAll('.download-btn').forEach(button => {
+      button.addEventListener('click', async (e) => {
+        const platform = button.classList.contains('iphone') ? 'iOS' : 
+                        button.classList.contains('android') ? 'Android' : 'Unknown';
+        
+        trackDownload(platform);
+        
+        // Add visual feedback
+        button.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+          button.style.transform = '';
+        }, 150);
+        
+        const offerUrl = e.currentTarget.href;
+        if (!await checkOfferLink(offerUrl)) {
+          e.preventDefault();
+          document.getElementById('networkModal').style.display = 'flex';
+        }
       });
+    });
+
+    // Add scroll-based sticky CTA
+    let lastScrollTop = 0;
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const stickyCta = document.querySelector('.sticky-cta');
+      
+      if (scrollTop > lastScrollTop && scrollTop > 200) {
+        // Scrolling down
+        if (stickyCta) {
+          stickyCta.style.transform = 'translateY(0)';
+        }
+      } else {
+        // Scrolling up
+        if (stickyCta) {
+          stickyCta.style.transform = 'translateY(100%)';
+        }
+      }
+      lastScrollTop = scrollTop;
+    });
 
       // Track floating button clicks
       document.querySelector('.floating-download-btn').addEventListener('click', () => {

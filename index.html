@@ -3,14 +3,10 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FNF Mobile Mods — All Characters Unlocked | Free Download 2025</title>
-  <meta name="description" content="Download FNF Mobile Mods FREE! All characters unlocked, no ads, premium features. Works on iOS & Android. Join 2.5M+ players worldwide."/>
-  <meta name="keywords" content="FNF Mobile Mods, Friday Night Funkin Mod, All Characters Unlocked, No Ads, Android, iOS, Download Free"/>
-  <meta property="og:title" content="FNF Mobile Mods - Download Free with All Characters Unlocked"/>
-  <meta property="og:description" content="Download FNF Mobile Mods for FREE! All characters unlocked, no ads, premium features."/>
-  <meta name="theme-color" content="#ff00cc"/>
+  <title>Free Mobile Games — All Unlocked</title>
+  <meta name="description" content="Download free mobile games. All unlocked, no ads. iOS & Android."/>
+  <meta name="theme-color" content="#07070f"/>
 
-  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-64VCRKBEW8"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -20,1128 +16,330 @@
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
     :root {
-      --pink:    #ff00cc;
-      --pink2:   #ff44dd;
-      --cyan:    #00ffee;
-      --cyan2:   #00cccc;
-      --yellow:  #ffe600;
-      --purple:  #7b2fff;
-      --green:   #00ff88;
-      --dark:    #06060f;
-      --dark2:   #0e0e1e;
-      --card:    rgba(255,255,255,0.04);
-      --border:  rgba(255,255,255,0.08);
+      --bg:    #07070f;
+      --bg2:   #0d0d1c;
+      --acc:   #00f5ff;
+      --acc2:  #7b2fff;
+      --hot:   #ff2e63;
+      --gold:  #ffd700;
+      --green: #00ff88;
+      --text:  #e8e8ff;
+      --muted: rgba(232,232,255,0.38);
+      --border:rgba(255,255,255,0.07);
     }
 
     *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior:smooth; }
 
     body {
-      font-family: 'Nunito', sans-serif;
-      background: var(--dark);
-      color: #fff;
+      font-family: 'Oxanium', sans-serif;
+      background: var(--bg);
+      color: var(--text);
       min-height: 100vh;
-      overflow-x: hidden;
     }
 
-    /* ═══ BACKGROUND ═══ */
     body::before {
-      content: '';
-      position: fixed; inset: 0; z-index: -3;
-      background:
-        radial-gradient(ellipse 80% 50% at 50% 0%,   rgba(123,47,255,0.25) 0%, transparent 55%),
-        radial-gradient(ellipse 60% 40% at 0% 100%,   rgba(255,0,204,0.18) 0%, transparent 55%),
-        radial-gradient(ellipse 50% 40% at 100% 60%,  rgba(0,255,238,0.12) 0%, transparent 55%);
+      content:'';
+      position:fixed; inset:0; z-index:-1;
+      background-image:
+        linear-gradient(rgba(0,245,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,245,255,0.025) 1px, transparent 1px);
+      background-size:44px 44px;
     }
 
-    /* Scanline texture */
-    body::after {
-      content: '';
-      position: fixed; inset: 0; z-index: -2; pointer-events: none;
-      background: repeating-linear-gradient(
-        0deg,
-        transparent 0px,
-        transparent 3px,
-        rgba(0,0,0,0.08) 3px,
-        rgba(0,0,0,0.08) 4px
-      );
-    }
-
-    /* Floating music notes / stars */
-    .bg-particles { position: fixed; inset:0; z-index:-1; pointer-events:none; overflow:hidden; }
-    .note {
-      position: absolute;
-      font-size: 1.2rem;
-      opacity: 0;
-      animation: noteDrift linear infinite;
-      user-select: none;
-    }
-    @keyframes noteDrift {
-      0%   { transform: translateY(110vh) rotate(0deg) scale(0.5); opacity:0; }
-      8%   { opacity: 0.5; }
-      92%  { opacity: 0.5; }
-      100% { transform: translateY(-10vh) rotate(360deg) scale(1.2); opacity:0; }
-    }
-
-    /* ═══ HEADER ═══ */
-    header {
-      position: sticky; top:0; z-index:200;
-      background: rgba(6,6,15,0.95);
+    /* ── SEARCH + FILTERS ── */
+    .top-bar {
+      position: sticky; top:0; z-index:100;
+      background: rgba(7,7,15,0.97);
       backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255,0,204,0.2);
-      padding: 14px 20px;
-      text-align: center;
+      border-bottom: 1px solid rgba(0,245,255,0.1);
+      padding: 12px 16px;
     }
+    .top-inner { max-width:960px; margin:0 auto; display:flex; flex-direction:column; gap:10px; }
 
-    .header-inner {
-      max-width: 860px;
-      margin: 0 auto;
-    }
-
-    .site-title {
-      font-family: 'Lilita One', cursive;
-      font-size: clamp(1.8rem, 5vw, 2.6rem);
-      letter-spacing: 3px;
-      line-height: 1;
-      background: linear-gradient(90deg, var(--pink), var(--yellow), var(--cyan));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      filter: drop-shadow(0 0 16px rgba(255,0,204,0.5));
-      text-shadow: none;
-    }
-
-    .site-tagline {
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.4);
-      margin-top: 3px;
-    }
-
-    /* ═══ WRAPPER ═══ */
-    .wrap {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 24px 16px 60px;
-    }
-
-    /* ═══ HERO EYEBROW ═══ */
-    .eyebrow {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      margin-bottom: 18px;
-    }
-    .eyebrow-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      background: rgba(255,230,0,0.1);
-      border: 1px solid rgba(255,230,0,0.3);
-      border-radius: 4px;
-      padding: 6px 16px;
-      font-size: 0.74rem;
-      font-weight: 800;
-      color: var(--yellow);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-    .blink-dot {
-      width: 7px; height: 7px;
-      background: var(--green);
-      border-radius: 50%;
-      animation: blinkDot 1.1s infinite;
-    }
-    @keyframes blinkDot {
-      0%,100%{ opacity:1; box-shadow:0 0 7px var(--green); }
-      50%{ opacity:.2; box-shadow:none; }
-    }
-
-    /* ═══ TRUST BADGES ═══ */
-    .badges {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 22px;
-    }
-    .badge {
-      display: flex;
-      align-items: center;
-      gap: 6px;
+    .search-box { position:relative; }
+    .search-box input {
+      width:100%; height:46px;
       background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.09);
-      border-radius: 4px;
-      padding: 8px 14px;
-      font-size: 0.75rem;
-      font-weight: 800;
-      color: rgba(255,255,255,0.7);
-      letter-spacing: 0.3px;
-      text-transform: uppercase;
-      transition: all .25s;
-      animation: fadeUp .5s ease both;
-    }
-    .badge:hover { transform: translateY(-2px); border-color: var(--pink); color:#fff; }
-    .badge:nth-child(1){ animation-delay:.05s; }
-    .badge:nth-child(2){ animation-delay:.10s; }
-    .badge:nth-child(3){ animation-delay:.15s; }
-    .badge:nth-child(4){ animation-delay:.20s; }
-    .badge:nth-child(5){ animation-delay:.25s; }
-    @keyframes fadeUp {
-      from{ opacity:0; transform:translateY(12px); }
-      to{   opacity:1; transform:translateY(0); }
-    }
-
-    /* ═══ MAIN CARD ═══ */
-    .main-card {
-      background: rgba(14,14,30,0.96);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-top: 2px solid var(--pink);
-      border-radius: 2px 2px 20px 20px;
-      padding: 32px 24px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      box-shadow:
-        0 24px 60px rgba(0,0,0,0.6),
-        0 0 60px rgba(255,0,204,0.07),
-        inset 0 0 80px rgba(123,47,255,0.04);
-      animation: cardIn .7s cubic-bezier(.22,1,.36,1) both;
-    }
-    @keyframes cardIn {
-      from{ opacity:0; transform:translateY(24px) scale(.98); }
-      to{   opacity:1; transform:translateY(0) scale(1); }
-    }
-
-    /* Glow corner accent */
-    .main-card::before {
-      content: '';
-      position: absolute;
-      top:-60px; left:50%; transform:translateX(-50%);
-      width:320px; height:320px;
-      background: radial-gradient(circle, rgba(255,0,204,0.12), transparent 65%);
-      pointer-events:none;
-    }
-
-    /* ═══ RATING ═══ */
-    .rating {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      font-size: 0.88rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-      color: var(--yellow);
-    }
-    .rating span { color: rgba(255,255,255,.4); font-size:.8rem; font-weight:600; }
-
-    /* ═══ GAME IMAGE ═══ */
-    .img-wrap {
-      position: relative;
-      display: inline-block;
-      margin: 4px 0 26px;
-      border-radius: 16px;
-      overflow: hidden;
-      border: 2px solid rgba(255,0,204,0.25);
-      box-shadow:
-        0 16px 48px rgba(0,0,0,0.6),
-        0 0 40px rgba(255,0,204,0.15);
-      transition: all .35s;
-      cursor: pointer;
-    }
-    .img-wrap:hover {
-      transform: scale(1.03);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.7), 0 0 60px rgba(255,0,204,0.3);
-      border-color: var(--pink);
-    }
-    .img-wrap img {
-      display: block;
-      max-width: 100%;
-      height: auto;
-      border-radius: 14px;
-    }
-    .img-corner-badge {
-      position: absolute;
-      top: 12px; right: 12px;
-      background: linear-gradient(135deg, var(--pink), var(--purple));
-      color: #fff;
-      font-size: .68rem;
-      font-weight: 900;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      padding: 5px 12px;
-      border-radius: 4px;
-      box-shadow: 0 4px 14px rgba(255,0,204,0.5);
-      animation: shimmerBadge 2.5s ease-in-out infinite;
-    }
-    @keyframes shimmerBadge {
-      0%,100%{ transform:scale(1); box-shadow:0 4px 14px rgba(255,0,204,0.5); }
-      50%{ transform:scale(1.06); box-shadow:0 6px 22px rgba(255,0,204,0.7); }
-    }
-    .img-bottom-tag {
-      position: absolute;
-      bottom: 0; left:0; right:0;
-      background: linear-gradient(to top, rgba(0,0,0,.92), transparent);
-      padding: 20px 16px 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      font-size: .85rem;
-      font-weight: 800;
-      color: var(--green);
-    }
-
-    /* ═══ CARD TITLE ═══ */
-    .card-title {
-      font-family: 'Lilita One', cursive;
-      font-size: clamp(1.7rem, 4.5vw, 2.4rem);
-      letter-spacing: 1px;
-      line-height: 1.1;
-      margin-bottom: 8px;
-    }
-    .card-title .t-pink {
-      background: linear-gradient(90deg, var(--pink), var(--pink2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .card-sub {
-      font-size: 1rem;
-      color: rgba(255,255,255,.45);
-      font-weight: 600;
-      max-width: 520px;
-      margin: 0 auto 20px;
-    }
-
-    /* ═══ SYS CHECK ═══ */
-    .sys-check {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: rgba(0,255,238,0.06);
-      border: 1px solid rgba(0,255,238,0.2);
-      border-left: 3px solid var(--cyan);
-      border-radius: 0 8px 8px 0;
-      padding: 11px 16px;
-      margin: 16px 0;
-      font-size: .88rem;
-      font-weight: 700;
-      color: var(--cyan);
-      text-align: left;
-    }
-
-    /* ═══ FEATURES ═══ */
-    .feats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 10px;
-      margin: 18px 0 22px;
-      text-align: left;
-    }
-    .feat {
-      display: flex;
-      gap: 11px;
-      align-items: flex-start;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-left: 2px solid var(--pink);
-      border-radius: 0 8px 8px 0;
-      padding: 12px 14px;
-      opacity: 0;
-      transform: translateX(-14px);
-      transition: opacity .5s, transform .5s, background .25s;
-    }
-    .feat.vis { opacity:1; transform:translateX(0); }
-    .feat:hover { background:rgba(255,0,204,0.07); border-left-color:var(--cyan); }
-    .feat-ico { font-size:1.2rem; flex-shrink:0; margin-top:1px; }
-    .feat-name { font-weight:800; font-size:.88rem; color:#fff; }
-    .feat-desc { font-size:.74rem; color:rgba(255,255,255,.4); margin-top:2px; }
-
-    /* ═══ VIDEO SECTION ═══ */
-    .video-wrap {
-      margin: 20px 0;
-      border-radius: 14px;
-      overflow: hidden;
-      border: 1px solid rgba(255,0,204,0.2);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.5), 0 0 30px rgba(255,0,204,0.1);
-      position: relative;
-      background: #000;
-    }
-    .video-wrap video {
-      width: 100%;
-      max-width: 100%;
-      display: block;
-      border-radius: 14px;
-    }
-    .video-label {
-      position: absolute;
-      top: 10px; left: 10px;
-      background: rgba(0,0,0,0.7);
-      backdrop-filter: blur(6px);
-      border: 1px solid rgba(255,0,204,0.4);
-      border-radius: 4px;
-      padding: 4px 10px;
-      font-size: .68rem;
-      font-weight: 800;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--pink);
-    }
-
-    /* ═══ COUNTDOWN ═══ */
-    .countdown {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      background: rgba(230,0,0,0.07);
-      border: 1px solid rgba(230,0,0,0.2);
+      border: 1px solid rgba(0,245,255,0.18);
       border-radius: 8px;
-      padding: 13px 20px;
-      margin: 14px 0;
-      flex-wrap: wrap;
+      padding: 0 46px 0 18px;
+      font-family:'Oxanium',sans-serif; font-size:.95rem; font-weight:600; color:var(--text);
+      outline:none; transition:all .2s;
     }
-    .cd-label { font-size:.76rem; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.35); }
-    #timer {
-      font-family: 'Lilita One', cursive;
-      font-size: 2rem;
-      color: #ff3333;
-      letter-spacing: 5px;
-      line-height: 1;
-      text-shadow: 0 0 20px rgba(255,0,0,0.5);
+    .search-box input::placeholder { color:var(--muted); }
+    .search-box input:focus {
+      border-color:var(--acc);
+      background:rgba(0,245,255,0.04);
+      box-shadow:0 0 0 3px rgba(0,245,255,0.08);
+    }
+    .search-icon { position:absolute; right:16px; top:50%; transform:translateY(-50%); color:var(--muted); font-size:.9rem; pointer-events:none; }
+    .clear-x {
+      display:none; position:absolute; right:14px; top:50%; transform:translateY(-50%);
+      background:none; border:none; color:var(--muted); font-size:.85rem; cursor:pointer; padding:4px 6px;
+    }
+    .clear-x.vis { display:block; }
+    .clear-x.vis ~ .search-icon { display:none; }
+
+    .pills {
+      display:flex; gap:7px; flex-wrap:nowrap; overflow-x:auto; scrollbar-width:none;
+    }
+    .pills::-webkit-scrollbar { display:none; }
+    .pill {
+      padding:7px 14px; border-radius:6px; font-size:.74rem; font-weight:700; letter-spacing:.5px;
+      white-space:nowrap; background:rgba(255,255,255,0.04); border:1px solid var(--border);
+      color:var(--muted); cursor:pointer; transition:all .2s; flex-shrink:0;
+    }
+    .pill:hover { color:var(--acc); border-color:rgba(0,245,255,0.28); }
+    .pill.active { color:var(--acc); border-color:rgba(0,245,255,0.4); background:rgba(0,245,255,0.08); }
+
+    /* ── MAIN ── */
+    main { max-width:960px; margin:0 auto; padding:20px 16px 60px; }
+
+    .results-bar {
+      font-size:.74rem; font-weight:700; letter-spacing:1px; text-transform:uppercase;
+      color:var(--muted); margin-bottom:16px;
+    }
+    .results-bar strong { color:var(--acc); }
+
+    /* ── GRID ── */
+    .grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fill, minmax(255px, 1fr));
+      gap:14px;
     }
 
-    /* ═══ PROGRESS ═══ */
-    .prog-wrap { margin: 12px 0 18px; }
-    .prog-labels { display:flex; justify-content:space-between; font-size:.76rem; font-weight:700; color:rgba(255,255,255,.35); margin-bottom:5px; }
-    .prog-bar { height:8px; background:rgba(255,255,255,0.06); border-radius:2px; overflow:hidden; }
-    .prog-fill { height:100%; width:0%; background:linear-gradient(90deg, var(--pink), var(--cyan)); border-radius:2px; box-shadow:0 0 10px rgba(255,0,204,0.4); transition:width .4s ease; }
-
-    /* ═══ URGENCY ═══ */
-    .urgency {
-      background: rgba(255,230,0,0.06);
-      border: 1px solid rgba(255,230,0,0.2);
-      border-radius: 6px;
-      padding: 11px 16px;
-      font-size: .88rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      flex-wrap: wrap;
-      text-align: center;
-      margin: 10px 0;
+    /* ── CARD ── */
+    .card {
+      background:var(--bg2);
+      border:1px solid var(--border);
+      border-radius:12px;
+      overflow:hidden;
+      transition:transform .25s, border-color .25s, box-shadow .25s;
+      animation:fadeUp .4s ease both;
     }
-    .fire-ico { display:inline-block; animation:fireRock .4s ease-in-out infinite alternate; }
-    @keyframes fireRock { from{transform:rotate(-6deg) scale(1);} to{transform:rotate(6deg) scale(1.1);} }
-
-    /* ═══ DOWNLOAD BUTTONS ═══ */
-    .btn-row {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin: 20px 0 14px;
+    @keyframes fadeUp {
+      from{opacity:0;transform:translateY(10px);}
+      to{opacity:1;transform:translateY(0);}
     }
+    .card:hover {
+      transform:translateY(-4px);
+      border-color:rgba(0,245,255,0.25);
+      box-shadow:0 14px 36px rgba(0,0,0,0.5), 0 0 24px rgba(0,245,255,0.06);
+    }
+
+    .thumb {
+      height:126px; position:relative; overflow:hidden;
+      background:linear-gradient(135deg,#0d0d1c,#1a0a2e);
+      display:flex; align-items:center; justify-content:center;
+    }
+    .thumb-bg { position:absolute; font-size:6rem; opacity:.1; animation:pulse 5s ease-in-out infinite; }
+    @keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.1);}}
+    .thumb-icon { position:relative; z-index:1; font-size:3.2rem; filter:drop-shadow(0 0 18px rgba(0,245,255,0.3)); }
+    .thumb::after {
+      content:''; position:absolute; bottom:0; left:0; right:0; height:50%;
+      background:linear-gradient(to top, var(--bg2), transparent);
+    }
+
+    .badge {
+      position:absolute; top:9px; left:9px; z-index:2;
+      font-size:.58rem; font-weight:800; letter-spacing:1.5px; text-transform:uppercase;
+      padding:3px 9px; border-radius:4px;
+    }
+    .badge-hot  { background:rgba(255,46,99,.15);  border:1px solid rgba(255,46,99,.35);  color:var(--hot); }
+    .badge-new  { background:rgba(0,245,255,.12);  border:1px solid rgba(0,245,255,.3);   color:var(--acc); }
+    .badge-free { background:rgba(0,255,136,.1);   border:1px solid rgba(0,255,136,.28);  color:var(--green); }
+
+    .card-body { padding:12px 14px 14px; }
+    .card-cat  { font-size:.62rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--acc2); margin-bottom:3px; }
+    .card-name { font-size:.98rem; font-weight:800; letter-spacing:.5px; color:#fff; margin-bottom:4px; }
+    .card-desc {
+      font-size:.75rem; color:var(--muted); line-height:1.5; margin-bottom:9px;
+      display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+    }
+    .card-stars { display:flex; align-items:center; gap:6px; margin-bottom:11px; }
+    .stars { color:var(--gold); font-size:.7rem; }
+    .rating-txt { font-size:.7rem; color:var(--muted); }
+
+    /* ── DOWNLOAD BUTTONS ── */
+    .btn-row { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
     .dl-btn {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 16px 26px;
-      border-radius: 6px;
-      font-family: 'Lilita One', cursive;
-      font-size: 1.05rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: #fff;
-      cursor: pointer;
-      border: none;
-      transition: all .3s;
-      position: relative;
-      overflow: hidden;
-      min-width: 210px;
-      flex: 1 1 auto;
-      justify-content: center;
+      display:flex; align-items:center; justify-content:center; gap:7px;
+      padding:10px 6px; border-radius:7px;
+      font-family:'Oxanium',sans-serif; font-size:.78rem; font-weight:800; letter-spacing:.5px;
+      border:none; cursor:pointer; text-decoration:none; color:#fff;
+      transition:all .25s; position:relative; overflow:hidden;
     }
     .dl-btn::after {
-      content:'';
-      position:absolute; top:0; left:-110%; width:60%; height:100%;
-      background:linear-gradient(90deg,transparent,rgba(255,255,255,.22),transparent);
-      transition:left .5s;
+      content:''; position:absolute; top:0; left:-100%; width:60%; height:100%;
+      background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);
+      transition:left .4s;
     }
-    .dl-btn:hover::after { left:160%; }
-    .dl-btn:hover { transform:translateY(-4px); }
+    .dl-btn:hover::after { left:150%; }
+    .dl-btn:hover { transform:translateY(-2px); }
 
     .btn-ios {
-      background: linear-gradient(135deg, #1c1c30, #0d0d20);
-      border: 1.5px solid rgba(255,255,255,0.18);
-      box-shadow: 0 6px 22px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.07);
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.14);
     }
-    .btn-ios:hover { border-color:rgba(255,255,255,.35); box-shadow:0 12px 34px rgba(0,0,0,.5); }
+    .btn-ios:hover { background:rgba(255,255,255,.1); border-color:rgba(255,255,255,.26); }
 
-    .btn-android {
-      background: linear-gradient(135deg, var(--pink), var(--purple));
-      box-shadow: 0 6px 22px rgba(255,0,204,0.35);
+    .btn-and {
+      background:linear-gradient(135deg, var(--acc2), var(--acc));
+      box-shadow:0 4px 14px rgba(0,245,255,0.18);
     }
-    .btn-android:hover { box-shadow:0 12px 34px rgba(255,0,204,.55); }
+    .btn-and:hover { box-shadow:0 7px 22px rgba(0,245,255,0.35); }
 
-    .btn-inner { display:flex; flex-direction:column; align-items:center; }
-    .btn-main { font-size:.95rem; line-height:1.2; }
-    .btn-small { font-size:.7rem; opacity:.6; font-family:'Nunito',sans-serif; font-weight:700; letter-spacing:0; text-transform:none; margin-top:1px; }
-
-    /* ═══ STOCK ═══ */
-    .stock-strip {
-      background: rgba(255,0,0,0.07);
-      border: 1px solid rgba(255,0,0,0.2);
-      border-radius: 6px;
-      padding: 9px 16px;
-      font-size: .84rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    #stockCount { color:#ff3333; font-size:1rem; }
-
-    /* ═══ RECENT DLs ═══ */
-    .recent {
-      background: rgba(0,255,136,0.04);
-      border: 1px solid rgba(0,255,136,0.12);
-      border-radius: 8px;
-      padding: 14px 16px;
-      margin: 14px 0;
-      text-align: left;
-    }
-    .recent-hd { font-size:.73rem; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.3); margin-bottom:10px; display:flex; align-items:center; gap:7px; }
-    .dl-item { display:flex; align-items:center; gap:8px; font-size:.82rem; padding:5px 0; border-bottom:1px solid rgba(255,255,255,0.04); }
-    .dl-item:last-child { border:none; }
-    .dl-loc { color:rgba(255,255,255,.7); font-weight:700; flex:1; }
-    .dl-time { color:rgba(255,255,255,.28); font-size:.72rem; }
-
-    /* ═══ LIVE COUNTER ═══ */
-    .live-strip {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      background: rgba(255,0,204,0.07);
-      border: 1px solid rgba(255,0,204,0.18);
-      border-radius: 40px;
-      padding: 9px 18px;
-      font-size: .84rem;
-      font-weight: 700;
-      margin-top: 12px;
-      color: var(--pink2);
-    }
-    .live-d { width:8px; height:8px; background:var(--pink); border-radius:50%; animation:blinkDot 1.1s infinite; }
-
-    /* ═══ TESTIMONIALS ═══ */
-    .sec-title {
-      font-family: 'Lilita One', cursive;
-      font-size: clamp(1.7rem, 4vw, 2.4rem);
-      letter-spacing: 2px;
-      text-align: center;
-      margin: 44px 0 18px;
-    }
-    .sec-title .accent {
-      background: linear-gradient(90deg, var(--pink), var(--cyan));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .reviews {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
-      gap: 14px;
-      margin-bottom: 50px;
-    }
-    .review {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-top: 2px solid var(--pink);
-      border-radius: 0 0 14px 14px;
-      padding: 18px;
-      transition: all .3s;
-    }
-    .review:hover { transform:translateY(-4px); border-top-color:var(--cyan); box-shadow:0 12px 30px rgba(0,0,0,.4); }
-    .rev-head { display:flex; align-items:center; gap:11px; margin-bottom:11px; }
-    .av { width:38px; height:38px; border-radius:50%; object-fit:cover; border:2px solid rgba(255,0,204,.35); }
-    .rev-name { font-weight:800; font-size:.9rem; }
-    .rev-stars { color:var(--yellow); font-size:.78rem; }
-    .rev-text { font-size:.86rem; color:rgba(255,255,255,.6); line-height:1.55; font-style:italic; }
-
-    /* ═══ FOOTER ═══ */
-    footer {
-      background: rgba(255,255,255,0.02);
-      border-top: 1px solid rgba(255,0,204,0.12);
-      padding: 22px 20px;
-      text-align: center;
-    }
-    footer p { color:rgba(255,255,255,.3); font-size:.76rem; margin-bottom:5px; }
-    footer p strong { color:rgba(255,255,255,.5); }
-    footer a { color:rgba(255,255,255,.3); text-decoration:none; margin:0 8px; }
-    footer a:hover { color:var(--pink); }
-
-    /* ═══ MODALS ═══ */
-    .modal {
-      display:none;
-      position:fixed; inset:0;
-      background:rgba(0,0,0,0.9);
-      backdrop-filter:blur(10px);
-      z-index:9999;
-      justify-content:center;
-      align-items:center;
-      padding:16px;
-    }
-    .modal.open { display:flex; animation:mFadeIn .25s ease; }
-    @keyframes mFadeIn{ from{opacity:0;} to{opacity:1;} }
-
-    .modal-box {
-      background: linear-gradient(145deg, #0d0d1a, #16001a);
-      border: 1px solid rgba(255,0,204,0.3);
-      border-top: 2px solid var(--pink);
-      border-radius: 2px 2px 18px 18px;
-      padding: 28px 22px;
-      max-width: 480px;
-      width: 100%;
-      text-align: center;
-      animation: mSlideUp .35s cubic-bezier(.22,1,.36,1);
-      box-shadow: 0 24px 70px rgba(0,0,0,.7), 0 0 60px rgba(255,0,204,.1);
-    }
-    @keyframes mSlideUp{ from{transform:translateY(20px);opacity:0;} to{transform:translateY(0);opacity:1;} }
-
-    .modal-box h3 {
-      font-family:'Lilita One',cursive;
-      font-size:1.8rem;
-      letter-spacing:1px;
-      color: var(--yellow);
-      margin-bottom:8px;
-    }
-    .modal-box p { color:rgba(255,255,255,.65); font-size:.9rem; line-height:1.5; margin-bottom:16px; }
-
-    .m-stock {
-      background:rgba(255,0,204,0.08);
-      border:1px solid rgba(255,0,204,.22);
-      border-radius:6px;
-      padding:9px 14px;
-      margin:12px 0;
-      font-weight:800;
-      font-size:.88rem;
-      color:var(--pink2);
-    }
-    .modal-close { display:block; margin-top:14px; font-size:.78rem; color:rgba(255,255,255,.22); cursor:pointer; background:none; border:none; font-family:inherit; }
-    .modal-close:hover { color:rgba(255,255,255,.5); }
-
-    /* Processing modal steps */
-    .proc-steps { margin:18px 0; text-align:left; }
-    .proc-step { display:flex; align-items:center; gap:12px; padding:9px 0; font-size:.9rem; color:rgba(255,255,255,.4); border-bottom:1px solid rgba(255,255,255,.05); transition:all .3s; }
-    .proc-step:last-child{ border:none; }
-    .proc-step.active { color:var(--pink); font-weight:700; }
-    .proc-step.done { color:var(--green); }
-    .proc-bar { height:5px; background:rgba(255,255,255,.07); border-radius:2px; overflow:hidden; margin:14px 0 0; }
-    .proc-fill { height:100%; width:0%; background:linear-gradient(90deg,var(--pink),var(--cyan)); border-radius:2px; animation:procAnim 3s ease-in-out forwards; }
-    @keyframes procAnim { 0%{width:0;} 33%{width:30%;} 66%{width:70%;} 100%{width:100%;} }
-
-    /* ═══ STICKY CTA ═══ */
-    .sticky-cta {
-      display:none;
-      position:fixed; bottom:0; left:0; right:0;
-      background:rgba(6,6,15,.97);
-      backdrop-filter:blur(16px);
-      border-top:1px solid rgba(255,0,204,.3);
-      padding:12px 16px;
-      text-align:center;
-      z-index:995;
-      transform:translateY(100%);
-      transition:transform .3s ease;
-    }
-    .sticky-cta .dl-btn { max-width:340px; margin:0 auto; }
-
-    /* Float button */
-    .float-btn { position:fixed; bottom:20px; right:20px; z-index:996; display:none; }
-    .float-inner {
-      display:flex; align-items:center; gap:8px;
-      background:linear-gradient(135deg,var(--pink),var(--purple));
-      color:#fff; padding:13px 18px; border-radius:6px;
-      font-family:'Lilita One',cursive; font-style:normal; font-size:.95rem; letter-spacing:1px; text-transform:uppercase;
-      text-decoration:none;
-      box-shadow:0 8px 24px rgba(255,0,204,0.4);
-      transition:all .3s; position:relative; overflow:hidden;
-    }
-    .float-inner:hover { transform:translateY(-3px); box-shadow:0 12px 32px rgba(255,0,204,.6); }
-    .pulse-ring { position:absolute; inset:0; border:2px solid rgba(255,0,204,.7); border-radius:6px; animation:pRing 2s infinite; }
-    @keyframes pRing { 0%{transform:scale(1);opacity:.7;} 100%{transform:scale(1.3);opacity:0;} }
-
-    @media(max-width:768px){
-      .sticky-cta{ display:block; }
-      .float-btn{ display:block; }
-      .main-card{ padding:22px 14px; }
-    }
-    @media(max-width:480px){
-      .feats{ grid-template-columns:1fr; }
-      .dl-btn{ width:100%; min-width:auto; }
-      .float-inner span{ display:none; }
-      .float-inner{ width:50px; height:50px; padding:0; border-radius:50%; justify-content:center; }
-    }
+    /* ── EMPTY ── */
+    .empty { display:none; text-align:center; padding:70px 20px; grid-column:1/-1; }
+    .empty.vis { display:block; }
+    .empty-icon { font-size:3rem; opacity:.28; margin-bottom:14px; }
+    .empty h3 { font-size:1.1rem; color:var(--muted); margin-bottom:6px; }
+    .empty p  { font-size:.82rem; color:rgba(232,232,255,.2); }
   </style>
 </head>
 <body>
 
-  <!-- Floating notes background -->
-  <div class="bg-particles" id="bgParticles"></div>
-
-  <!-- HEADER -->
-  <header>
-    <div class="header-inner">
-      <div class="site-title">🎵 FNF MOBILE MODS</div>
-      <div class="site-tagline">All Characters Unlocked • No Ads • Premium Features</div>
-    </div>
-  </header>
-
-  <div class="wrap">
-
-    <!-- Eyebrow -->
-    <div class="eyebrow">
-      <div class="eyebrow-pill">
-        <span class="blink-dot"></span>
-        Version 2025 — Updated Today
+  <div class="top-bar">
+    <div class="top-inner">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search games…" autocomplete="off"/>
+        <button class="clear-x" id="clearBtn" onclick="clearSearch()">✕</button>
+        <i class="fas fa-search search-icon"></i>
       </div>
-    </div>
-
-    <!-- Trust Badges -->
-    <div class="badges">
-      <div class="badge"><i class="fas fa-shield-alt" style="color:var(--green)"></i> 100% Safe</div>
-      <div class="badge"><i class="fas fa-download" style="color:var(--cyan)"></i> 2.5M+ Downloads</div>
-      <div class="badge"><i class="fas fa-star" style="color:var(--yellow)"></i> 4.9/5 Stars</div>
-      <div class="badge"><i class="fas fa-mobile-alt" style="color:var(--pink)"></i> iOS & Android</div>
-      <div class="badge"><i class="fas fa-bolt" style="color:var(--yellow)"></i> Instant Access</div>
-    </div>
-
-    <!-- MAIN CARD -->
-    <div class="main-card">
-
-      <!-- Rating -->
-      <div class="rating">
-        ★★★★★
-        <span>4.9/5 &nbsp;(24,815 reviews)</span>
+      <div class="pills" id="pills">
+        <div class="pill active" data-filter="all">All</div>
+        <div class="pill" data-filter="hot">🔥 Hot</div>
+        <div class="pill" data-filter="action">⚔️ Action</div>
+        <div class="pill" data-filter="rhythm">🎵 Rhythm</div>
+        <div class="pill" data-filter="rpg">🧙 RPG</div>
+        <div class="pill" data-filter="racing">🏎️ Racing</div>
+        <div class="pill" data-filter="puzzle">🧩 Puzzle</div>
+        <div class="pill" data-filter="shooter">🔫 Shooter</div>
       </div>
-
-      <!-- Game Image -->
-      <div class="img-wrap">
-        <img src="./fnf.webp" alt="FNF Mobile Mods - All Characters Unlocked"/>
-        <div class="img-corner-badge">✦ Premium Edition</div>
-        <div class="img-bottom-tag">
-          <i class="fas fa-download"></i>
-          Ready to Download!
-        </div>
-      </div>
-
-      <div class="card-title">Get FNF Mobile Mods <span class="t-pink">FREE!</span></div>
-      <p class="card-sub">Unlock ALL characters, remove ads, and access premium features — completely FREE. Join millions of players worldwide.</p>
-
-      <!-- Sys check -->
-      <div class="sys-check">
-        <i class="fas fa-check-circle"></i>
-        <span><strong>System Check Complete:</strong> Your device is compatible &amp; ready.</span>
-      </div>
-
-      <!-- Features -->
-      <div class="feats">
-        <div class="feat">
-          <div class="feat-ico">🎭</div>
-          <div><div class="feat-name">ALL Characters Unlocked</div><div class="feat-desc">Boyfriend, GF, Skid & Pump + 50 more</div></div>
-        </div>
-        <div class="feat">
-          <div class="feat-ico">📅</div>
-          <div><div class="feat-name">All 7 Weeks + Bonus</div><div class="feat-desc">Complete week access from day one</div></div>
-        </div>
-        <div class="feat">
-          <div class="feat-ico">🚫</div>
-          <div><div class="feat-name">Zero Ads</div><div class="feat-desc">No banners, no popups — pure rhythm</div></div>
-        </div>
-        <div class="feat">
-          <div class="feat-ico">⭐</div>
-          <div><div class="feat-name">Premium Features</div><div class="feat-desc">Everything unlocked for free</div></div>
-        </div>
-        <div class="feat">
-          <div class="feat-ico">♾</div>
-          <div><div class="feat-name">Unlimited Play</div><div class="feat-desc">No restrictions, play forever</div></div>
-        </div>
-        <div class="feat">
-          <div class="feat-ico">🛡</div>
-          <div><div class="feat-name">Anti-Ban Shield</div><div class="feat-desc">100% safe, tested protection</div></div>
-        </div>
-      </div>
-
-      <!-- Countdown -->
-      <div class="countdown">
-        <span class="cd-label"><i class="fas fa-clock"></i>&nbsp; Offer Expires In:</span>
-        <div id="timer">04:59</div>
-      </div>
-
-      <!-- Progress -->
-      <div class="prog-wrap">
-        <div class="prog-labels">
-          <span id="prog-lbl">Preparing download…</span>
-          <span id="prog-pct">0%</span>
-        </div>
-        <div class="prog-bar"><div class="prog-fill" id="progFill"></div></div>
-      </div>
-
-      <!-- Urgency -->
-      <div class="urgency">
-        <span class="fire-ico">🔥</span>
-        <strong>HURRY!</strong> Only <strong id="stockCount" style="color:var(--yellow);">47</strong> free downloads remaining today!
-      </div>
-
-      <!-- Download Buttons -->
-      <div class="btn-row">
-        <a href="https://tapunlock.co/cl/i/8dp9md" target="_blank" class="dl-btn btn-ios" id="iosBtn">
-          <i class="fab fa-apple" style="font-size:1.4rem;"></i>
-          <div class="btn-inner">
-            <span class="btn-main">Download for iOS</span>
-            <span class="btn-small">Instant Access • No Registration</span>
-          </div>
-        </a>
-        <a href="https://tapunlock.co/cl/i/o6wqwn" target="_blank" class="dl-btn btn-android" id="andBtn">
-          <i class="fab fa-android" style="font-size:1.4rem;"></i>
-          <div class="btn-inner">
-            <span class="btn-main">Download for Android</span>
-            <span class="btn-small">Free APK • Instant Install</span>
-          </div>
-        </a>
-      </div>
-
-      <!-- Recent Downloads -->
-      <div class="recent">
-        <div class="recent-hd"><i class="fas fa-satellite-dish" style="color:var(--pink)"></i> Live Downloads</div>
-        <div class="dl-item">
-          <i class="fas fa-location-dot" style="color:var(--pink);font-size:.8rem;"></i>
-          <span class="dl-loc" id="loc1">New York, USA</span>
-          <span class="dl-time" id="time1">2 min ago</span>
-        </div>
-        <div class="dl-item">
-          <i class="fas fa-location-dot" style="color:var(--pink);font-size:.8rem;"></i>
-          <span class="dl-loc" id="loc2">London, UK</span>
-          <span class="dl-time" id="time2">4 min ago</span>
-        </div>
-        <div class="dl-item">
-          <i class="fas fa-location-dot" style="color:var(--pink);font-size:.8rem;"></i>
-          <span class="dl-loc" id="loc3">Tokyo, Japan</span>
-          <span class="dl-time" id="time3">6 min ago</span>
-        </div>
-      </div>
-
-      <!-- Live counter -->
-      <div class="live-strip">
-        <span class="live-d"></span>
-        <span id="liveCount">512</span>&nbsp;people downloading right now
-      </div>
-
-    </div><!-- /main-card -->
-
-    <!-- TESTIMONIALS -->
-    <div class="sec-title">What <span class="accent">Players Say</span></div>
-    <div class="reviews">
-      <div class="review">
-        <div class="rev-head">
-          <img src="https://randomuser.me/api/portraits/men/32.jpg" class="av" alt="user">
-          <div><div class="rev-name">Michael T.</div><div class="rev-stars">★★★★★</div></div>
-        </div>
-        <p class="rev-text">"This is AMAZING! Got all characters unlocked instantly. No ads, no problems. Best FNF mod ever!"</p>
-      </div>
-      <div class="review">
-        <div class="rev-head">
-          <img src="https://randomuser.me/api/portraits/women/44.jpg" class="av" alt="user">
-          <div><div class="rev-name">Sarah K.</div><div class="rev-stars">★★★★★</div></div>
-        </div>
-        <p class="rev-text">"Downloaded in 30 seconds! All weeks unlocked, no registration needed. My kids absolutely love it!"</p>
-      </div>
-      <div class="review">
-        <div class="rev-head">
-          <img src="https://randomuser.me/api/portraits/men/75.jpg" class="av" alt="user">
-          <div><div class="rev-name">David P.</div><div class="rev-stars">★★★★★</div></div>
-        </div>
-        <p class="rev-text">"Finally! All characters unlocked for FREE. Works perfectly on both my iPhone and Android tablet."</p>
-      </div>
-    </div>
-
-  </div><!-- /wrap -->
-
-  <!-- FOOTER -->
-  <footer>
-    <p><strong>© 2025 FNF Mobile Mods</strong> — Trusted by 2.5M+ Players Worldwide</p>
-    <p style="margin:7px 0;"><i class="fas fa-shield-alt" style="color:var(--green);margin-right:5px;"></i>100% Safe &amp; Secure &nbsp;•&nbsp; No Registration Required &nbsp;•&nbsp; Instant Download</p>
-    <p><a href="#">Terms</a> | <a href="#">Privacy</a> | <a href="#">Contact</a></p>
-  </footer>
-
-  <!-- STICKY CTA -->
-  <div class="sticky-cta" id="stickyCta">
-    <a href="https://tapunlock.co/cl/i/o6wqwn" target="_blank" class="dl-btn btn-android" style="max-width:340px;margin:0 auto;">
-      <i class="fab fa-android"></i>
-      <div class="btn-inner">
-        <span class="btn-main">Download FNF Mods FREE</span>
-        <span class="btn-small">All Characters • No Ads</span>
-      </div>
-    </a>
-  </div>
-
-  <!-- FLOAT BUTTON -->
-  <div class="float-btn" id="floatBtn">
-    <a href="https://tapunlock.co/cl/i/o6wqwn" target="_blank" class="float-inner">
-      <i class="fas fa-download"></i>
-      <span>Download FREE</span>
-      <div class="pulse-ring"></div>
-    </a>
-  </div>
-
-  <!-- EXIT MODAL -->
-  <div class="modal" id="exitModal">
-    <div class="modal-box">
-      <div style="font-size:2.2rem;margin-bottom:8px;">🔥</div>
-      <h3>WAIT — DON'T LEAVE!</h3>
-      <p>Your <strong>FNF Mobile Mod</strong> with all characters unlocked is still ready! This free offer expires soon.</p>
-      <div class="m-stock">⚡ Only <span id="exitStock">47</span> free downloads left today!</div>
-      <div class="btn-row" style="margin:14px 0 6px;gap:10px;">
-        <a href="https://tapunlock.co/cl/i/8dp9md" target="_blank" class="dl-btn btn-ios" style="min-width:auto;flex:1;">
-          <i class="fab fa-apple"></i><span>iOS</span>
-        </a>
-        <a href="https://tapunlock.co/cl/i/o6wqwn" target="_blank" class="dl-btn btn-android" style="min-width:auto;flex:1;">
-          <i class="fab fa-android"></i><span>Android</span>
-        </a>
-      </div>
-      <button class="modal-close" onclick="document.getElementById('exitModal').classList.remove('open')">No thanks, I'll miss out</button>
     </div>
   </div>
 
-  <!-- MOBILE POPUP -->
-  <div class="modal" id="mobilePopup">
-    <div class="modal-box">
-      <div style="font-size:2rem;margin-bottom:8px;">🎮</div>
-      <h3>GET FNF MODS FREE!</h3>
-      <p>All characters unlocked, zero ads, works on any device. Install in seconds!</p>
-      <div class="m-stock">⚡ <span id="mobStock">47</span> free slots remaining!</div>
-      <div style="display:flex;flex-direction:column;gap:10px;margin:16px 0 6px;">
-        <a href="https://tapunlock.co/cl/i/8dp9md" target="_blank" class="dl-btn btn-ios" style="width:100%;">
-          <i class="fab fa-apple"></i>
-          <div class="btn-inner"><span class="btn-main">Download for iOS</span></div>
-        </a>
-        <a href="https://tapunlock.co/cl/i/o6wqwn" target="_blank" class="dl-btn btn-android" style="width:100%;">
-          <i class="fab fa-android"></i>
-          <div class="btn-inner"><span class="btn-main">Download for Android</span></div>
-        </a>
+  <main>
+    <div class="results-bar"><strong id="cnt">12</strong> games</div>
+    <div class="grid" id="grid">
+      <div class="empty" id="empty">
+        <div class="empty-icon">🔍</div>
+        <h3>No games found</h3>
+        <p>Try a different search or filter</p>
       </div>
-      <button class="modal-close" onclick="document.getElementById('mobilePopup').classList.remove('open')">Maybe later</button>
     </div>
-  </div>
-
-  <!-- DOWNLOAD PROCESSING MODAL -->
-  <div class="modal" id="procModal">
-    <div class="modal-box">
-      <div style="font-size:1.8rem;margin-bottom:10px;">⚙️</div>
-      <h3>PREPARING DOWNLOAD…</h3>
-      <div class="proc-steps">
-        <div class="proc-step active" id="pStep1"><i class="fas fa-check-circle"></i> Verifying Device Compatibility</div>
-        <div class="proc-step" id="pStep2"><i class="fas fa-spinner fa-spin"></i> Preparing Mod Package</div>
-        <div class="proc-step" id="pStep3"><i class="fas fa-circle"></i> Securing Download Link</div>
-      </div>
-      <div class="proc-bar"><div class="proc-fill"></div></div>
-      <p style="margin-top:14px;font-size:.82rem;color:rgba(255,255,255,.35);">Please wait while we prepare your FNF mod…</p>
-    </div>
-  </div>
+  </main>
 
 <script>
-  /* ── FLOATING NOTES ── */
-  (function(){
-    const notes = ['♩','♪','♫','♬','🎵','🎶','★','✦'];
-    const wrap = document.getElementById('bgParticles');
-    for(let i=0;i<20;i++){
-      const n = document.createElement('div');
-      n.className = 'note';
-      n.textContent = notes[Math.floor(Math.random()*notes.length)];
-      n.style.cssText = `
-        left:${Math.random()*100}%;
-        font-size:${Math.random()*1+0.7}rem;
-        color:${['rgba(255,0,204,0.35)','rgba(0,255,238,0.3)','rgba(255,230,0,0.3)','rgba(123,47,255,0.35)'][Math.floor(Math.random()*4)]};
-        animation-duration:${Math.random()*14+8}s;
-        animation-delay:${Math.random()*12}s;
-      `;
-      wrap.appendChild(n);
-    }
-  })();
+const GAMES = [
+  { id:1,  name:"FNF Mobile Mods",   cat:"rhythm",  tags:["hot"],  icon:"images/fnf.webp", bg:"🎶", badge:"hot",  desc:"All characters unlocked. 50+ mods, all 7 weeks, zero ads.",         rating:4.9, reviews:"24.8K", ios:"https://tapunlock.co/cl/i/8dp9md", and:"https://tapunlock.co/cl/i/o6wqwn" },
+  { id:1,  name:"Hatch Dragons Mod",   cat:"rhythm",  tags:["hot"],  icon:"images/hatch.webp", bg:"🎶", badge:"hot",  desc:"All characters unlocked. 50+ mods, all 7 weeks, zero ads.",         rating:4.9, reviews:"24.8K", ios:"https://tapunlock.co/cl/i/m55qjn", and:"https://tapunlock.co/cl/i/m55qjn" },
 
-  /* ── COUNTDOWN ── */
-  let secs = 4*60+59;
-  const timerEl = document.getElementById('timer');
-  const cd = setInterval(()=>{
-    const m=Math.floor(secs/60), s=secs%60;
-    timerEl.textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
-    if(secs<=0){clearInterval(cd);timerEl.textContent='EXPIRED!';}
-    else{ secs--; if(secs<60) timerEl.style.textShadow='0 0 28px rgba(255,0,0,.9)'; }
-  },1000);
+];
 
-  /* ── PROGRESS BAR ── */
-  (function(){
-    let p=0;
-    const fill=document.getElementById('progFill');
-    const pct=document.getElementById('prog-pct');
-    const lbl=document.getElementById('prog-lbl');
-    const stages=['Preparing download…','Downloading files…','Installing mod…','Finalizing setup…','Ready!'];
-    const iv=setInterval(()=>{
-      if(p>=100){clearInterval(iv);lbl.textContent='✅ Download Ready!';lbl.style.color='var(--green)';return;}
-      p+=Math.random()<.5?Math.ceil(Math.random()*3):1;
-      if(p>100)p=100;
-      fill.style.width=p+'%';
-      pct.textContent=p+'%';
-      lbl.textContent=stages[Math.floor(p/25)]||stages[4];
-    },160+Math.random()*180);
-  })();
+const badgeClass = { hot:"badge-hot", new:"badge-new", free:"badge-free" };
+const badgeLabel = { hot:"🔥 HOT", new:"✦ NEW", free:"FREE" };
 
-  /* ── LIVE COUNTER ── */
-  let liveN=512;
-  const liveEl=document.getElementById('liveCount');
-  setInterval(()=>{
-    liveN+=Math.random()<.6?Math.ceil(Math.random()*3):-Math.ceil(Math.random()*2);
-    if(liveN<300)liveN=300;
-    liveEl.textContent=liveN.toLocaleString();
-  },2000+Math.random()*1500);
+let activeFilter = "all";
+let searchQuery  = "";
 
-  /* ── STOCK ── */
-  let stock=47;
-  function syncStock(){ ['stockCount','exitStock','mobStock'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=stock;}); }
-  setInterval(()=>{
-    if(stock>5&&Math.random()<.22){stock-=Math.ceil(Math.random()*2);syncStock();if(stock<12)document.getElementById('stockCount').style.color='#ff3333';}
-  },4500+Math.random()*5500);
+function render(){
+  const grid  = document.getElementById("grid");
+  const empty = document.getElementById("empty");
+  grid.querySelectorAll(".card").forEach(c => c.remove());
 
-  /* ── RECENT DLs ── */
-  const locs=['New York, USA','London, UK','Tokyo, Japan','Paris, France','Sydney, Australia','Berlin, Germany','Toronto, Canada','Mumbai, India','Seoul, South Korea','Mexico City, Mexico','São Paulo, Brazil','Cairo, Egypt'];
-  let dlM=[2,4,6];
-  function rotateDL(){
-    const nl=locs[Math.floor(Math.random()*locs.length)];
-    dlM=[1,dlM[0]+1,dlM[1]+1];
-    const nl2=[nl,document.getElementById('loc1').textContent,document.getElementById('loc2').textContent];
-    ['loc1','loc2','loc3'].forEach((id,i)=>document.getElementById(id).textContent=nl2[i]);
-    ['time1','time2','time3'].forEach((id,i)=>document.getElementById(id).textContent=dlM[i]+' min ago');
-  }
-  setInterval(rotateDL,6000+Math.random()*5000);
+  const q = searchQuery.toLowerCase();
+  const list = GAMES.filter(g => {
+    const matchFilter = activeFilter === "all" || g.cat === activeFilter || g.tags.includes(activeFilter);
+    const matchSearch = !q || g.name.toLowerCase().includes(q) || g.cat.includes(q) || g.desc.toLowerCase().includes(q);
+    return matchFilter && matchSearch;
+  });
 
-  /* ── FEATURES REVEAL ── */
-  const feats=document.querySelectorAll('.feat');
-  const obs=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('vis'); });
-  },{threshold:.1});
-  feats.forEach((f,i)=>{ f.style.transitionDelay=(i*.08)+'s'; obs.observe(f); });
+  document.getElementById("cnt").textContent = list.length;
+  empty.classList.toggle("vis", list.length === 0);
 
-  /* ── DOWNLOAD PROCESSING ── */
-  function showProcessing(href){
-    const modal=document.getElementById('procModal');
-    modal.classList.add('open');
-    const steps=['pStep1','pStep2','pStep3'];
-    steps.forEach((id,i)=>{
-      const el=document.getElementById(id);
-      el.className='proc-step';
-      el.querySelector('i').className='fas fa-circle';
-    });
-    document.getElementById('pStep1').classList.add('active');
+  list.forEach((g, i) => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.style.animationDelay = (i * 0.05) + "s";
+    card.innerHTML = `
+      <div class="thumb">
+        <div class="thumb-bg">${g.bg}</div>
+        <div class="thumb-icon"><img src="${g.icon}" alt="${g.name}"></div>
+        <div class="badge ${badgeClass[g.badge]}">${badgeLabel[g.badge]}</div>
+      </div>
+      <div class="card-body">
+        <div class="card-cat">${g.cat}</div>
+        <div class="card-name">${g.name}</div>
+        <div class="card-desc">${g.desc}</div>
+        <div class="card-stars">
+          <span class="stars">${"★".repeat(Math.round(g.rating))}</span>
+          <span class="rating-txt">${g.rating} · ${g.reviews} reviews</span>
+        </div>
+        <div class="btn-row">
+          <a href="${g.ios}" target="_blank" class="dl-btn btn-ios">
+            <i class="fab fa-apple"></i> iOS
+          </a>
+          <a href="${g.and}" target="_blank" class="dl-btn btn-and">
+            <i class="fab fa-android"></i> Android
+          </a>
+        </div>
+      </div>`;
+    grid.insertBefore(card, empty);
+  });
 
-    setTimeout(()=>{
-      document.getElementById('pStep1').classList.remove('active');
-      document.getElementById('pStep1').classList.add('done');
-      document.getElementById('pStep1').querySelector('i').className='fas fa-check-circle';
-      document.getElementById('pStep2').classList.add('active');
-    },1000);
-    setTimeout(()=>{
-      document.getElementById('pStep2').classList.remove('active');
-      document.getElementById('pStep2').classList.add('done');
-      document.getElementById('pStep2').querySelector('i').className='fas fa-check-circle';
-      document.getElementById('pStep3').classList.add('active');
-    },2000);
-    setTimeout(()=>{
-      document.getElementById('pStep3').classList.remove('active');
-      document.getElementById('pStep3').classList.add('done');
-      document.getElementById('pStep3').querySelector('i').className='fas fa-check-circle';
-      modal.classList.remove('open');
-      window.open(href,'_blank');
-    },3000);
-  }
-
-  document.querySelectorAll('.dl-btn').forEach(btn=>{
-    btn.addEventListener('click',function(e){
-      e.preventDefault();
-      const href=this.href||this.getAttribute('href');
-      if(!href||href==='#') return;
-      showProcessing(href);
+  // analytics
+  grid.querySelectorAll(".dl-btn").forEach((btn, idx) => {
+    const game = list[Math.floor(idx / 2)];
+    const platform = btn.classList.contains("btn-ios") ? "ios" : "android";
+    btn.addEventListener("click", () => {
+      if(typeof gtag !== "undefined") gtag("event","download_click",{ game_name:game?.name, platform });
+      if(typeof fbq  !== "undefined") fbq("track","Lead",{ content_name:game?.name });
     });
   });
+}
 
-  /* ── EXIT INTENT ── */
-  let exitShown=false;
-  document.addEventListener('mouseout',e=>{
-    if(!e.relatedTarget&&!e.toElement&&!exitShown){
-      exitShown=true;
-      document.getElementById('exitModal').classList.add('open');
-      setTimeout(()=>exitShown=false,30000);
-    }
-  });
-  // Mobile swipe up
-  let touchStartY=0;
-  document.addEventListener('touchstart',e=>touchStartY=e.changedTouches[0].clientY);
-  document.addEventListener('touchmove',e=>{
-    if(touchStartY-e.changedTouches[0].clientY>50&&!exitShown){
-      exitShown=true;
-      document.getElementById('exitModal').classList.add('open');
-      setTimeout(()=>exitShown=false,30000);
-    }
-  });
+// search
+let deb;
+document.getElementById("searchInput").addEventListener("input", function(){
+  clearTimeout(deb);
+  deb = setTimeout(() => {
+    searchQuery = this.value.trim();
+    document.getElementById("clearBtn").classList.toggle("vis", searchQuery.length > 0);
+    render();
+  }, 200);
+});
 
-  /* ── CLOSE MODAL ON BACKDROP ── */
-  document.querySelectorAll('.modal').forEach(m=>{
-    m.addEventListener('click',function(e){ if(e.target===this) this.classList.remove('open'); });
-  });
+function clearSearch(){
+  searchQuery = "";
+  document.getElementById("searchInput").value = "";
+  document.getElementById("clearBtn").classList.remove("vis");
+  render();
+}
 
-  /* ── MOBILE POPUP ── */
-  if(window.innerWidth<=768) setTimeout(()=>document.getElementById('mobilePopup').classList.add('open'),3500);
+// filter pills
+document.getElementById("pills").addEventListener("click", e => {
+  const pill = e.target.closest(".pill");
+  if(!pill) return;
+  activeFilter = pill.dataset.filter;
+  document.querySelectorAll(".pill").forEach(p => p.classList.toggle("active", p === pill));
+  render();
+});
 
-  /* ── STICKY CTA + FLOAT ── */
-  let lastSt=0;
-  window.addEventListener('scroll',()=>{
-    const st=window.pageYOffset;
-    const cta=document.getElementById('stickyCta');
-    const flt=document.getElementById('floatBtn');
-    if(st>280){
-      cta.style.transform=st>lastSt?'translateY(0)':'translateY(100%)';
-      flt.style.display='block';
-    }
-    lastSt=st;
-  });
-
-  /* ── ANALYTICS ── */
-  function trackEvent(name,data={}){
-    if(typeof gtag!=='undefined') gtag('event',name,data);
-    if(typeof fbq!=='undefined')  fbq('track',name,data);
-  }
-  trackEvent('page_view',{ page_title:document.title, page_url:window.location.href });
+render();
 </script>
 
 <!-- Facebook Pixel -->
 <script>
-  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init','YOUR_PIXEL_ID');
-  fbq('track','PageView');
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','YOUR_PIXEL_ID');
+fbq('track','PageView');
 </script>
 
 </body>

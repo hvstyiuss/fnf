@@ -1,910 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Delta Executor - Free Roblox Executor for iOS & Android</title>
-  <meta name="description" content="Download Delta Executor free for iOS and Android. The most powerful Roblox script executor with keyless access, auto-update, and full UNC support."/>
-  <meta name="keywords" content="Delta Executor, Roblox Executor, Delta iOS, Delta Android, Free Executor, Script Executor"/>
-  <meta property="og:title" content="Delta Executor - Free Roblox Executor iOS & Android">
-  <meta property="og:description" content="Download Delta Executor free. Keyless, auto-update, full UNC support for iOS and Android.">
-  <meta property="og:image" content="https://gazaki.com/images/delta.jpg">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#111">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <style>
-    :root {
-      --primary: #6d28d9;
-      --primary-dark: #3b0764;
-      --primary-light: #a78bfa;
-      --accent: #f59e0b;
-      --secondary: #3b82f6;
-      --danger: #ef4444;
-      --dark: #0a0a12;
-      --darker: #050508;
-      --card: #12121e;
-      --card2: #1a1a2e;
-      --border: #2a2a45;
-      --light: #f8fafc;
-      --gray: #8888aa;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { height: 100%; scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: var(--dark);
-      color: white;
-      line-height: 1.6;
-      display: flex;
-      flex-direction: column;
-      background-image: radial-gradient(ellipse at 50% 0%, rgba(109,40,217,0.15) 0%, transparent 60%);
-    }
-
-    h1, h2, h3, h4 { font-weight: 700; line-height: 1.2; margin-bottom: 0.5em; }
-
-    h1 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      background: linear-gradient(90deg, #a78bfa, #60a5fa);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    h2 { font-size: clamp(1.4rem, 3vw, 2rem); color: var(--light); }
-
-    header {
-      background: linear-gradient(135deg, #0d0d1a, #160d2e);
-      padding: 22px 20px;
-      text-align: center;
-      border-bottom: 1px solid var(--border);
-      position: relative;
-      overflow: hidden;
-    }
-
-    header::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 50% 0%, rgba(109,40,217,0.2) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    header p { color: var(--gray); font-size: 0.95rem; position: relative; z-index: 1; }
-    header h1 { position: relative; z-index: 1; }
-
-    .header-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(109,40,217,0.2);
-      border: 1px solid rgba(167,139,250,0.3);
-      border-radius: 20px;
-      padding: 4px 14px;
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--primary-light);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      margin-bottom: 10px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .container { width: 100%; max-width: 900px; margin: 0 auto; padding: 24px 20px; flex: 1; }
-
-    /* Trust Badges */
-    .trust-badges {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 22px;
-    }
-
-    .badge {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255,255,255,0.04);
-      padding: 9px 14px;
-      border-radius: 50px;
-      font-size: 0.85rem;
-      border: 1px solid var(--border);
-      color: var(--gray);
-    }
-
-    .badge img { width: 18px; height: 18px; object-fit: contain; }
-
-    /* App Card */
-    .app-card {
-      background: var(--card);
-      border-radius: 20px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 28px 24px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 0 1px var(--border);
-      position: relative;
-    }
-
-    .app-card::before {
-      content: '';
-      position: absolute;
-      top: -60px; left: 50%;
-      transform: translateX(-50%);
-      width: 400px; height: 300px;
-      background: radial-gradient(ellipse, rgba(109,40,217,0.15) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .app-card > * { position: relative; z-index: 1; }
-
-    .app-icon {
-      width: 90px; height: 90px;
-      border-radius: 22px;
-      background: linear-gradient(135deg, #3b0764, #6d28d9);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 44px;
-      margin-bottom: 16px;
-      box-shadow: 0 8px 30px rgba(109,40,217,0.4);
-      border: 2px solid rgba(167,139,250,0.3);
-    }
-
-    .app-card p.subtitle { color: var(--gray); font-size: 0.95rem; margin-bottom: 18px; max-width: 600px; }
-
-    .rating {
-      color: var(--accent);
-      font-weight: 600;
-      font-size: 0.95rem;
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-
-    .version-info {
-      display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-bottom: 18px;
-    }
-
-    .ver-tag {
-      background: rgba(109,40,217,0.15);
-      border: 1px solid rgba(167,139,250,0.2);
-      border-radius: 8px;
-      padding: 5px 12px;
-      font-size: 12px;
-      color: var(--primary-light);
-      font-weight: 600;
-    }
-
-    /* Features */
-    .features { margin: 18px 0; text-align: left; width: 100%; max-width: 460px; }
-
-    .features li {
-      list-style: none;
-      margin-bottom: 10px;
-      color: var(--primary-light);
-      font-weight: 500;
-      padding-left: 28px;
-      position: relative;
-      font-size: 0.92rem;
-    }
-
-    .features li::before {
-      content: '\f00c';
-      font-family: 'Font Awesome 6 Free';
-      font-weight: 900;
-      position: absolute;
-      left: 0;
-      color: var(--primary-light);
-    }
-
-    /* Countdown */
-    .countdown-container {
-      margin: 14px 0;
-      background: rgba(239,68,68,0.1);
-      padding: 12px 18px;
-      border-radius: 10px;
-      border: 1px solid rgba(239,68,68,0.3);
-    }
-
-    .countdown-title { font-size: 0.85rem; margin-bottom: 4px; color: var(--gray); }
-
-    #timer {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--danger);
-      font-family: 'Montserrat', sans-serif;
-    }
-
-    /* Progress */
-    .progress-container { width: 100%; max-width: 480px; margin: 14px auto; }
-    .progress-title { text-align: center; margin-bottom: 8px; color: var(--gray); font-size: 0.85rem; }
-    .progress-bar { height: 7px; background: rgba(255,255,255,0.08); border-radius: 4px; overflow: hidden; }
-    .progress-fill { height: 100%; width: 0; background: linear-gradient(90deg, #6d28d9, #a78bfa); border-radius: 4px; transition: width 0.4s ease; }
-
-    /* Download Buttons */
-    .download-buttons {
-      display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;
-      margin: 20px 0; width: 100%;
-    }
-
-    .download-btn {
-      padding: 13px 22px;
-      border-radius: 10px;
-      color: white;
-      font-size: 0.95rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.25s ease;
-      min-width: 190px;
-      text-align: center;
-      display: flex; align-items: center; justify-content: center; gap: 8px;
-      border: none; cursor: pointer;
-      flex: 1 1 auto;
-    }
-
-    .download-btn i { font-size: 1rem; }
-    .download-btn:hover { transform: translateY(-3px); filter: brightness(1.15); }
-    .download-btn:active { transform: translateY(1px); }
-
-    .btn-ios {
-      background: linear-gradient(135deg, #1d4ed8, #3b82f6);
-      box-shadow: 0 4px 20px rgba(59,130,246,0.35);
-    }
-
-    .btn-android {
-      background: linear-gradient(135deg, #15803d, #22c55e);
-      box-shadow: 0 4px 20px rgba(34,197,94,0.35);
-    }
-
-    .btn-guide {
-      background: linear-gradient(135deg, #7c3aed, #a78bfa);
-      box-shadow: 0 4px 20px rgba(124,58,237,0.35);
-    }
-
-    .btn-script {
-      background: linear-gradient(135deg, #b45309, #f59e0b);
-      box-shadow: 0 4px 20px rgba(245,158,11,0.3);
-    }
-
-    /* Tutorial button */
-    .tutorial-btn {
-      padding: 12px 24px;
-      background: linear-gradient(135deg, #6d28d9, #3b82f6);
-      border: none; border-radius: 9px; color: #fff;
-      font-size: 14px; font-weight: 700; cursor: pointer;
-      letter-spacing: 0.4px;
-      box-shadow: 0 4px 20px rgba(109,40,217,0.35);
-      transition: all 0.25s ease;
-      display: inline-flex; align-items: center; gap: 8px;
-      margin-bottom: 16px;
-    }
-
-    .tutorial-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(109,40,217,0.5); }
-
-    /* Live counter */
-    .live-counter {
-      margin: 12px 0;
-      padding: 9px 16px;
-      background: rgba(109,40,217,0.1);
-      border-radius: 8px;
-      font-size: 0.88rem;
-      border: 1px solid rgba(109,40,217,0.3);
-      display: inline-flex; align-items: center; gap: 8px;
-    }
-
-    .live-counter .pulse {
-      width: 9px; height: 9px; border-radius: 50%;
-      background: var(--primary-light);
-      box-shadow: 0 0 0 0 rgba(167,139,250,0.7);
-      animation: pulse 1.5s infinite;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(167,139,250,0.7); }
-      70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(167,139,250,0); }
-      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(167,139,250,0); }
-    }
-
-    /* System Check */
-    .system-check {
-      background: rgba(59,130,246,0.1);
-      padding: 11px 16px; border-radius: 10px; margin: 14px 0;
-      border: 1px solid rgba(59,130,246,0.3);
-      display: flex; align-items: center; gap: 10px;
-    }
-
-    .system-check i { color: #60a5fa; font-size: 1.1rem; }
-    .system-check-text { font-size: 0.88rem; }
-    .system-check-text strong { color: var(--light); }
-
-    /* Testimonials */
-    .testimonials { display: flex; gap: 14px; margin: 20px 0; flex-wrap: wrap; justify-content: center; }
-
-    .testimonial {
-      background: var(--card2);
-      padding: 16px; border-radius: 14px;
-      max-width: 280px; text-align: left;
-      border: 1px solid var(--border); flex: 1 1 260px;
-    }
-
-    .testimonial-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
-    .testimonial-avatar { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; }
-    .testimonial-name { font-weight: 600; font-size: 0.9rem; }
-    .testimonial-rating { color: var(--accent); font-size: 0.8rem; }
-    .testimonial-text { font-style: italic; color: var(--gray); font-size: 0.88rem; }
-
-    /* ── CONNECTION PROGRESS MODAL ── */
-    .conn-modal {
-      display: none;
-      position: fixed; inset: 0;
-      background: rgba(5,5,10,0.92);
-      z-index: 9999;
-      align-items: center; justify-content: center;
-      padding: 20px;
-      animation: fadeIn 0.25s ease;
-    }
-
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    @keyframes slideUp { from { transform: translateY(18px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-
-    .conn-box {
-      background: var(--card2);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 30px 28px;
-      max-width: 420px; width: 100%;
-      text-align: center;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.7), 0 0 40px rgba(109,40,217,0.1);
-      animation: slideUp 0.35s ease;
-      position: relative;
-    }
-
-    .conn-icon {
-      width: 64px; height: 64px; border-radius: 16px;
-      background: linear-gradient(135deg, #3b0764, #6d28d9);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 30px;
-      margin: 0 auto 16px;
-      box-shadow: 0 6px 24px rgba(109,40,217,0.4);
-    }
-
-    .conn-title {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.2rem; font-weight: 700; color: white;
-      margin-bottom: 4px;
-    }
-
-    .conn-subtitle { font-size: 0.85rem; color: var(--gray); margin-bottom: 20px; }
-
-    .conn-steps { display: flex; flex-direction: column; gap: 10px; margin-bottom: 22px; text-align: left; }
-
-    .conn-step {
-      display: flex; align-items: center; gap: 12px;
-      padding: 10px 14px; border-radius: 10px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.03);
-      transition: all 0.4s ease;
-    }
-
-    .conn-step.active { border-color: rgba(167,139,250,0.4); background: rgba(109,40,217,0.1); }
-    .conn-step.done { border-color: rgba(34,197,94,0.4); background: rgba(34,197,94,0.06); }
-
-    .step-icon {
-      width: 32px; height: 32px; border-radius: 8px; flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 15px; background: rgba(255,255,255,0.05);
-      border: 1px solid var(--border);
-      transition: all 0.4s ease;
-    }
-
-    .conn-step.active .step-icon { background: rgba(109,40,217,0.2); border-color: rgba(167,139,250,0.3); }
-    .conn-step.done .step-icon { background: rgba(34,197,94,0.15); border-color: rgba(34,197,94,0.3); }
-
-    .step-info { flex: 1; }
-    .step-name { font-size: 13px; font-weight: 600; color: white; }
-    .step-detail { font-size: 11px; color: var(--gray); }
-
-    .step-status { font-size: 13px; font-weight: 600; color: var(--gray); flex-shrink: 0; }
-    .conn-step.active .step-status { color: var(--primary-light); }
-    .conn-step.done .step-status { color: #4ade80; }
-
-    .conn-bar-wrap { margin-bottom: 16px; }
-    .conn-bar-label {
-      display: flex; justify-content: space-between;
-      font-size: 12px; font-weight: 600; margin-bottom: 6px;
-    }
-    .conn-bar-left { color: var(--gray); }
-    .conn-bar-right { color: var(--primary-light); }
-
-    .conn-bar {
-      height: 8px; background: rgba(255,255,255,0.07);
-      border-radius: 10px; overflow: hidden;
-    }
-
-    .conn-fill {
-      height: 100%; width: 0%;
-      background: linear-gradient(90deg, #6d28d9, #a78bfa);
-      border-radius: 10px;
-      transition: width 0.5s cubic-bezier(0.4,0,0.2,1);
-    }
-
-    .conn-status-txt {
-      font-size: 12px; color: var(--gray); margin-bottom: 18px;
-      min-height: 16px;
-    }
-
-    .conn-proceed-btn {
-      display: none;
-      width: 100%; padding: 13px;
-      background: linear-gradient(135deg, #6d28d9, #a78bfa);
-      border: none; border-radius: 10px; color: white;
-      font-size: 15px; font-weight: 700; cursor: pointer;
-      box-shadow: 0 4px 20px rgba(109,40,217,0.4);
-      transition: all 0.25s ease;
-      gap: 8px; align-items: center; justify-content: center;
-    }
-
-    .conn-proceed-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(109,40,217,0.55); }
-
-    .conn-cancel {
-      background: none; border: none; color: var(--gray);
-      font-size: 12px; cursor: pointer; margin-top: 12px;
-      display: block; width: 100%; text-align: center;
-      transition: color 0.2s;
-    }
-
-    .conn-cancel:hover { color: white; }
-
-    /* Spinning animation for active step */
-    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-    .spin { display: inline-block; animation: spin 1s linear infinite; }
-
-    /* Video Modal */
-    #vm {
-      display: none; position: fixed; inset: 0;
-      background: rgba(0,0,0,0.88); z-index: 9999;
-      align-items: center; justify-content: center;
-      padding: 15px; animation: fadeIn 0.3s ease;
-    }
-
-    .vm-box {
-      background: var(--card2); border-radius: 14px; padding: 22px;
-      max-width: 680px; width: 100%; position: relative;
-      border: 1px solid var(--primary); box-shadow: 0 10px 40px rgba(0,0,0,0.6);
-      animation: slideUp 0.4s ease;
-    }
-
-    .vm-close {
-      position: absolute; top: 12px; right: 14px;
-      background: none; border: none; color: var(--gray);
-      font-size: 20px; cursor: pointer; transition: color 0.2s;
-    }
-
-    .vm-close:hover { color: white; }
-
-    /* Exit modal */
-    .modal {
-      display: none; position: fixed; inset: 0;
-      background: rgba(0,0,0,0.9); z-index: 9999;
-      justify-content: center; align-items: center;
-      animation: fadeIn 0.3s ease; padding: 15px;
-    }
-
-    .modal-content {
-      background: var(--card2); padding: 24px; border-radius: 14px;
-      max-width: 500px; width: 100%; text-align: center;
-      border: 1px solid var(--primary);
-      box-shadow: 0 10px 40px rgba(0,0,0,0.6);
-      animation: slideUp 0.4s ease;
-    }
-
-    .modal h3 { color: var(--primary-light); margin-bottom: 10px; font-size: 1.2rem; }
-    .modal p { color: var(--gray); margin-bottom: 18px; font-size: 0.9rem; }
-
-    footer {
-      text-align: center; padding: 16px;
-      background: var(--card); color: var(--gray);
-      font-size: 0.82rem;
-      border-top: 1px solid var(--border);
-    }
-
-    footer a { color: var(--gray); text-decoration: none; }
-    footer a:hover { color: var(--primary-light); }
-
-    @media (max-width: 480px) {
-      .container { padding: 14px; }
-      .app-card { padding: 18px 14px; }
-      .download-btn { width: 100%; }
-      .conn-box { padding: 22px 16px; }
-    }
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Tomodachi Life: Living the Dream — Exclusive Content</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#0a0a0f;color:#fff;min-height:100vh;overflow-x:hidden}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;text-align:center;position:relative;background:radial-gradient(ellipse at 50% 0%,#1a0a2e 0%,#0a0a0f 70%)}
+.badge-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:28px}
+.badge{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:500;color:#a0a0b0;display:flex;align-items:center;gap:6px}
+.badge span{width:7px;height:7px;border-radius:50%;background:#22c55e;display:inline-block;box-shadow:0 0 8px #22c55e}
+.game-img-wrap{width:140px;height:140px;border-radius:28px;overflow:hidden;margin:0 auto 24px;border:2px solid rgba(255,255,255,0.1);box-shadow:0 0 60px rgba(139,92,246,0.3);background:linear-gradient(135deg,#7c3aed,#a78bfa)}
+.game-img-wrap img{width:100%;height:100%;object-fit:cover}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#a78bfa;margin-bottom:12px}
+h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 0%,#c4b5fd 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.subtitle{font-size:clamp(1rem,2.5vw,1.15rem);color:#6b7280;max-width:480px;margin:0 auto 32px;line-height:1.6}
+.features-grid{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:36px}
+.feat{background:rgba(139,92,246,0.08);border:1px solid rgba(139,92,246,0.2);border-radius:12px;padding:10px 16px;font-size:13px;font-weight:500;color:#c4b5fd;display:flex;align-items:center;gap:8px}
+.feat svg{width:14px;height:14px;flex-shrink:0}
+.download-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,#7c3aed,#6d28d9);color:#fff;font-size:16px;font-weight:700;padding:18px 48px;border-radius:14px;border:none;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;box-shadow:0 0 40px rgba(124,58,237,0.4);letter-spacing:0.3px;text-decoration:none}
+.download-btn:hover{transform:translateY(-2px);box-shadow:0 0 60px rgba(124,58,237,0.6)}
+.download-btn:active{transform:translateY(0)}
+.btn-icon{font-size:20px}
+.users-row{display:flex;align-items:center;gap:10px;justify-content:center;margin-top:20px;font-size:13px;color:#6b7280}
+.avatars{display:flex}
+.avatars img{width:26px;height:26px;border-radius:50%;border:2px solid #0a0a0f;margin-left:-6px}
+.avatars img:first-child{margin-left:0}
+
+/* Modal overlay */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:9999;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+.modal-overlay.active{display:flex}
+.modal-box{background:#13131f;border:1px solid rgba(139,92,246,0.3);border-radius:24px;padding:36px 32px;max-width:440px;width:100%;text-align:center;position:relative;animation:popIn 0.35s cubic-bezier(0.34,1.56,0.64,1)}
+@keyframes popIn{from{opacity:0;transform:scale(0.85)}to{opacity:1;transform:scale(1)}}
+.modal-icon{width:70px;height:70px;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#a78bfa);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:28px}
+.modal-title{font-size:20px;font-weight:700;margin-bottom:8px}
+.modal-sub{font-size:14px;color:#6b7280;margin-bottom:28px;line-height:1.5}
+.progress-wrap{margin-bottom:24px}
+.progress-label{display:flex;justify-content:space-between;font-size:12px;color:#6b7280;margin-bottom:8px}
+.progress-track{height:8px;background:rgba(255,255,255,0.08);border-radius:100px;overflow:hidden}
+.progress-bar{height:100%;width:0%;background:linear-gradient(90deg,#7c3aed,#a78bfa);border-radius:100px;transition:width 0.4s ease}
+.steps{display:flex;flex-direction:column;gap:10px;text-align:left;margin-bottom:24px}
+.step{display:flex;align-items:center;gap:12px;font-size:13px;color:#9ca3af;transition:color 0.3s}
+.step.done{color:#a78bfa}
+.step-dot{width:20px;height:20px;border-radius:50%;border:2px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0;transition:all 0.3s}
+.step.done .step-dot{background:#7c3aed;border-color:#7c3aed;color:#fff}
+.step.active .step-dot{border-color:#a78bfa;animation:pulse 1.2s infinite}
+.step.active{color:#fff}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(167,139,250,0.4)}50%{box-shadow:0 0 0 6px rgba(167,139,250,0)}}
+.redirect-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,#7c3aed,#6d28d9);color:#fff;font-size:15px;font-weight:700;padding:14px 32px;border-radius:12px;border:none;cursor:pointer;width:100%;opacity:0;transition:opacity 0.5s,transform 0.2s;transform:translateY(8px);text-decoration:none}
+.redirect-btn.visible{opacity:1;transform:translateY(0)}
+.redirect-btn:hover{filter:brightness(1.1)}
+
+@media(max-width:480px){
+  h1{font-size:1.8rem}
+  .download-btn{padding:15px 28px;font-size:15px}
+  .modal-box{padding:24px 20px}
+}
+</style>
 </head>
 <body>
 
-<header>
-  <div class="header-badge">⚡ v2.684 — Latest Release</div>
-  <h1>Delta Executor</h1>
-  <p>Free Roblox Executor • iOS & Android • No Key Required</p>
-</header>
+<section class="hero">
+  <div class="badge-row">
+    <div class="badge"><span></span> Nintendo Switch</div>
+    <div class="badge"><span></span> 3DS Classic</div>
+    <div class="badge"><span></span> Free Access</div>
+  </div>
 
-<div class="container">
+  <div class="game-img-wrap">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0EODNsOwQ9FHLveRNrjdimDgh9BV8b8M-tw&s" alt="Tomodachi Life" onerror="this.style.display='none'">
+  </div>
 
-  <!-- Trust Badges -->
-  <div class="trust-badges">
-    <div class="badge">
-      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828640.png" alt="Safe">
-      <span>100% Safe</span>
+  <p class="eyebrow">Exclusive Access</p>
+  <h1>Tomodachi Life<br>Living the Dream</h1>
+  <p class="subtitle">Get exclusive guides, tips, and premium content for Tomodachi Life. Unlock the full island experience today — completely free.</p>
+
+  <div class="features-grid">
+    <div class="feat">
+      <svg viewBox="0 0 16 16" fill="none"><path d="M8 1l1.8 3.6L14 5.5l-3 2.9.7 4.1L8 10.4l-3.7 2.1.7-4.1L2 5.5l4.2-.9L8 1z" fill="#a78bfa"/></svg>
+      All Character Guides
     </div>
-    <div class="badge">
-      <img src="https://cdn-icons-png.flaticon.com/512/3132/3132693.png" alt="Downloads">
-      <span>3.8M+ Downloads</span>
+    <div class="feat">
+      <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#a78bfa" stroke-width="1.5"/><path d="M8 5v4l2.5 1.5" stroke="#a78bfa" stroke-width="1.5" stroke-linecap="round"/></svg>
+      Updated Weekly
     </div>
-    <div class="badge">
-      <img src="https://cdn-icons-png.flaticon.com/512/992/992651.png" alt="Updated">
-      <span>Updated: <span id="current-date"></span></span>
+    <div class="feat">
+      <svg viewBox="0 0 16 16" fill="none"><path d="M2 8l4 4 8-8" stroke="#a78bfa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      100% Free Access
     </div>
-    <div class="badge">
-      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="Keyless">
-      <span>No Key System</span>
+    <div class="feat">
+      <svg viewBox="0 0 16 16" fill="none"><rect x="2" y="6" width="12" height="8" rx="2" stroke="#a78bfa" stroke-width="1.5"/><path d="M5 6V4a3 3 0 016 0v2" stroke="#a78bfa" stroke-width="1.5" stroke-linecap="round"/></svg>
+      No Subscription
     </div>
   </div>
 
-  <!-- App Card -->
-  <div class="app-card">
+  <button class="download-btn" onclick="openModal()">
+    <span class="btn-icon">🎮</span>
+    Get Free Access Now
+  </button>
 
-    <div class="app-icon"><img width="150px" src="./images/delta.jpg" alt="Delta Executor"></div>
-
-    <h2>Delta Executor</h2>
-
-    <div class="version-info">
-      <span class="ver-tag">v2.684</span>
-      <span class="ver-tag">iOS 15+</span>
-      <span class="ver-tag">Android 8+</span>
-      <span class="ver-tag">UNC Supported</span>
+  <div class="users-row">
+    <div class="avatars">
+      <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="">
+      <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="">
+      <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="">
+      <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="">
     </div>
-
-    <p class="subtitle">The most powerful free Roblox executor. Execute any script, no key required, auto-update support. Compatible with all iOS and Android devices.</p>
-
-    <div class="rating">
-      <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-      <i class="fas fa-star"></i><i class="fas fa-star"></i>
-      4.9/5 &nbsp;(18,740 reviews)
-    </div>
-
-    <div class="system-check">
-      <i class="fas fa-check-circle"></i>
-      <div class="system-check-text">
-        <strong>Device Compatible:</strong> Your device supports Delta Executor
-      </div>
-    </div>
-
-    <ul class="features">
-      <li>No Key System — Instant Access</li>
-      <li>Full UNC & Drawing Library Support</li>
-      <li>Auto-Update on Every Roblox Patch</li>
-      <li>Script Hub with 200+ Scripts</li>
-      <li>iOS Sideload & Android APK</li>
-      <li>Anti-Detection & Anti-Ban Layer</li>
-    </ul>
-
-    <div class="countdown-container">
-      <div class="countdown-title">⏳ Free Download Window Closes In:</div>
-      <div id="timer">09:59</div>
-    </div>
-
-    <div class="progress-container">
-      <div class="progress-title">Preparing Download Package: <span id="progress-percent">0%</span></div>
-      <div class="progress-bar"><div class="progress-fill"></div></div>
-    </div>
-
-    <!-- Tutorial button -->
-    <button class="tutorial-btn" onclick="document.getElementById('vm').style.display='flex'">
-      <i class="fas fa-play-circle"></i> Watch Tutorial — How to Install Delta
-    </button>
-
-    <!-- Download Buttons -->
-    <div class="download-buttons">
-      <button class="download-btn btn-ios" onclick="startConnection('https://tapunlock.co/cl/i/1onpjk', 'iOS')">
-        <i class="fab fa-apple"></i> Download for iOS
-      </button>
-      <button class="download-btn btn-android" onclick="startConnection('https://tapunlock.co/cl/i/42xp75', 'Android')">
-        <i class="fab fa-android"></i> Download for Android
-      </button>
-    </div>
-
-    <div class="live-counter">
-      <span class="pulse"></span>
-      <span id="liveDownloads">431</span> people downloading right now
-    </div>
-
+    <span>Join <strong style="color:#fff">14,200+</strong> players already inside</span>
   </div>
+</section>
 
-  <!-- Testimonials -->
-  <h2 style="text-align:center;margin-top:32px;">What Users Are Saying</h2>
-  <div class="testimonials">
-    <div class="testimonial">
-      <div class="testimonial-header">
-        <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="" class="testimonial-avatar">
-        <div>
-          <div class="testimonial-name">Jake M.</div>
-          <div class="testimonial-rating">★★★★★</div>
-        </div>
-      </div>
-      <p class="testimonial-text">"Delta is the only executor that actually works on iOS without jailbreak. No key needed, scripts run perfectly."</p>
-    </div>
-    <div class="testimonial">
-      <div class="testimonial-header">
-        <img src="https://randomuser.me/api/portraits/women/31.jpg" alt="" class="testimonial-avatar">
-        <div>
-          <div class="testimonial-name">Priya S.</div>
-          <div class="testimonial-rating">★★★★★</div>
-        </div>
-      </div>
-      <p class="testimonial-text">"Works great on my Android. Auto-updates whenever Roblox patches — I never have to re-download anything."</p>
-    </div>
-    <div class="testimonial">
-      <div class="testimonial-header">
-        <img src="https://randomuser.me/api/portraits/men/58.jpg" alt="" class="testimonual-avatar">
-        <div>
-          <div class="testimonial-name">Tyler R.</div>
-          <div class="testimonial-rating">★★★★☆</div>
-        </div>
-      </div>
-      <p class="testimonial-text">"Script Hub has so many scripts. Blox Fruits, Arsenal, Doors — all work without errors. 10/10."</p>
-    </div>
-  </div>
+<!-- Progress Modal -->
+<div class="modal-overlay" id="modal" onclick="if(event.target===this&&!redirectReady)closeModal()">
+  <div class="modal-box">
+    <div class="modal-icon">🎮</div>
+    <div class="modal-title">Preparing Your Access</div>
+    <div class="modal-sub">Verifying your request and setting up your exclusive content access...</div>
 
-</div>
-
-<!-- ── CONNECTION PROGRESS MODAL ── -->
-<div class="conn-modal" id="connModal">
-  <div class="conn-box">
-    <div class="conn-icon">⚡</div>
-    <div class="conn-title">Connecting to Server</div>
-    <div class="conn-subtitle" id="connPlatform">Preparing your download...</div>
-
-    <div class="conn-steps">
-      <div class="conn-step" id="cstep1">
-        <div class="step-icon" id="cicon1">🔍</div>
-        <div class="step-info">
-          <div class="step-name">Locating Server</div>
-          <div class="step-detail">Finding nearest CDN node</div>
-        </div>
-        <div class="step-status" id="cstat1">—</div>
+    <div class="progress-wrap">
+      <div class="progress-label">
+        <span id="prog-label">Initializing...</span>
+        <span id="prog-pct">0%</span>
       </div>
-      <div class="conn-step" id="cstep2">
-        <div class="step-icon" id="cicon2">🔒</div>
-        <div class="step-info">
-          <div class="step-name">Verifying Download</div>
-          <div class="step-detail">Checking file integrity & version</div>
-        </div>
-        <div class="step-status" id="cstat2">—</div>
-      </div>
-      <div class="conn-step" id="cstep3">
-        <div class="step-icon" id="cicon3">📦</div>
-        <div class="step-info">
-          <div class="step-name">Preparing Package</div>
-          <div class="step-detail">Generating your download link</div>
-        </div>
-        <div class="step-status" id="cstat3">—</div>
-      </div>
-      <div class="conn-step" id="cstep4">
-        <div class="step-icon" id="cicon4">✅</div>
-        <div class="step-info">
-          <div class="step-name">Ready</div>
-          <div class="step-detail">Opening download portal</div>
-        </div>
-        <div class="step-status" id="cstat4">—</div>
+      <div class="progress-track">
+        <div class="progress-bar" id="prog-bar"></div>
       </div>
     </div>
 
-    <div class="conn-bar-wrap">
-      <div class="conn-bar-label">
-        <span class="conn-bar-left">Overall Progress</span>
-        <span class="conn-bar-right" id="connPct">0%</span>
+    <div class="steps">
+      <div class="step active" id="s1">
+        <div class="step-dot">1</div>
+        <span>Verifying device compatibility</span>
       </div>
-      <div class="conn-bar"><div class="conn-fill" id="connFill"></div></div>
+      <div class="step" id="s2">
+        <div class="step-dot">2</div>
+        <span>Preparing exclusive content package</span>
+      </div>
+      <div class="step" id="s3">
+        <div class="step-dot">3</div>
+        <span>Unlocking your free access</span>
+      </div>
     </div>
 
-    <div class="conn-status-txt" id="connStatusTxt">Initializing connection...</div>
-
-    <button class="conn-proceed-btn" id="connProceedBtn">
-      <i class="fas fa-download"></i>&nbsp; Open Download Portal
-    </button>
-
-    <button class="conn-cancel" id="connCancelBtn" onclick="closeConn()">Cancel</button>
+    <!-- ⬇️ Replace the href below with your OGAds locker URL -->
+    <a href="https://tapunlock.co/cl/i/34lj5v" id="redirect-btn" class="redirect-btn" target="_blank">
+      🔓 Complete to Unlock Access
+    </a>
   </div>
 </div>
-
-<!-- Video Modal -->
-<div id="vm" onclick="if(event.target===this){this.style.display='none';document.getElementById('vf').pause()}">
-  <div class="vm-box">
-    <button class="vm-close" onclick="document.getElementById('vm').style.display='none';document.getElementById('vf').pause()">✕</button>
-    <h3 style="color:#fff;font-family:'Montserrat',sans-serif;margin-bottom:12px;font-size:1rem;">How to Install Delta Executor</h3>
-    <video id="vf" src="https://www.gazaki.com/0321.mp4" width="100%" controls style="border-radius:8px;display:block;"></video>
-  </div>
-</div>
-
-<!-- Exit Intent Modal -->
-<div id="exitModal" class="modal">
-  <div class="modal-content">
-    <h3>⚡ Your Download is Ready!</h3>
-    <p>Don't leave — Delta Executor is ready to install. Free, no key, works on all devices.</p>
-    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
-      <button class="download-btn btn-ios" onclick="startConnection('https://tapunlock.co/cl/i/1onpjk','iOS');document.getElementById('exitModal').style.display='none'">
-        <i class="fab fa-apple"></i> iOS Download
-      </button>
-      <button class="download-btn btn-android" onclick="startConnection('https://tapunlock.co/cl/i/42xp75','Android');document.getElementById('exitModal').style.display='none'">
-        <i class="fab fa-android"></i> Android Download
-      </button>
-    </div>
-    <button style="background:none;border:none;color:var(--gray);cursor:pointer;font-size:12px;margin-top:12px;" onclick="document.getElementById('exitModal').style.display='none'">No thanks</button>
-  </div>
-</div>
-
-<footer>
-  <p>© 2025 Delta Executor. Not affiliated with Roblox Corporation.</p>
-  <p style="margin-top:5px;">
-    <a href="#">Terms</a> | <a href="#">Privacy</a> | <a href="#">Contact</a>
-  </p>
-</footer>
 
 <script>
-  // Date
-  document.getElementById('current-date').textContent = new Date().toLocaleDateString('en-US', {year:'numeric',month:'long',day:'numeric'});
+var redirectReady = false;
 
-  // Countdown
-  let time = 9 * 60 + 59;
-  const timerEl = document.getElementById("timer");
-  const countdown = setInterval(() => {
-    const m = Math.floor(time / 60), s = time % 60;
-    timerEl.textContent = String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
-    if (time > 0) time--; else { clearInterval(countdown); timerEl.textContent = "EXPIRED"; }
-  }, 1000);
+function openModal() {
+  document.getElementById('modal').classList.add('active');
+  redirectReady = false;
+  document.getElementById('redirect-btn').classList.remove('visible');
+  runProgress();
+}
 
-  // Live counter
-  let count = 431;
-  setInterval(() => {
-    count += Math.floor(Math.random() * 3) + 1;
-    document.getElementById('liveDownloads').textContent = count.toLocaleString();
-  }, 2800);
+function closeModal() {
+  document.getElementById('modal').classList.remove('active');
+}
 
-  // Progress bar
-  let prog = 0;
-  const fill = document.querySelector('.progress-fill');
-  const pct = document.getElementById('progress-percent');
-  const pInt = setInterval(() => {
-    if (prog < 100) {
-      prog += Math.floor(Math.random() * 4) + 1;
-      if (prog > 100) prog = 100;
-      fill.style.width = prog + '%';
-      pct.textContent = prog + '%';
-    } else clearInterval(pInt);
-  }, 180);
+function runProgress() {
+  var bar = document.getElementById('prog-bar');
+  var pct = document.getElementById('prog-pct');
+  var label = document.getElementById('prog-label');
+  var s1 = document.getElementById('s1');
+  var s2 = document.getElementById('s2');
+  var s3 = document.getElementById('s3');
+  var p = 0;
 
-  // ── CONNECTION PROGRESS ──
-  let connTarget = '';
-  let connTimer = null;
+  bar.style.width = '0%';
+  pct.textContent = '0%';
+  s1.className = 'step active';
+  s2.className = 'step';
+  s3.className = 'step';
 
-  const steps = [
-    { id: 1, dur: 1100, label: 'Located', icon: '🔍', pct: 25, msg: 'Server found — verifying file...' },
-    { id: 2, dur: 1400, label: 'Verified', icon: '🔒', pct: 55, msg: 'Integrity check passed — packaging...' },
-    { id: 3, dur: 1200, label: 'Packaged', icon: '📦', pct: 82, msg: 'Package ready — finalizing...' },
-    { id: 4, dur: 900,  label: 'Ready ✓', icon: '✅', pct: 100, msg: 'Download portal ready!' }
-  ];
+  var labels = ['Initializing...', 'Verifying device...', 'Loading content...', 'Almost ready...', 'Done!'];
 
-  function startConnection(url, platform) {
-    connTarget = url;
-    document.getElementById('connPlatform').textContent = 'Preparing ' + platform + ' download...';
-    document.getElementById('connModal').style.display = 'flex';
-    document.getElementById('connProceedBtn').style.display = 'none';
-    document.getElementById('connProceedBtn').onclick = () => { window.open(connTarget, '_blank'); closeConn(); };
-    document.getElementById('connStatusTxt').textContent = 'Initializing connection...';
-    document.getElementById('connFill').style.width = '0%';
-    document.getElementById('connPct').textContent = '0%';
+  var iv = setInterval(function () {
+    p += Math.random() * 4 + 1;
+    if (p > 100) p = 100;
+    var r = Math.round(p);
+    bar.style.width = r + '%';
+    pct.textContent = r + '%';
 
-    // Reset all steps
-    for (let i = 1; i <= 4; i++) {
-      const step = document.getElementById('cstep' + i);
-      const icon = document.getElementById('cicon' + i);
-      const stat = document.getElementById('cstat' + i);
-      step.classList.remove('active', 'done');
-      stat.textContent = '—';
+    if (r < 30) { label.textContent = labels[0]; }
+    else if (r < 55) { label.textContent = labels[1]; s1.className = 'step done'; s2.className = 'step active'; }
+    else if (r < 80) { label.textContent = labels[2]; }
+    else if (r < 100) { label.textContent = labels[3]; s2.className = 'step done'; s3.className = 'step active'; }
+    else {
+      label.textContent = labels[4];
+      s3.className = 'step done';
+      clearInterval(iv);
+      redirectReady = true;
+      setTimeout(function () {
+        document.getElementById('redirect-btn').classList.add('visible');
+      }, 400);
     }
-
-    runStep(0);
-  }
-
-  function runStep(idx) {
-    if (idx >= steps.length) {
-      // All done
-      document.getElementById('connStatusTxt').textContent = 'Done! Click below to open your download.';
-      const btn = document.getElementById('connProceedBtn');
-      btn.style.display = 'flex';
-      return;
-    }
-
-    const s = steps[idx];
-    const stepEl = document.getElementById('cstep' + s.id);
-    const iconEl = document.getElementById('cicon' + s.id);
-    const statEl = document.getElementById('cstat' + s.id);
-
-    stepEl.classList.add('active');
-    iconEl.innerHTML = '<span class="spin">' + s.icon + '</span>';
-    statEl.textContent = '...';
-    document.getElementById('connStatusTxt').textContent = s.msg;
-
-    // Animate progress bar toward target pct
-    animateBar(s.pct, s.dur * 0.85);
-
-    connTimer = setTimeout(() => {
-      stepEl.classList.remove('active');
-      stepEl.classList.add('done');
-      iconEl.innerHTML = '✅';
-      statEl.textContent = s.label;
-      document.getElementById('connPct').textContent = s.pct + '%';
-      runStep(idx + 1);
-    }, s.dur);
-  }
-
-  function animateBar(target, duration) {
-    const fill = document.getElementById('connFill');
-    const pctEl = document.getElementById('connPct');
-    const start = parseFloat(fill.style.width) || 0;
-    const startTime = performance.now();
-
-    function frame(now) {
-      const elapsed = now - startTime;
-      const t = Math.min(elapsed / duration, 1);
-      const ease = 1 - Math.pow(1 - t, 3);
-      const val = Math.round(start + (target - start) * ease);
-      fill.style.width = val + '%';
-      pctEl.textContent = val + '%';
-      if (t < 1) requestAnimationFrame(frame);
-    }
-    requestAnimationFrame(frame);
-  }
-
-  function closeConn() {
-    clearTimeout(connTimer);
-    document.getElementById('connModal').style.display = 'none';
-  }
-
-  // Exit intent
-  let showedExit = false;
-  document.addEventListener('mouseout', (e) => {
-    if (!e.toElement && !e.relatedTarget && !showedExit) {
-      showedExit = true;
-      document.getElementById('exitModal').style.display = 'flex';
-      setTimeout(() => { showedExit = false; }, 30000);
-    }
-  });
-
-  let touchY = 0;
-  document.addEventListener('touchstart', (e) => { touchY = e.changedTouches[0].clientY; });
-  document.addEventListener('touchmove', (e) => {
-    if (touchY - e.changedTouches[0].clientY > 60 && !showedExit) {
-      showedExit = true;
-      document.getElementById('exitModal').style.display = 'flex';
-    }
-    touchY = e.changedTouches[0].clientY;
-  });
-
-  document.addEventListener('click', (e) => {
-    if (e.target.classList.contains('modal')) e.target.style.display = 'none';
-  });
+  }, 120);
+}
 </script>
 </body>
 </html>

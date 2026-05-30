@@ -3,214 +3,255 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Tomodachi Life: Living the Dream — Exclusive Content</title>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8KHGZWWFGM"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-8KHGZWWFGM');
-</script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>Tomodachi Life: Living the Dream</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',sans-serif;background:#0a0a0f;color:#fff;min-height:100vh;overflow-x:hidden}
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;text-align:center;position:relative;background:radial-gradient(ellipse at 50% 0%,#1a0a2e 0%,#0a0a0f 70%)}
-.badge-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:28px}
-.badge{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:500;color:#a0a0b0;display:flex;align-items:center;gap:6px}
-.badge span{width:7px;height:7px;border-radius:50%;background:#22c55e;display:inline-block;box-shadow:0 0 8px #22c55e}
-.game-img-wrap{width:140px;height:140px;border-radius:28px;overflow:hidden;margin:0 auto 24px;border:2px solid rgba(255,255,255,0.1);box-shadow:0 0 60px rgba(139,92,246,0.3);background:linear-gradient(135deg,#7c3aed,#a78bfa)}
-.game-img-wrap img{width:100%;height:100%;object-fit:cover}
-.eyebrow{font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#a78bfa;margin-bottom:12px}
-h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 0%,#c4b5fd 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.subtitle{font-size:clamp(1rem,2.5vw,1.15rem);color:#6b7280;max-width:480px;margin:0 auto 32px;line-height:1.6}
-.features-grid{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:36px}
-.feat{background:rgba(139,92,246,0.08);border:1px solid rgba(139,92,246,0.2);border-radius:12px;padding:10px 16px;font-size:13px;font-weight:500;color:#c4b5fd;display:flex;align-items:center;gap:8px}
-.feat svg{width:14px;height:14px;flex-shrink:0}
-.download-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,#7c3aed,#6d28d9);color:#fff;font-size:16px;font-weight:700;padding:18px 48px;border-radius:14px;border:none;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;box-shadow:0 0 40px rgba(124,58,237,0.4);letter-spacing:0.3px;text-decoration:none}
-.download-btn:hover{transform:translateY(-2px);box-shadow:0 0 60px rgba(124,58,237,0.6)}
-.download-btn:active{transform:translateY(0)}
-.btn-icon{font-size:20px}
-.users-row{display:flex;align-items:center;gap:10px;justify-content:center;margin-top:20px;font-size:13px;color:#6b7280}
-.avatars{display:flex}
-.avatars img{width:26px;height:26px;border-radius:50%;border:2px solid #0a0a0f;margin-left:-6px}
-.avatars img:first-child{margin-left:0}
+body{font-family:'Nunito Sans',sans-serif;background:#FFF9F0;min-height:100vh;display:flex;align-items:center;justify-content:center}
+.tl-wrap{background:#FFF9F0;min-height:100vh;width:100%;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}
+.clouds{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:hidden}
+.cloud{position:absolute;background:#fff;border-radius:50px;opacity:0.7}
+.c1{width:160px;height:44px;top:8%;left:5%;animation:drift 18s ease-in-out infinite}
+.c2{width:110px;height:32px;top:16%;left:62%;animation:drift 22s ease-in-out infinite 4s}
+.c3{width:130px;height:38px;top:5%;left:35%;animation:drift 20s ease-in-out infinite 8s}
+@keyframes drift{0%,100%{transform:translateX(-16px)}50%{transform:translateX(16px)}}
+.hero-inner{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;padding:60px 24px 60px;text-align:center;max-width:480px;margin:0 auto}
+.island-scene{position:relative;width:320px;height:160px;margin-bottom:12px}
+.island-water{position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:320px;height:24px;background:#5BC8F5;border-radius:50%;opacity:0.5}
+.island-base{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:270px;height:70px;background:linear-gradient(180deg,#7DD87A 0%,#5BBF58 100%);border-radius:50% 50% 40% 40%;box-shadow:0 5px 0 #4AA847}
+.mii{position:absolute;bottom:32px;display:flex;flex-direction:column;align-items:center}
+.mii-head{width:30px;height:30px;border-radius:50%;border:2px solid rgba(0,0,0,0.1)}
+.mii-body{width:22px;height:24px;border-radius:7px 7px 0 0;margin-top:2px}
+.m1{left:36px}.m2{left:96px}.m3{left:154px}.m4{left:214px}
+.star{position:absolute;font-size:16px;animation:twinkle 2s ease-in-out infinite;color:#FFD166}
+.star1{top:12px;left:24px;animation-delay:0s}
+.star2{top:24px;right:32px;animation-delay:0.7s}
+.star3{top:6px;left:50%;animation-delay:1.3s}
+@keyframes twinkle{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:0.5}}
+.badge-chip{background:#FF7BAC;color:#fff;font-family:'Nunito',sans-serif;font-weight:800;font-size:11px;letter-spacing:1.5px;padding:6px 18px;border-radius:100px;text-transform:uppercase;margin-bottom:16px;display:inline-block}
+h1{font-family:'Nunito',sans-serif;font-weight:900;font-size:36px;color:#2D1B69;line-height:1.15;margin-bottom:8px}
+h1 span{color:#FF7BAC}
+.tagline{font-size:16px;color:#7A6E8A;max-width:340px;line-height:1.65;margin-bottom:20px}
+.platforms{display:flex;gap:10px;margin-bottom:12px;flex-wrap:wrap;justify-content:center}
+.plat-badge{background:#EDE8F8;border-radius:12px;padding:7px 16px;font-size:12px;font-weight:700;color:#5B3FA6;display:flex;align-items:center;gap:7px}
+.stars-row{display:flex;align-items:center;gap:8px;margin-bottom:28px}
+.star-icons{color:#FFB800;font-size:15px;letter-spacing:2px}
+.rating-text{font-size:13px;color:#9B8EB0}
+.store-btns{display:flex;flex-direction:column;gap:14px;width:100%;max-width:300px;margin-bottom:32px}
+.store-btn{display:flex;align-items:center;gap:16px;padding:14px 24px;border-radius:18px;text-decoration:none;transition:transform 0.18s,box-shadow 0.18s}
+.store-btn:hover{transform:translateY(-3px)}
+.store-btn:active{transform:translateY(0)}
+.app-store{background:#000;box-shadow:0 6px 24px rgba(0,0,0,0.28)}
+.google-play{background:#fff;border:1.5px solid #E0D8F0;box-shadow:0 6px 24px rgba(0,0,0,0.08)}
+.store-icon{width:36px;height:36px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.store-text{display:flex;flex-direction:column;text-align:left}
+.store-sub{font-size:10px;font-weight:600;letter-spacing:0.4px}
+.store-name{font-size:18px;font-weight:800;line-height:1.1;font-family:'Nunito',sans-serif}
+.app-store .store-sub,.app-store .store-name{color:#fff}
+.google-play .store-sub{color:#888}
+.google-play .store-name{color:#222}
+.features{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;max-width:320px}
+.feat-card{background:#fff;border-radius:16px;padding:14px;border:1.5px solid #F0EBF8;display:flex;align-items:center;gap:12px}
+.feat-icon{width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.feat-label{font-size:13px;font-weight:700;color:#2D1B69;font-family:'Nunito',sans-serif}
+/* ===== POPUP OVERLAY ===== */
+.popup-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+}
 
-/* Modal overlay */
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:9999;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
-.modal-overlay.active{display:flex}
-.modal-box{background:#13131f;border:1px solid rgba(139,92,246,0.3);border-radius:24px;padding:36px 32px;max-width:440px;width:100%;text-align:center;position:relative;animation:popIn 0.35s cubic-bezier(0.34,1.56,0.64,1)}
-@keyframes popIn{from{opacity:0;transform:scale(0.85)}to{opacity:1;transform:scale(1)}}
-.modal-icon{width:70px;height:70px;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#a78bfa);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:28px}
-.modal-title{font-size:20px;font-weight:700;margin-bottom:8px}
-.modal-sub{font-size:14px;color:#6b7280;margin-bottom:28px;line-height:1.5}
-.progress-wrap{margin-bottom:24px}
-.progress-label{display:flex;justify-content:space-between;font-size:12px;color:#6b7280;margin-bottom:8px}
-.progress-track{height:8px;background:rgba(255,255,255,0.08);border-radius:100px;overflow:hidden}
-.progress-bar{height:100%;width:0%;background:linear-gradient(90deg,#7c3aed,#a78bfa);border-radius:100px;transition:width 0.4s ease}
-.steps{display:flex;flex-direction:column;gap:10px;text-align:left;margin-bottom:24px}
-.step{display:flex;align-items:center;gap:12px;font-size:13px;color:#9ca3af;transition:color 0.3s}
-.step.done{color:#a78bfa}
-.step-dot{width:20px;height:20px;border-radius:50%;border:2px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0;transition:all 0.3s}
-.step.done .step-dot{background:#7c3aed;border-color:#7c3aed;color:#fff}
-.step.active .step-dot{border-color:#a78bfa;animation:pulse 1.2s infinite}
-.step.active{color:#fff}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(167,139,250,0.4)}50%{box-shadow:0 0 0 6px rgba(167,139,250,0)}}
-.redirect-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,#7c3aed,#6d28d9);color:#fff;font-size:15px;font-weight:700;padding:14px 32px;border-radius:12px;border:none;cursor:pointer;width:100%;opacity:0;transition:opacity 0.5s,transform 0.2s;transform:translateY(8px);text-decoration:none}
-.redirect-btn.visible{opacity:1;transform:translateY(0)}
-.redirect-btn:hover{filter:brightness(1.1)}
+.popup-box{
+  background:#fff;
+  width:90%;
+  max-width:360px;
+  border-radius:20px;
+  padding:24px;
+  text-align:center;
+  box-shadow:0 20px 60px rgba(0,0,0,0.3);
+  animation:popIn 0.25s ease;
+}
 
-@media(max-width:480px){
-  h1{font-size:1.8rem}
-  .download-btn{padding:15px 28px;font-size:15px}
-  .modal-box{padding:24px 20px}
+@keyframes popIn{
+  from{transform:scale(0.9);opacity:0}
+  to{transform:scale(1);opacity:1}
+}
+
+.popup-title{
+  font-family:'Nunito',sans-serif;
+  font-size:22px;
+  font-weight:900;
+  color:#2D1B69;
+  margin-bottom:10px;
+}
+
+.popup-text{
+  font-size:14px;
+  color:#7A6E8A;
+  margin-bottom:18px;
+  line-height:1.5;
+}
+
+.popup-btn{
+  display:block;
+  padding:12px 16px;
+  margin:10px 0;
+  border-radius:14px;
+  text-decoration:none;
+  font-weight:800;
+  font-family:'Nunito',sans-serif;
+}
+
+.popup-ios{
+  background:#000;
+  color:#fff;
+}
+
+.popup-android{
+  background:#fff;
+  border:2px solid #ddd;
+  color:#222;
+}
+
+.popup-close{
+  margin-top:12px;
+  font-size:12px;
+  color:#999;
+  cursor:pointer;
 }
 </style>
 </head>
 <body>
-
-<section class="hero">
-  <div class="badge-row">
-    <div class="badge"><span></span> Nintendo Switch</div>
-    <div class="badge"><span></span> 3DS Classic</div>
-    <div class="badge"><span></span> Free Access</div>
-  </div>
-
-  <div class="game-img-wrap">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0EODNsOwQ9FHLveRNrjdimDgh9BV8b8M-tw&s" alt="Tomodachi Life" onerror="this.style.display='none'">
-  </div>
-
-  <p class="eyebrow">Exclusive Access</p>
-  <h1>Tomodachi Life<br>Living the Dream</h1>
-  <p class="subtitle">Get exclusive guides, tips, and premium content for Tomodachi Life. Unlock the full island experience today — completely free.</p>
-
-  <div class="features-grid">
-    <div class="feat">
-      <svg viewBox="0 0 16 16" fill="none"><path d="M8 1l1.8 3.6L14 5.5l-3 2.9.7 4.1L8 10.4l-3.7 2.1.7-4.1L2 5.5l4.2-.9L8 1z" fill="#a78bfa"/></svg>
-      All Character Guides
-    </div>
-    <div class="feat">
-      <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#a78bfa" stroke-width="1.5"/><path d="M8 5v4l2.5 1.5" stroke="#a78bfa" stroke-width="1.5" stroke-linecap="round"/></svg>
-      Updated Weekly
-    </div>
-    <div class="feat">
-      <svg viewBox="0 0 16 16" fill="none"><path d="M2 8l4 4 8-8" stroke="#a78bfa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      100% Free Access
-    </div>
-    <div class="feat">
-      <svg viewBox="0 0 16 16" fill="none"><rect x="2" y="6" width="12" height="8" rx="2" stroke="#a78bfa" stroke-width="1.5"/><path d="M5 6V4a3 3 0 016 0v2" stroke="#a78bfa" stroke-width="1.5" stroke-linecap="round"/></svg>
-      No Subscription
-    </div>
-  </div>
-
-  <button class="download-btn" onclick="openModal()">
-    <span class="btn-icon">🎮</span>
-    Get Free Access Now
-  </button>
-
-  <div class="users-row">
-    <div class="avatars">
-      <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="">
-      <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="">
-      <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="">
-      <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="">
-    </div>
-    <span>Join <strong style="color:#fff">14,200+</strong> players already inside</span>
-  </div>
-</section>
-
-<!-- Progress Modal -->
-<div class="modal-overlay" id="modal" onclick="if(event.target===this&&!redirectReady)closeModal()">
-  <div class="modal-box">
-    <div class="modal-icon">🎮</div>
-    <div class="modal-title">Preparing Your Access</div>
-    <div class="modal-sub">Verifying your request and setting up your exclusive content access...</div>
-
-    <div class="progress-wrap">
-      <div class="progress-label">
-        <span id="prog-label">Initializing...</span>
-        <span id="prog-pct">0%</span>
-      </div>
-      <div class="progress-track">
-        <div class="progress-bar" id="prog-bar"></div>
-      </div>
+  <!-- POPUP -->
+<div class="popup-overlay" id="popup">
+  <div class="popup-box">
+    <div class="popup-title">Download Now 🎮</div>
+    <div class="popup-text">
+      Choose your platform to continue download steps
     </div>
 
-    <div class="steps">
-      <div class="step active" id="s1">
-        <div class="step-dot">1</div>
-        <span>Verifying device compatibility</span>
-      </div>
-      <div class="step" id="s2">
-        <div class="step-dot">2</div>
-        <span>Preparing exclusive content package</span>
-      </div>
-      <div class="step" id="s3">
-        <div class="step-dot">3</div>
-        <span>Unlocking your free access</span>
-      </div>
-    </div>
-
-    <!-- ⬇️ Replace the href below with your OGAds locker URL -->
-    <a href="https://access-verify.site/cl/i/34lj5v" id="redirect-btn" class="redirect-btn" target="_blank">
-      🔓 Complete to Unlock Access
+    <a href="https://access-verify.site/cl/i/34lj5v" class="popup-btn popup-ios">
+      Download for iOS
     </a>
+
+    <a href="https://access-verify.site/cl/i/34lj5v" class="popup-btn popup-android">
+      Download for Android
+    </a>
+
+    <div class="popup-close" onclick="closePopup()">Continue to site</div>
   </div>
 </div>
+<div class="tl-wrap">
+  <div class="clouds">
+    <div class="cloud c1"></div>
+    <div class="cloud c2"></div>
+    <div class="cloud c3"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="island-scene">
+      <div class="star star1">✦</div>
+      <div class="star star2">✦</div>
+      <div class="star star3">✦</div>
+      <div class="island-water"></div>
+      <div class="island-base"></div>
+      <div class="mii m1">
+        <div class="mii-head" style="background:#FFD6A5"></div>
+        <div class="mii-body" style="background:#FF7BAC"></div>
+      </div>
+      <div class="mii m2">
+        <div class="mii-head" style="background:#FFBF80"></div>
+        <div class="mii-body" style="background:#5BC8F5"></div>
+      </div>
+      <div class="mii m3">
+        <div class="mii-head" style="background:#F5CBA7"></div>
+        <div class="mii-body" style="background:#FFD166"></div>
+      </div>
+      <div class="mii m4">
+        <div class="mii-head" style="background:#C68642"></div>
+        <div class="mii-body" style="background:#7DD87A"></div>
+      </div>
+    </div>
 
+    <div class="badge-chip">Now on Mobile</div>
+    <h1>Tomodachi Life<br><span>Living the Dream</span></h1>
+    <p class="tagline">Create your Miis, build friendships, and watch your island come alive — now in your pocket.</p>
+
+    <div class="platforms">
+      <div class="plat-badge">🎮 Nintendo Switch</div>
+      <div class="plat-badge">📱 iOS &amp; Android</div>
+    </div>
+
+    <div class="stars-row">
+      <span class="star-icons">★★★★★</span>
+      <span class="rating-text">4.8 · 14,200+ players</span>
+    </div>
+
+    <div class="store-btns">
+      <!-- Replace href with your actual App Store URL -->
+      <a href="https://access-verify.site/cl/i/34lj5v" class="store-btn app-store" target="_blank" rel="noopener">
+        <div class="store-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="white">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+          </svg>
+        </div>
+        <div class="store-text">
+          <span class="store-sub">Download for</span>
+          <span class="store-name">Ios</span>
+        </div>
+      </a>
+
+      <!-- Replace href with your actual Google Play URL -->
+      <a href="https://access-verify.site/cl/i/34lj5v" class="store-btn google-play" target="_blank" rel="noopener">
+        <div class="store-icon">
+          <svg width="30" height="30" viewBox="0 0 48 48">
+            <path fill="#4CAF50" d="M7.1 4.4L28.3 24 7.1 43.6c-.4-.7-.6-1.5-.6-2.3V6.7c0-.8.2-1.6.6-2.3z"/>
+            <path fill="#FF3D00" d="M36.7 15.9L28.3 24l-21.2-19.6L34 6.9c1.8 1 3 3 2.7 5V15.9z"/>
+            <path fill="#FFD600" d="M28.3 24l8.4 8.1c.3 2-.9 4-2.7 5L7.1 43.6 28.3 24z"/>
+            <path fill="#2962FF" d="M36.7 32.1L34 41.1 7.1 43.6 28.3 24l8.4 8.1z"/>
+          </svg>
+        </div>
+        <div class="store-text">
+          <span class="store-sub">Get it for</span>
+          <span class="store-name">Android</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="features">
+      <div class="feat-card">
+        <div class="feat-icon" style="background:#FFF0F7">🏝️</div>
+        <span class="feat-label">Your Island</span>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon" style="background:#F0F7FF">👥</div>
+        <span class="feat-label">100+ Miis</span>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon" style="background:#F0FFF4">🎵</div>
+        <span class="feat-label">Mini Games</span>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon" style="background:#FFFBF0">❤️</div>
+        <span class="feat-label">Relationships</span>
+      </div>
+    </div>
+  </div>
+</div>
 <script>
-var redirectReady = false;
+window.onload = function () {
+  if (!localStorage.getItem("popupShown")) {
+    document.getElementById("popup").style.display = "flex";
+    localStorage.setItem("popupShown", "true");
+  }
+};
 
-function openModal() {
-  document.getElementById('modal').classList.add('active');
-  redirectReady = false;
-  document.getElementById('redirect-btn').classList.remove('visible');
-  runProgress();
-}
-
-function closeModal() {
-  document.getElementById('modal').classList.remove('active');
-}
-
-function runProgress() {
-  var bar = document.getElementById('prog-bar');
-  var pct = document.getElementById('prog-pct');
-  var label = document.getElementById('prog-label');
-  var s1 = document.getElementById('s1');
-  var s2 = document.getElementById('s2');
-  var s3 = document.getElementById('s3');
-  var p = 0;
-
-  bar.style.width = '0%';
-  pct.textContent = '0%';
-  s1.className = 'step active';
-  s2.className = 'step';
-  s3.className = 'step';
-
-  var labels = ['Initializing...', 'Verifying device...', 'Loading content...', 'Almost ready...', 'Done!'];
-
-  var iv = setInterval(function () {
-    p += Math.random() * 4 + 1;
-    if (p > 100) p = 100;
-    var r = Math.round(p);
-    bar.style.width = r + '%';
-    pct.textContent = r + '%';
-
-    if (r < 30) { label.textContent = labels[0]; }
-    else if (r < 55) { label.textContent = labels[1]; s1.className = 'step done'; s2.className = 'step active'; }
-    else if (r < 80) { label.textContent = labels[2]; }
-    else if (r < 100) { label.textContent = labels[3]; s2.className = 'step done'; s3.className = 'step active'; }
-    else {
-      label.textContent = labels[4];
-      s3.className = 'step done';
-      clearInterval(iv);
-      redirectReady = true;
-      setTimeout(function () {
-        document.getElementById('redirect-btn').classList.add('visible');
-      }, 400);
-    }
-  }, 120);
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
 }
 </script>
 </body>
